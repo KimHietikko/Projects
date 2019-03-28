@@ -8,6 +8,12 @@ You can also add actors to a certain movie. You can search movies by their infor
 There is also a option to delete a movie and/or an actor.
 Bonus feature is a button which randomly suggest a movie to watch.
 
+#Asteroids on steroids game
+This is a practical work for university's programming course. 
+The game is written in C# language. This uses university's own library Jypeli. In this game your goal is to destroy all the asteroids which are coming towards you.
+You win the game when you destroy all the asteroids.
+The game can also be played with Xbox 360 controller.
+
 #InstagramFollowersFollowings 
 This is my own project made by Java language. This is a program where you can find out does someone who you follow, follow you back. The program uses Jsoup library by parsing different information.
 First the program parses the user's ID from the Instagram page then inputs the ID to pictame website where you can check your follower and followings.

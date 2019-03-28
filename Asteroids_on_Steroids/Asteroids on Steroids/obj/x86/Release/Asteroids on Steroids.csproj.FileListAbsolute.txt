@@ -1,0 +1,74 @@
+C:\Users\kimhi\source\repos\Asteroids on Steroids\Asteroids on Steroids\obj\x86\Release\Asteroids on Steroids.csproj.CoreCompileInputs.cache
+C:\Users\kimhi\source\repos\Asteroids on Steroids\Asteroids on Steroids\bin\Windows\Release\Content\alkunäyttö.xnb
+C:\Users\kimhi\source\repos\Asteroids on Steroids\Asteroids on Steroids\bin\Windows\Release\Content\alus.xnb
+C:\Users\kimhi\source\repos\Asteroids on Steroids\Asteroids on Steroids\bin\Windows\Release\Content\ase.xnb
+C:\Users\kimhi\source\repos\Asteroids on Steroids\Asteroids on Steroids\bin\Windows\Release\Content\asteroidi.xnb
+C:\Users\kimhi\source\repos\Asteroids on Steroids\Asteroids on Steroids\bin\Windows\Release\Content\taustamusiikkiValmis.wma
+C:\Users\kimhi\source\repos\Asteroids on Steroids\Asteroids on Steroids\bin\Windows\Release\Content\taustamusiikkiValmis.xnb
+C:\Users\kimhi\source\repos\Asteroids on Steroids\Asteroids on Steroids\bin\Windows\Release\Content\tuhoapelaaja.wma
+C:\Users\kimhi\source\repos\Asteroids on Steroids\Asteroids on Steroids\bin\Windows\Release\Content\tuhoapelaaja.xnb
+C:\Users\kimhi\source\repos\Asteroids on Steroids\Asteroids on Steroids\bin\Windows\Release\Content\upgrade.xnb
+C:\Users\kimhi\source\repos\Asteroids on Steroids\Asteroids on Steroids\bin\Windows\Release\Content\voitto.xnb
+C:\Users\kimhi\source\repos\Asteroids on Steroids\Asteroids on Steroids\bin\Windows\Release\Asteroids on Steroids.exe
+C:\Users\kimhi\source\repos\Asteroids on Steroids\Asteroids on Steroids\bin\Windows\Release\Asteroids on Steroids.pdb
+C:\Users\kimhi\source\repos\Asteroids on Steroids\Asteroids on Steroids\bin\Windows\Release\Jypeli.dll
+C:\Users\kimhi\source\repos\Asteroids on Steroids\Asteroids on Steroids\bin\Windows\Release\Jypeli.Physics2d.dll
+C:\Users\kimhi\source\repos\Asteroids on Steroids\Asteroids on Steroids\bin\Windows\Release\MonoGame.Framework.dll
+C:\Users\kimhi\source\repos\Asteroids on Steroids\Asteroids on Steroids\bin\Windows\Release\SharpDX.MediaFoundation.dll
+C:\Users\kimhi\source\repos\Asteroids on Steroids\Asteroids on Steroids\bin\Windows\Release\SharpDX.dll
+C:\Users\kimhi\source\repos\Asteroids on Steroids\Asteroids on Steroids\bin\Windows\Release\SharpDX.XAudio2.dll
+C:\Users\kimhi\source\repos\Asteroids on Steroids\Asteroids on Steroids\bin\Windows\Release\SharpDX.DXGI.dll
+C:\Users\kimhi\source\repos\Asteroids on Steroids\Asteroids on Steroids\bin\Windows\Release\SharpDX.Direct3D11.dll
+C:\Users\kimhi\source\repos\Asteroids on Steroids\Asteroids on Steroids\bin\Windows\Release\SharpDX.Direct2D1.dll
+C:\Users\kimhi\source\repos\Asteroids on Steroids\Asteroids on Steroids\bin\Windows\Release\SharpDX.XInput.dll
+C:\Users\kimhi\source\repos\Asteroids on Steroids\Asteroids on Steroids\bin\Windows\Release\Jypeli.xml
+C:\Users\kimhi\source\repos\Asteroids on Steroids\Asteroids on Steroids\bin\Windows\Release\Jypeli.Physics2d.xml
+C:\Users\kimhi\source\repos\Asteroids on Steroids\Asteroids on Steroids\bin\Windows\Release\MonoGame.Framework.xml
+C:\Users\kimhi\source\repos\Asteroids on Steroids\Asteroids on Steroids\bin\Windows\Release\SharpDX.MediaFoundation.xml
+C:\Users\kimhi\source\repos\Asteroids on Steroids\Asteroids on Steroids\bin\Windows\Release\SharpDX.xml
+C:\Users\kimhi\source\repos\Asteroids on Steroids\Asteroids on Steroids\bin\Windows\Release\SharpDX.XAudio2.xml
+C:\Users\kimhi\source\repos\Asteroids on Steroids\Asteroids on Steroids\bin\Windows\Release\SharpDX.DXGI.xml
+C:\Users\kimhi\source\repos\Asteroids on Steroids\Asteroids on Steroids\bin\Windows\Release\SharpDX.Direct3D11.xml
+C:\Users\kimhi\source\repos\Asteroids on Steroids\Asteroids on Steroids\bin\Windows\Release\SharpDX.Direct2D1.xml
+C:\Users\kimhi\source\repos\Asteroids on Steroids\Asteroids on Steroids\bin\Windows\Release\SharpDX.XInput.xml
+C:\Users\kimhi\source\repos\Asteroids on Steroids\Asteroids on Steroids\obj\x86\Release\Asteroids on Steroids.csproj.CopyComplete
+C:\Users\kimhi\source\repos\Asteroids on Steroids\Asteroids on Steroids\obj\x86\Release\Asteroids on Steroids.exe
+C:\Users\kimhi\source\repos\Asteroids on Steroids\Asteroids on Steroids\obj\x86\Release\Asteroids on Steroids.pdb
+C:\Users\kimhi\source\repos\Asteroids on Steroids\Asteroids on Steroids\obj\x86\Release\Asteroids on Steroids.csprojAssemblyReference.cache
+C:\Users\kimhi\Desktop\Projects\Asteroids_on_Steroids\Asteroids on Steroids\bin\Windows\Release\Content\alkunäyttö.xnb
+C:\Users\kimhi\Desktop\Projects\Asteroids_on_Steroids\Asteroids on Steroids\bin\Windows\Release\Content\alus.xnb
+C:\Users\kimhi\Desktop\Projects\Asteroids_on_Steroids\Asteroids on Steroids\bin\Windows\Release\Content\ase.xnb
+C:\Users\kimhi\Desktop\Projects\Asteroids_on_Steroids\Asteroids on Steroids\bin\Windows\Release\Content\asteroidi.xnb
+C:\Users\kimhi\Desktop\Projects\Asteroids_on_Steroids\Asteroids on Steroids\bin\Windows\Release\Content\taustamusiikkiValmis.wma
+C:\Users\kimhi\Desktop\Projects\Asteroids_on_Steroids\Asteroids on Steroids\bin\Windows\Release\Content\taustamusiikkiValmis.xnb
+C:\Users\kimhi\Desktop\Projects\Asteroids_on_Steroids\Asteroids on Steroids\bin\Windows\Release\Content\tuhoapelaaja.wma
+C:\Users\kimhi\Desktop\Projects\Asteroids_on_Steroids\Asteroids on Steroids\bin\Windows\Release\Content\tuhoapelaaja.xnb
+C:\Users\kimhi\Desktop\Projects\Asteroids_on_Steroids\Asteroids on Steroids\bin\Windows\Release\Content\upgrade.xnb
+C:\Users\kimhi\Desktop\Projects\Asteroids_on_Steroids\Asteroids on Steroids\bin\Windows\Release\Content\voitto.xnb
+C:\Users\kimhi\Desktop\Projects\Asteroids_on_Steroids\Asteroids on Steroids\bin\Windows\Release\Asteroids on Steroids.exe
+C:\Users\kimhi\Desktop\Projects\Asteroids_on_Steroids\Asteroids on Steroids\bin\Windows\Release\Asteroids on Steroids.pdb
+C:\Users\kimhi\Desktop\Projects\Asteroids_on_Steroids\Asteroids on Steroids\bin\Windows\Release\Jypeli.dll
+C:\Users\kimhi\Desktop\Projects\Asteroids_on_Steroids\Asteroids on Steroids\bin\Windows\Release\Jypeli.Physics2d.dll
+C:\Users\kimhi\Desktop\Projects\Asteroids_on_Steroids\Asteroids on Steroids\bin\Windows\Release\MonoGame.Framework.dll
+C:\Users\kimhi\Desktop\Projects\Asteroids_on_Steroids\Asteroids on Steroids\bin\Windows\Release\SharpDX.MediaFoundation.dll
+C:\Users\kimhi\Desktop\Projects\Asteroids_on_Steroids\Asteroids on Steroids\bin\Windows\Release\SharpDX.dll
+C:\Users\kimhi\Desktop\Projects\Asteroids_on_Steroids\Asteroids on Steroids\bin\Windows\Release\SharpDX.XAudio2.dll
+C:\Users\kimhi\Desktop\Projects\Asteroids_on_Steroids\Asteroids on Steroids\bin\Windows\Release\SharpDX.DXGI.dll
+C:\Users\kimhi\Desktop\Projects\Asteroids_on_Steroids\Asteroids on Steroids\bin\Windows\Release\SharpDX.Direct3D11.dll
+C:\Users\kimhi\Desktop\Projects\Asteroids_on_Steroids\Asteroids on Steroids\bin\Windows\Release\SharpDX.Direct2D1.dll
+C:\Users\kimhi\Desktop\Projects\Asteroids_on_Steroids\Asteroids on Steroids\bin\Windows\Release\SharpDX.XInput.dll
+C:\Users\kimhi\Desktop\Projects\Asteroids_on_Steroids\Asteroids on Steroids\bin\Windows\Release\Jypeli.xml
+C:\Users\kimhi\Desktop\Projects\Asteroids_on_Steroids\Asteroids on Steroids\bin\Windows\Release\Jypeli.Physics2d.xml
+C:\Users\kimhi\Desktop\Projects\Asteroids_on_Steroids\Asteroids on Steroids\bin\Windows\Release\MonoGame.Framework.xml
+C:\Users\kimhi\Desktop\Projects\Asteroids_on_Steroids\Asteroids on Steroids\bin\Windows\Release\SharpDX.MediaFoundation.xml
+C:\Users\kimhi\Desktop\Projects\Asteroids_on_Steroids\Asteroids on Steroids\bin\Windows\Release\SharpDX.xml
+C:\Users\kimhi\Desktop\Projects\Asteroids_on_Steroids\Asteroids on Steroids\bin\Windows\Release\SharpDX.XAudio2.xml
+C:\Users\kimhi\Desktop\Projects\Asteroids_on_Steroids\Asteroids on Steroids\bin\Windows\Release\SharpDX.DXGI.xml
+C:\Users\kimhi\Desktop\Projects\Asteroids_on_Steroids\Asteroids on Steroids\bin\Windows\Release\SharpDX.Direct3D11.xml
+C:\Users\kimhi\Desktop\Projects\Asteroids_on_Steroids\Asteroids on Steroids\bin\Windows\Release\SharpDX.Direct2D1.xml
+C:\Users\kimhi\Desktop\Projects\Asteroids_on_Steroids\Asteroids on Steroids\bin\Windows\Release\SharpDX.XInput.xml
+C:\Users\kimhi\Desktop\Projects\Asteroids_on_Steroids\Asteroids on Steroids\obj\x86\Release\Asteroids on Steroids.csprojAssemblyReference.cache
+C:\Users\kimhi\Desktop\Projects\Asteroids_on_Steroids\Asteroids on Steroids\obj\x86\Release\Asteroids on Steroids.csproj.CoreCompileInputs.cache
+C:\Users\kimhi\Desktop\Projects\Asteroids_on_Steroids\Asteroids on Steroids\obj\x86\Release\Asteroids on Steroids.csproj.CopyComplete
+C:\Users\kimhi\Desktop\Projects\Asteroids_on_Steroids\Asteroids on Steroids\obj\x86\Release\Asteroids on Steroids.exe
+C:\Users\kimhi\Desktop\Projects\Asteroids_on_Steroids\Asteroids on Steroids\obj\x86\Release\Asteroids on Steroids.pdb

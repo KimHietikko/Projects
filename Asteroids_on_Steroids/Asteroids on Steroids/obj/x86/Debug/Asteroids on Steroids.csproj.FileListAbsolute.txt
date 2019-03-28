@@ -1,0 +1,27 @@
+C:\Users\kimhi\source\repos\Asteroids on Steroids\Asteroids on Steroids\bin\Windows\Debug\Asteroids on Steroids.exe
+C:\Users\kimhi\source\repos\Asteroids on Steroids\Asteroids on Steroids\bin\Windows\Debug\Asteroids on Steroids.pdb
+C:\Users\kimhi\source\repos\Asteroids on Steroids\Asteroids on Steroids\bin\Windows\Debug\Jypeli.dll
+C:\Users\kimhi\source\repos\Asteroids on Steroids\Asteroids on Steroids\bin\Windows\Debug\Jypeli.Physics2d.dll
+C:\Users\kimhi\source\repos\Asteroids on Steroids\Asteroids on Steroids\bin\Windows\Debug\MonoGame.Framework.dll
+C:\Users\kimhi\source\repos\Asteroids on Steroids\Asteroids on Steroids\bin\Windows\Debug\SharpDX.MediaFoundation.dll
+C:\Users\kimhi\source\repos\Asteroids on Steroids\Asteroids on Steroids\bin\Windows\Debug\SharpDX.dll
+C:\Users\kimhi\source\repos\Asteroids on Steroids\Asteroids on Steroids\bin\Windows\Debug\SharpDX.XAudio2.dll
+C:\Users\kimhi\source\repos\Asteroids on Steroids\Asteroids on Steroids\bin\Windows\Debug\SharpDX.DXGI.dll
+C:\Users\kimhi\source\repos\Asteroids on Steroids\Asteroids on Steroids\bin\Windows\Debug\SharpDX.Direct3D11.dll
+C:\Users\kimhi\source\repos\Asteroids on Steroids\Asteroids on Steroids\bin\Windows\Debug\SharpDX.Direct2D1.dll
+C:\Users\kimhi\source\repos\Asteroids on Steroids\Asteroids on Steroids\bin\Windows\Debug\SharpDX.XInput.dll
+C:\Users\kimhi\source\repos\Asteroids on Steroids\Asteroids on Steroids\bin\Windows\Debug\Jypeli.xml
+C:\Users\kimhi\source\repos\Asteroids on Steroids\Asteroids on Steroids\bin\Windows\Debug\Jypeli.Physics2d.xml
+C:\Users\kimhi\source\repos\Asteroids on Steroids\Asteroids on Steroids\bin\Windows\Debug\MonoGame.Framework.xml
+C:\Users\kimhi\source\repos\Asteroids on Steroids\Asteroids on Steroids\bin\Windows\Debug\SharpDX.MediaFoundation.xml
+C:\Users\kimhi\source\repos\Asteroids on Steroids\Asteroids on Steroids\bin\Windows\Debug\SharpDX.xml
+C:\Users\kimhi\source\repos\Asteroids on Steroids\Asteroids on Steroids\bin\Windows\Debug\SharpDX.XAudio2.xml
+C:\Users\kimhi\source\repos\Asteroids on Steroids\Asteroids on Steroids\bin\Windows\Debug\SharpDX.DXGI.xml
+C:\Users\kimhi\source\repos\Asteroids on Steroids\Asteroids on Steroids\bin\Windows\Debug\SharpDX.Direct3D11.xml
+C:\Users\kimhi\source\repos\Asteroids on Steroids\Asteroids on Steroids\bin\Windows\Debug\SharpDX.Direct2D1.xml
+C:\Users\kimhi\source\repos\Asteroids on Steroids\Asteroids on Steroids\bin\Windows\Debug\SharpDX.XInput.xml
+C:\Users\kimhi\source\repos\Asteroids on Steroids\Asteroids on Steroids\obj\x86\Debug\Asteroids on Steroids.csprojAssemblyReference.cache
+C:\Users\kimhi\source\repos\Asteroids on Steroids\Asteroids on Steroids\obj\x86\Debug\Asteroids on Steroids.csproj.CoreCompileInputs.cache
+C:\Users\kimhi\source\repos\Asteroids on Steroids\Asteroids on Steroids\obj\x86\Debug\Asteroids on Steroids.csproj.CopyComplete
+C:\Users\kimhi\source\repos\Asteroids on Steroids\Asteroids on Steroids\obj\x86\Debug\Asteroids on Steroids.exe
+C:\Users\kimhi\source\repos\Asteroids on Steroids\Asteroids on Steroids\obj\x86\Debug\Asteroids on Steroids.pdb

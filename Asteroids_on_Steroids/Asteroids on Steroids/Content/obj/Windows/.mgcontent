@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SourceFileCollection xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Profile>Reach</Profile>
+  <Platform>Windows</Platform>
+  <Config />
+  <SourceFiles>
+    <File>C:/Users/kimhi/Desktop/Projects/Asteroids_on_Steroids/Asteroids on Steroids/Content/alkunäyttö.png</File>
+    <File>C:/Users/kimhi/Desktop/Projects/Asteroids_on_Steroids/Asteroids on Steroids/Content/alus.png</File>
+    <File>C:/Users/kimhi/Desktop/Projects/Asteroids_on_Steroids/Asteroids on Steroids/Content/ase.png</File>
+    <File>C:/Users/kimhi/Desktop/Projects/Asteroids_on_Steroids/Asteroids on Steroids/Content/asteroidi.png</File>
+    <File>C:/Users/kimhi/Desktop/Projects/Asteroids_on_Steroids/Asteroids on Steroids/Content/taustamusiikkiValmis.mp3</File>
+    <File>C:/Users/kimhi/Desktop/Projects/Asteroids_on_Steroids/Asteroids on Steroids/Content/tuhoapelaaja.mp3</File>
+    <File>C:/Users/kimhi/Desktop/Projects/Asteroids_on_Steroids/Asteroids on Steroids/Content/upgrade.wav</File>
+    <File>C:/Users/kimhi/Desktop/Projects/Asteroids_on_Steroids/Asteroids on Steroids/Content/voitto.wav</File>
+  </SourceFiles>
+  <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+  </DestFiles>
+</SourceFileCollection>
