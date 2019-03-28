@@ -1,165 +1,597 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-  
-  
-
-  
+package fxElokuvat;
 
 
-  <head>
-    <title>
-      tiedosto ElokuvatController.java hakemistossa k2018/kijohiet/tags/vaihe7/src/fxElokuvat
-     – Ohjelmointi 2 HT
-    </title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <!--[if IE]><script type="text/javascript">
-      if (/^#__msie303:/.test(window.location.hash))
-        window.location.replace(window.location.hash.replace(/^#__msie303:/, '#'));
-    </script><![endif]-->
-        <link rel="search" href="/projects/ohj2ht/search" />
-        <link rel="help" href="/projects/ohj2ht/wiki/TracGuide" />
-        <link rel="alternate" href="/projects/ohj2ht/browser/k2018/kijohiet/tags/vaihe7/src/fxElokuvat/ElokuvatController.java?rev=50131&amp;format=txt" type="text/plain" title="Pelkkä teksti" /><link rel="alternate" href="/projects/ohj2ht/export/50131/k2018/kijohiet/tags/vaihe7/src/fxElokuvat/ElokuvatController.java" type="text/x-java; charset=iso-8859-15" title="Alkuperäinen muoto" />
-        <link rel="up" href="/projects/ohj2ht/browser/k2018/kijohiet/trunk/src/fxElokuvat/ElokuvatController.java" />
-        <link rel="start" href="/projects/ohj2ht/wiki" />
-        <link rel="stylesheet" href="/projects/ohj2ht/chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="/projects/ohj2ht/chrome/common/css/code.css" type="text/css" /><link rel="stylesheet" href="/projects/ohj2ht/pygments/trac.css" type="text/css" /><link rel="stylesheet" href="/projects/ohj2ht/chrome/common/css/browser.css" type="text/css" />
-        <link rel="prev" href="/projects/ohj2ht/browser/k2018/kijohiet/trunk/src/fxElokuvat/ElokuvatController.java?rev=50050" title="Versio 50050" />
-        <link rel="shortcut icon" href="/projects/ohj2ht/chrome/common/trac.ico" type="image/x-icon" />
-        <link rel="icon" href="/projects/ohj2ht/chrome/common/trac.ico" type="image/x-icon" />
-      <link type="application/opensearchdescription+xml" rel="search" href="/projects/ohj2ht/search/opensearch" title="Etsi projektista Ohjelmointi 2 HT" />
-    <script type="text/javascript" src="/projects/ohj2ht/chrome/common/js/jquery.js"></script><script type="text/javascript" src="/projects/ohj2ht/chrome/common/js/babel.js"></script><script type="text/javascript" src="/projects/ohj2ht/chrome/common/js/messages/fi.js"></script><script type="text/javascript" src="/projects/ohj2ht/chrome/common/js/trac.js"></script><script type="text/javascript" src="/projects/ohj2ht/chrome/common/js/search.js"></script>
-    <!--[if lt IE 7]>
-    <script type="text/javascript" src="/projects/ohj2ht/chrome/common/js/ie_pre7_hacks.js"></script>
-    <![endif]-->
-    <script type="text/javascript" src="/projects/ohj2ht/chrome/common/js/folding.js"></script>
-    <script type="text/javascript">
-      jQuery(document).ready(function($) {
-        $(".trac-toggledeleted").show().click(function() {
-                  $(this).siblings().find(".trac-deleted").toggle();
-                  return false;
-        }).click();
-        $("#jumploc input").hide();
-        $("#jumploc select").change(function () {
-          this.parentNode.parentNode.submit();
-        });
-          $('#preview table.code').enableCollapsibleColumns($('#preview table.code thead th.content'));
-      });
-    </script>
-    <link rel="stylesheet" type="text/css" href="https://trac.cc.jyu.fi/projects/ohj1/export/0/css/style.css" />
-<!--          href="https://svn.cc.jyu.fi/srv/svn/ohj2/css/style.css" /> -->
-<!--          href="${href.chrome('site/style.css')}" /> -->
-  </head>
-  <body>
-    <div id="siteheader" class="ylalinkkipalkki">
-<p>Ohjelmointi 2 - kevät 2019
-<a class="ylalinkki" href="https://tim.jyu.fi/view/kurssit/tie/ohj2/2019k/koti">Koti 2019</a>
-<a class="ylalinkki" href="https://tim.jyu.fi/view/kurssit/tie/ohj2/2019k/luentojen-aiheet">Luennot</a>
-<a class="ylalinkki" href="https://tim.jyu.fi/view/kurssit/tie/ohj2/2019k/paate/paate">Ohjaukset</a>
-<a class="ylalinkki" href="https://tim.jyu.fi/view/kurssit/tie/ohj2/harjoitustyo/ohje">Harjoitustyö</a>
-<a class="ylalinkki" href="https://tim.jyu.fi/view/kurssit/tie/ohj2/tyokaluja">Työkalut</a>
-<a class="ylalinkki" href="https://tim.jyu.fi/view/2">Moniste</a>
-<a class="ylalinkki" href="https://tim.jyu.fi/view/kurssit/tie/ohj2/2019k/demotyleinen">Demot</a>
-</p>
-</div>
-    <div id="banner">
-      <div id="header">
-        <a id="logo" href="/projects/ohj2ht/wiki/TracIni#header_logo-section"><img src="/projects/ohj2ht/chrome/common/trac_banner.png" alt="" /></a>
-      </div>
-      <form id="search" action="/projects/ohj2ht/search" method="get">
-        <div>
-          <label for="proj-search">Haku:</label>
-          <input type="text" id="proj-search" name="q" size="18" value="" />
-          <input type="submit" value="Haku" />
-        </div>
-      </form>
-      <div id="metanav" class="nav">
-    <ul>
-      <li class="first"><a href="/projects/ohj2ht/login">Kirjaudu sisään</a></li><li><a href="/projects/ohj2ht/prefs">Asetukset</a></li><li><a href="/projects/ohj2ht/wiki/TracGuide">Ohjeet</a></li><li class="last"><a href="/projects/ohj2ht/about">Tietoja Tracista</a></li>
-    </ul>
-  </div>
-    </div>
-    <div id="mainnav" class="nav">
-    <ul>
-      <li class="first"><a href="/projects/ohj2ht/wiki">Wiki</a></li><li class="active"><a href="/projects/ohj2ht/browser">Selaa koodia</a></li><li class="last"><a href="/projects/ohj2ht/search">Haku</a></li>
-    </ul>
-  </div>
-    <div id="main">
-      <div id="ctxtnav" class="nav">
-        <h2>Kontekstin navigointi</h2>
-          <ul>
-              <li class="first"><span>&larr; <a class="prev" href="/projects/ohj2ht/browser/k2018/kijohiet/trunk/src/fxElokuvat/ElokuvatController.java?rev=50050" title="Versio 50050">Edellinen versio</a></span></li><li><a href="/projects/ohj2ht/browser/k2018/kijohiet/trunk/src/fxElokuvat/ElokuvatController.java">Uusin versio</a></li><li><span class="missing">Seuraava versio &rarr;</span></li><li><a href="/projects/ohj2ht/browser/k2018/kijohiet/trunk/src/fxElokuvat/ElokuvatController.java?annotate=blame&amp;rev=50131" title="Merkitse jokaisen rivin lähdeversio (viimeisin versio jossa kyseistä riviä on muutettu). Tämä saattaa kestää pitkään...">Blame</a></li><li class="last"><a href="/projects/ohj2ht/log/k2018/kijohiet/tags/vaihe7/src/fxElokuvat/ElokuvatController.java?rev=50131">Versioloki</a></li>
-          </ul>
-        <hr />
-      </div>
-    <div id="content" class="browser">
-          <h1>
-<a class="pathentry first" href="/projects/ohj2ht/browser?order=name" title="Siirry tiedostovaraston alkuun">source:</a>
-<a class="pathentry" href="/projects/ohj2ht/browser/k2018?rev=50131&amp;order=name" title="Näytä k2018">k2018</a><span class="pathentry sep">/</span><a class="pathentry" href="/projects/ohj2ht/browser/k2018/kijohiet?rev=50131&amp;order=name" title="Näytä kijohiet">kijohiet</a><span class="pathentry sep">/</span><a class="pathentry" href="/projects/ohj2ht/browser/k2018/kijohiet/tags?rev=50131&amp;order=name" title="Näytä tags">tags</a><span class="pathentry sep">/</span><a class="pathentry" href="/projects/ohj2ht/browser/k2018/kijohiet/tags/vaihe7?rev=50131&amp;order=name" title="Näytä vaihe7">vaihe7</a><span class="pathentry sep">/</span><a class="pathentry" href="/projects/ohj2ht/browser/k2018/kijohiet/tags/vaihe7/src?rev=50131&amp;order=name" title="Näytä src">src</a><span class="pathentry sep">/</span><a class="pathentry" href="/projects/ohj2ht/browser/k2018/kijohiet/tags/vaihe7/src/fxElokuvat?rev=50131&amp;order=name" title="Näytä fxElokuvat">fxElokuvat</a><span class="pathentry sep">/</span><a class="pathentry" href="/projects/ohj2ht/browser/k2018/kijohiet/tags/vaihe7/src/fxElokuvat/ElokuvatController.java?rev=50131&amp;order=name" title="Näytä ElokuvatController.java">ElokuvatController.java</a>
-<span class="pathentry sep">@</span>
-  <a class="pathentry" href="/projects/ohj2ht/changeset/50131" title="Näytä muutos 50131">50131</a>
-<br style="clear: both" />
-</h1>
-        <div id="jumprev">
-          <form action="" method="get">
-            <div>
-              <label for="rev" title="Vinkki: jätä kenttä tyhjäksi nähdäksesi uusin versio">
-                Näytä versio</label>
-              <input type="text" id="rev" name="rev" value="50131" size="6" />
-            </div>
-          </form>
-        </div>
-      <table id="info" summary="Version tiedot">
-        <tr>
-          <th scope="col">Version <a href="/projects/ohj2ht/changeset/50129">50129</a>,
-            <span title="17930 tavua">17.5 KB</span>
-            tallensi kijohiet, <a class="timeline" href="/projects/ohj2ht/timeline?from=2018-04-17T19%3A20%3A10%2B03%3A00&amp;precision=second" title="2018-04-17T19:20:10+03:00 aikajanalla">11 kuukautta</a> sitten
-            (<a href="/projects/ohj2ht/changeset/50129/k2018/kijohiet/trunk/src/fxElokuvat/ElokuvatController.java">muutokset</a>)</th>
-        </tr>
-        <tr>
-          <td class="message searchable">
-              <p>
-Testit toimivat<br />
-</p>
-          </td>
-        </tr>
-      </table>
-      <div id="preview" class="searchable">
+import java.awt.Desktop;
+import java.io.IOException;
+import java.io.PrintStream;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.net.URL;
+import java.util.Collection;
+import java.util.List;
+import java.util.ResourceBundle;
+
+import fi.jyu.mit.fxgui.ComboBoxChooser;
+import fi.jyu.mit.fxgui.Dialogs;
+import fi.jyu.mit.fxgui.ListChooser;
+import fi.jyu.mit.fxgui.ModalController;
+import fi.jyu.mit.fxgui.StringGrid;
+import fi.jyu.mit.fxgui.TextAreaOutputStream;
+import javafx.application.Platform;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
+import javafx.scene.layout.GridPane;
+import kanta.Tarkistaja;
+import elokuvarekisteri.Elokuvarekisteri;
+import elokuvarekisteri.Elokuvat;
+import elokuvarekisteri.Elokuva;
+import elokuvarekisteri.Nayttelija;
+import elokuvarekisteri.SailoException;
+import static fxElokuvat.TietueDialogController.*;
+
+
+
+
+/**
+ * @author kimhi
+ * @version 12.2.2018
+ * P��ikkunan controlleri
+ */
+public class ElokuvatController implements Initializable{
+    
+    
+    private Elokuva apuelokuva = new Elokuva();
+    private Nayttelija apunayttelija = new Nayttelija(); // N�yttelij� jolta voidaan kysell� tietoja.
+    
+    @FXML private TextField hakuehto;
+    
+    @FXML private ScrollPane panelElokuva; 
+    
+    @FXML private GridPane gridElokuva;
+
+    @FXML private StringGrid<Nayttelija> tableNayttelijat;
+    
+    @FXML private ComboBoxChooser<String> cbKentat;
+    
+    @FXML private ListChooser<Elokuva> chooserElokuvat;
+    
+    
+    private String tietokannanNimi = "Elokuvat";
+
+    private Elokuvarekisteri elokuvarekisteri;
+    
+    private Elokuva elokuvaKohdalla;
+    
+    private TextField edits[];
+    
+    private int kentta = 0;
+    
+    
+    /**
+     * Avaa suunnitelman selaimessa
+     */
+    @FXML private void handleApua() {
+        avustus();
+    }
+    
+    
+    /**
+     * Avaa tietokannan nimi ikkunan, johon voi laittaa jonkun toisen tietokannan nimen ja avata sen
+     */
+    @FXML private void handleAvaa() {
+        ModalController.showModal(ElokuvatController.class.getResource("TietokannanNimiView.fxml"), "Avaa", null, "");
+    }
+    
+    
+    /**
+     * Hakupalkin toiminto
+     */
+    @FXML private void handleHakuehto() {
+        hae(0);
+    }
+    
+    
+    /**
+     * Lopeta -kohdan toiminto, tallentaa ja sulkee ohjelman
+     */
+    @FXML private void handleLopeta() {
+        tallenna();
+        Platform.exit();
+    }
+     
+    
+    /**
+     * Avaa uusi elokuva -dialogin
+     */
+    @FXML private void handleMuokkaaElokuva() {
+        muokkaa(kentta);
+    }
+    
+    
+    /**
+     * Avaa lis�� n�yttelij�t -dialogin, jolloin n�yttelij�� pystyy muokata
+     */
+    @FXML private void handleMuokkaaNayttelija() {
+        muokkaaNayttelijaa();
+    }
+    
+    
+    /**
+     * Poistaa elokuvan
+     */
+    @FXML private void handlePoistaElokuva() {
+        poistaElokuva();
+    }
+    
+    
+    /**
+     * Poistaa n�yttelij�n
+     */
+    @FXML private void handlePoistaNayttelija() {
+        poistaNayttelija();
+    }
+    
+    
+    /**
+     * Antaa randomin elokuvaehdotuksen
+     */
+    @FXML private void handleRandom() {
+        random();
+    }
+    
+    
+    /**
+     * Tallentaa muutokset
+     */
+    @FXML private void handleTallenna() {
+        tallenna();
+    }
+    
+    
+    /**
+     * N�ytt�� ohjelman tiedot
+     */
+    @FXML private void handleTietoja() {
+        ModalController.showModal(ElokuvatController.class.getResource("AboutView.fxml"), "Tietoja", null, "");
+    }
+    
+    
+    /**
+     * Avaa tulostusn�kym�n
+     */
+    @FXML private void handleTulostus() {
+        ModalController.showModal(ElokuvatController.class.getResource("TulostusView.fxml"), "Tulostus", null, "");
+    }
+    
+    
+    /**
+     * Lis�� uuden elokuvan
+     */
+    @FXML private void handleUusiElokuva() {
+        uusiElokuva();
+    }
+    
+    
+    /**
+     * Lis�� uuden n�yttelij�n
+     */
+    @FXML private void handleUusiNayttelija() {
+        uusiNayttelija();
+    }
+    
+    
+//=========================================================================   
+    
+    
+    /**
+     * Alustaa elokuvan tiedot
+     */
+    protected void alusta() {
+        chooserElokuvat.clear();
+        chooserElokuvat.addSelectionListener(e -> naytaElokuva());
+        cbKentat.clear(); 
+        for (int k = apuelokuva.ekaKentta(); k < apuelokuva.getKenttia(); k++) {
+            cbKentat.add(apuelokuva.getKysymys(k), null); 
+        }
+        cbKentat.getSelectionModel().select(0); 
         
-  <table class="code"><thead><tr><th class="lineno" title="Rivinumerot">Rivi</th><th class="content"> </th></tr></thead><tbody><tr><th id="L1"><a href="#L1">1</a></th><td><span class="kn">package</span> fxElokuvat<span class="o">;</span></td></tr><tr><th id="L2"><a href="#L2">2</a></th><td></td></tr><tr><th id="L3"><a href="#L3">3</a></th><td></td></tr><tr><th id="L4"><a href="#L4">4</a></th><td><span class="kn">import</span> <span class="nn">java.awt.Desktop</span><span class="o">;</span></td></tr><tr><th id="L5"><a href="#L5">5</a></th><td><span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span></td></tr><tr><th id="L6"><a href="#L6">6</a></th><td><span class="kn">import</span> <span class="nn">java.io.PrintStream</span><span class="o">;</span></td></tr><tr><th id="L7"><a href="#L7">7</a></th><td><span class="kn">import</span> <span class="nn">java.net.URI</span><span class="o">;</span></td></tr><tr><th id="L8"><a href="#L8">8</a></th><td><span class="kn">import</span> <span class="nn">java.net.URISyntaxException</span><span class="o">;</span></td></tr><tr><th id="L9"><a href="#L9">9</a></th><td><span class="kn">import</span> <span class="nn">java.net.URL</span><span class="o">;</span></td></tr><tr><th id="L10"><a href="#L10">10</a></th><td><span class="kn">import</span> <span class="nn">java.util.Collection</span><span class="o">;</span></td></tr><tr><th id="L11"><a href="#L11">11</a></th><td><span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span></td></tr><tr><th id="L12"><a href="#L12">12</a></th><td><span class="kn">import</span> <span class="nn">java.util.ResourceBundle</span><span class="o">;</span></td></tr><tr><th id="L13"><a href="#L13">13</a></th><td></td></tr><tr><th id="L14"><a href="#L14">14</a></th><td><span class="kn">import</span> <span class="nn">fi.jyu.mit.fxgui.ComboBoxChooser</span><span class="o">;</span></td></tr><tr><th id="L15"><a href="#L15">15</a></th><td><span class="kn">import</span> <span class="nn">fi.jyu.mit.fxgui.Dialogs</span><span class="o">;</span></td></tr><tr><th id="L16"><a href="#L16">16</a></th><td><span class="kn">import</span> <span class="nn">fi.jyu.mit.fxgui.ListChooser</span><span class="o">;</span></td></tr><tr><th id="L17"><a href="#L17">17</a></th><td><span class="kn">import</span> <span class="nn">fi.jyu.mit.fxgui.ModalController</span><span class="o">;</span></td></tr><tr><th id="L18"><a href="#L18">18</a></th><td><span class="kn">import</span> <span class="nn">fi.jyu.mit.fxgui.StringGrid</span><span class="o">;</span></td></tr><tr><th id="L19"><a href="#L19">19</a></th><td><span class="kn">import</span> <span class="nn">fi.jyu.mit.fxgui.TextAreaOutputStream</span><span class="o">;</span></td></tr><tr><th id="L20"><a href="#L20">20</a></th><td><span class="kn">import</span> <span class="nn">javafx.application.Platform</span><span class="o">;</span></td></tr><tr><th id="L21"><a href="#L21">21</a></th><td><span class="kn">import</span> <span class="nn">javafx.fxml.FXML</span><span class="o">;</span></td></tr><tr><th id="L22"><a href="#L22">22</a></th><td><span class="kn">import</span> <span class="nn">javafx.fxml.Initializable</span><span class="o">;</span></td></tr><tr><th id="L23"><a href="#L23">23</a></th><td><span class="kn">import</span> <span class="nn">javafx.scene.control.Label</span><span class="o">;</span></td></tr><tr><th id="L24"><a href="#L24">24</a></th><td><span class="kn">import</span> <span class="nn">javafx.scene.control.ScrollPane</span><span class="o">;</span></td></tr><tr><th id="L25"><a href="#L25">25</a></th><td><span class="kn">import</span> <span class="nn">javafx.scene.control.TableView</span><span class="o">;</span></td></tr><tr><th id="L26"><a href="#L26">26</a></th><td><span class="kn">import</span> <span class="nn">javafx.scene.control.TextArea</span><span class="o">;</span></td></tr><tr><th id="L27"><a href="#L27">27</a></th><td><span class="kn">import</span> <span class="nn">javafx.scene.control.TextField</span><span class="o">;</span></td></tr><tr><th id="L28"><a href="#L28">28</a></th><td><span class="kn">import</span> <span class="nn">javafx.scene.input.KeyCode</span><span class="o">;</span></td></tr><tr><th id="L29"><a href="#L29">29</a></th><td><span class="kn">import</span> <span class="nn">javafx.scene.layout.GridPane</span><span class="o">;</span></td></tr><tr><th id="L30"><a href="#L30">30</a></th><td><span class="kn">import</span> <span class="nn">kanta.Tarkistaja</span><span class="o">;</span></td></tr><tr><th id="L31"><a href="#L31">31</a></th><td><span class="kn">import</span> <span class="nn">elokuvarekisteri.Elokuvarekisteri</span><span class="o">;</span></td></tr><tr><th id="L32"><a href="#L32">32</a></th><td><span class="kn">import</span> <span class="nn">elokuvarekisteri.Elokuvat</span><span class="o">;</span></td></tr><tr><th id="L33"><a href="#L33">33</a></th><td><span class="kn">import</span> <span class="nn">elokuvarekisteri.Elokuva</span><span class="o">;</span></td></tr><tr><th id="L34"><a href="#L34">34</a></th><td><span class="kn">import</span> <span class="nn">elokuvarekisteri.Nayttelija</span><span class="o">;</span></td></tr><tr><th id="L35"><a href="#L35">35</a></th><td><span class="kn">import</span> <span class="nn">elokuvarekisteri.SailoException</span><span class="o">;</span></td></tr><tr><th id="L36"><a href="#L36">36</a></th><td><span class="kn">import</span> <span class="nn">static</span> fxElokuvat<span class="o">.</span><span class="na">TietueDialogController</span><span class="o">.*;</span></td></tr><tr><th id="L37"><a href="#L37">37</a></th><td></td></tr><tr><th id="L38"><a href="#L38">38</a></th><td></td></tr><tr><th id="L39"><a href="#L39">39</a></th><td></td></tr><tr><th id="L40"><a href="#L40">40</a></th><td></td></tr><tr><th id="L41"><a href="#L41">41</a></th><td><span class="cm">/**</span></td></tr><tr><th id="L42"><a href="#L42">42</a></th><td><span class="cm"> * @author kimhi</span></td></tr><tr><th id="L43"><a href="#L43">43</a></th><td><span class="cm"> * @version 12.2.2018</span></td></tr><tr><th id="L44"><a href="#L44">44</a></th><td><span class="cm"> * Pääikkunan controlleri</span></td></tr><tr><th id="L45"><a href="#L45">45</a></th><td><span class="cm"> */</span></td></tr><tr><th id="L46"><a href="#L46">46</a></th><td><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ElokuvatController</span> <span class="kd">implements</span> Initializable<span class="o">{</span></td></tr><tr><th id="L47"><a href="#L47">47</a></th><td>    </td></tr><tr><th id="L48"><a href="#L48">48</a></th><td>    </td></tr><tr><th id="L49"><a href="#L49">49</a></th><td>    <span class="kd">private</span> Elokuva apuelokuva <span class="o">=</span> <span class="k">new</span> Elokuva<span class="o">();</span></td></tr><tr><th id="L50"><a href="#L50">50</a></th><td>    <span class="kd">private</span> Nayttelija apunayttelija <span class="o">=</span> <span class="k">new</span> Nayttelija<span class="o">();</span> <span class="c1">// Näyttelijä jolta voidaan kysellä tietoja.</span></td></tr><tr><th id="L51"><a href="#L51">51</a></th><td><span class="c1"></span>    </td></tr><tr><th id="L52"><a href="#L52">52</a></th><td>    <span class="nd">@FXML</span> <span class="kd">private</span> TextField hakuehto<span class="o">;</span></td></tr><tr><th id="L53"><a href="#L53">53</a></th><td>    </td></tr><tr><th id="L54"><a href="#L54">54</a></th><td>    <span class="nd">@FXML</span> <span class="kd">private</span> ScrollPane panelElokuva<span class="o">;</span> </td></tr><tr><th id="L55"><a href="#L55">55</a></th><td>    </td></tr><tr><th id="L56"><a href="#L56">56</a></th><td>    <span class="nd">@FXML</span> <span class="kd">private</span> GridPane gridElokuva<span class="o">;</span></td></tr><tr><th id="L57"><a href="#L57">57</a></th><td></td></tr><tr><th id="L58"><a href="#L58">58</a></th><td>    <span class="nd">@FXML</span> <span class="kd">private</span> StringGrid<span class="o">&lt;</span>Nayttelija<span class="o">&gt;</span> tableNayttelijat<span class="o">;</span></td></tr><tr><th id="L59"><a href="#L59">59</a></th><td>    </td></tr><tr><th id="L60"><a href="#L60">60</a></th><td>    <span class="nd">@FXML</span> <span class="kd">private</span> ComboBoxChooser<span class="o">&lt;</span>String<span class="o">&gt;</span> cbKentat<span class="o">;</span></td></tr><tr><th id="L61"><a href="#L61">61</a></th><td>    </td></tr><tr><th id="L62"><a href="#L62">62</a></th><td>    <span class="nd">@FXML</span> <span class="kd">private</span> ListChooser<span class="o">&lt;</span>Elokuva<span class="o">&gt;</span> chooserElokuvat<span class="o">;</span></td></tr><tr><th id="L63"><a href="#L63">63</a></th><td>    </td></tr><tr><th id="L64"><a href="#L64">64</a></th><td>    </td></tr><tr><th id="L65"><a href="#L65">65</a></th><td>    <span class="kd">private</span> String tietokannanNimi <span class="o">=</span> <span class="s">"Elokuvat"</span><span class="o">;</span></td></tr><tr><th id="L66"><a href="#L66">66</a></th><td></td></tr><tr><th id="L67"><a href="#L67">67</a></th><td>    <span class="kd">private</span> Elokuvarekisteri elokuvarekisteri<span class="o">;</span></td></tr><tr><th id="L68"><a href="#L68">68</a></th><td>    </td></tr><tr><th id="L69"><a href="#L69">69</a></th><td>    <span class="kd">private</span> Elokuva elokuvaKohdalla<span class="o">;</span></td></tr><tr><th id="L70"><a href="#L70">70</a></th><td>    </td></tr><tr><th id="L71"><a href="#L71">71</a></th><td>    <span class="kd">private</span> TextField edits<span class="o">[];</span></td></tr><tr><th id="L72"><a href="#L72">72</a></th><td>    </td></tr><tr><th id="L73"><a href="#L73">73</a></th><td>    <span class="kd">private</span> <span class="kt">int</span> kentta <span class="o">=</span> <span class="mi">0</span><span class="o">;</span></td></tr><tr><th id="L74"><a href="#L74">74</a></th><td>    </td></tr><tr><th id="L75"><a href="#L75">75</a></th><td>    </td></tr><tr><th id="L76"><a href="#L76">76</a></th><td>    <span class="cm">/**</span></td></tr><tr><th id="L77"><a href="#L77">77</a></th><td><span class="cm">     * Avaa suunnitelman selaimessa</span></td></tr><tr><th id="L78"><a href="#L78">78</a></th><td><span class="cm">     */</span></td></tr><tr><th id="L79"><a href="#L79">79</a></th><td>    <span class="nd">@FXML</span> <span class="kd">private</span> <span class="kt">void</span> handleApua<span class="o">()</span> <span class="o">{</span></td></tr><tr><th id="L80"><a href="#L80">80</a></th><td>        avustus<span class="o">();</span></td></tr><tr><th id="L81"><a href="#L81">81</a></th><td>    <span class="o">}</span></td></tr><tr><th id="L82"><a href="#L82">82</a></th><td>    </td></tr><tr><th id="L83"><a href="#L83">83</a></th><td>    </td></tr><tr><th id="L84"><a href="#L84">84</a></th><td>    <span class="cm">/**</span></td></tr><tr><th id="L85"><a href="#L85">85</a></th><td><span class="cm">     * Avaa tietokannan nimi ikkunan, johon voi laittaa jonkun toisen tietokannan nimen ja avata sen</span></td></tr><tr><th id="L86"><a href="#L86">86</a></th><td><span class="cm">     */</span></td></tr><tr><th id="L87"><a href="#L87">87</a></th><td>    <span class="nd">@FXML</span> <span class="kd">private</span> <span class="kt">void</span> handleAvaa<span class="o">()</span> <span class="o">{</span></td></tr><tr><th id="L88"><a href="#L88">88</a></th><td>        ModalController<span class="o">.</span><span class="na">showModal</span><span class="o">(</span>ElokuvatController<span class="o">.</span><span class="na">class</span><span class="o">.</span><span class="na">getResource</span><span class="o">(</span><span class="s">"TietokannanNimiView.fxml"</span><span class="o">),</span> <span class="s">"Avaa"</span><span class="o">,</span> <span class="kc">null</span><span class="o">,</span> <span class="s">""</span><span class="o">);</span></td></tr><tr><th id="L89"><a href="#L89">89</a></th><td>    <span class="o">}</span></td></tr><tr><th id="L90"><a href="#L90">90</a></th><td>    </td></tr><tr><th id="L91"><a href="#L91">91</a></th><td>    </td></tr><tr><th id="L92"><a href="#L92">92</a></th><td>    <span class="cm">/**</span></td></tr><tr><th id="L93"><a href="#L93">93</a></th><td><span class="cm">     * Hakupalkin toiminto</span></td></tr><tr><th id="L94"><a href="#L94">94</a></th><td><span class="cm">     */</span></td></tr><tr><th id="L95"><a href="#L95">95</a></th><td>    <span class="nd">@FXML</span> <span class="kd">private</span> <span class="kt">void</span> handleHakuehto<span class="o">()</span> <span class="o">{</span></td></tr><tr><th id="L96"><a href="#L96">96</a></th><td>        hae<span class="o">(</span><span class="mi">0</span><span class="o">);</span></td></tr><tr><th id="L97"><a href="#L97">97</a></th><td>    <span class="o">}</span></td></tr><tr><th id="L98"><a href="#L98">98</a></th><td>    </td></tr><tr><th id="L99"><a href="#L99">99</a></th><td>    </td></tr><tr><th id="L100"><a href="#L100">100</a></th><td>    <span class="cm">/**</span></td></tr><tr><th id="L101"><a href="#L101">101</a></th><td><span class="cm">     * Lopeta -kohdan toiminto, tallentaa ja sulkee ohjelman</span></td></tr><tr><th id="L102"><a href="#L102">102</a></th><td><span class="cm">     */</span></td></tr><tr><th id="L103"><a href="#L103">103</a></th><td>    <span class="nd">@FXML</span> <span class="kd">private</span> <span class="kt">void</span> handleLopeta<span class="o">()</span> <span class="o">{</span></td></tr><tr><th id="L104"><a href="#L104">104</a></th><td>        tallenna<span class="o">();</span></td></tr><tr><th id="L105"><a href="#L105">105</a></th><td>        Platform<span class="o">.</span><span class="na">exit</span><span class="o">();</span></td></tr><tr><th id="L106"><a href="#L106">106</a></th><td>    <span class="o">}</span></td></tr><tr><th id="L107"><a href="#L107">107</a></th><td>     </td></tr><tr><th id="L108"><a href="#L108">108</a></th><td>    </td></tr><tr><th id="L109"><a href="#L109">109</a></th><td>    <span class="cm">/**</span></td></tr><tr><th id="L110"><a href="#L110">110</a></th><td><span class="cm">     * Avaa uusi elokuva -dialogin</span></td></tr><tr><th id="L111"><a href="#L111">111</a></th><td><span class="cm">     */</span></td></tr><tr><th id="L112"><a href="#L112">112</a></th><td>    <span class="nd">@FXML</span> <span class="kd">private</span> <span class="kt">void</span> handleMuokkaaElokuva<span class="o">()</span> <span class="o">{</span></td></tr><tr><th id="L113"><a href="#L113">113</a></th><td>        muokkaa<span class="o">(</span>kentta<span class="o">);</span></td></tr><tr><th id="L114"><a href="#L114">114</a></th><td>    <span class="o">}</span></td></tr><tr><th id="L115"><a href="#L115">115</a></th><td>    </td></tr><tr><th id="L116"><a href="#L116">116</a></th><td>    </td></tr><tr><th id="L117"><a href="#L117">117</a></th><td>    <span class="cm">/**</span></td></tr><tr><th id="L118"><a href="#L118">118</a></th><td><span class="cm">     * Avaa lisää näyttelijät -dialogin, jolloin näyttelijää pystyy muokata</span></td></tr><tr><th id="L119"><a href="#L119">119</a></th><td><span class="cm">     */</span></td></tr><tr><th id="L120"><a href="#L120">120</a></th><td>    <span class="nd">@FXML</span> <span class="kd">private</span> <span class="kt">void</span> handleMuokkaaNayttelija<span class="o">()</span> <span class="o">{</span></td></tr><tr><th id="L121"><a href="#L121">121</a></th><td>        muokkaaNayttelijaa<span class="o">();</span></td></tr><tr><th id="L122"><a href="#L122">122</a></th><td>    <span class="o">}</span></td></tr><tr><th id="L123"><a href="#L123">123</a></th><td>    </td></tr><tr><th id="L124"><a href="#L124">124</a></th><td>    </td></tr><tr><th id="L125"><a href="#L125">125</a></th><td>    <span class="cm">/**</span></td></tr><tr><th id="L126"><a href="#L126">126</a></th><td><span class="cm">     * Poistaa elokuvan</span></td></tr><tr><th id="L127"><a href="#L127">127</a></th><td><span class="cm">     */</span></td></tr><tr><th id="L128"><a href="#L128">128</a></th><td>    <span class="nd">@FXML</span> <span class="kd">private</span> <span class="kt">void</span> handlePoistaElokuva<span class="o">()</span> <span class="o">{</span></td></tr><tr><th id="L129"><a href="#L129">129</a></th><td>        poistaElokuva<span class="o">();</span></td></tr><tr><th id="L130"><a href="#L130">130</a></th><td>    <span class="o">}</span></td></tr><tr><th id="L131"><a href="#L131">131</a></th><td>    </td></tr><tr><th id="L132"><a href="#L132">132</a></th><td>    </td></tr><tr><th id="L133"><a href="#L133">133</a></th><td>    <span class="cm">/**</span></td></tr><tr><th id="L134"><a href="#L134">134</a></th><td><span class="cm">     * Poistaa näyttelijän</span></td></tr><tr><th id="L135"><a href="#L135">135</a></th><td><span class="cm">     */</span></td></tr><tr><th id="L136"><a href="#L136">136</a></th><td>    <span class="nd">@FXML</span> <span class="kd">private</span> <span class="kt">void</span> handlePoistaNayttelija<span class="o">()</span> <span class="o">{</span></td></tr><tr><th id="L137"><a href="#L137">137</a></th><td>        poistaNayttelija<span class="o">();</span></td></tr><tr><th id="L138"><a href="#L138">138</a></th><td>    <span class="o">}</span></td></tr><tr><th id="L139"><a href="#L139">139</a></th><td>    </td></tr><tr><th id="L140"><a href="#L140">140</a></th><td>    </td></tr><tr><th id="L141"><a href="#L141">141</a></th><td>    <span class="cm">/**</span></td></tr><tr><th id="L142"><a href="#L142">142</a></th><td><span class="cm">     * Antaa randomin elokuvaehdotuksen</span></td></tr><tr><th id="L143"><a href="#L143">143</a></th><td><span class="cm">     */</span></td></tr><tr><th id="L144"><a href="#L144">144</a></th><td>    <span class="nd">@FXML</span> <span class="kd">private</span> <span class="kt">void</span> handleRandom<span class="o">()</span> <span class="o">{</span></td></tr><tr><th id="L145"><a href="#L145">145</a></th><td>        random<span class="o">();</span></td></tr><tr><th id="L146"><a href="#L146">146</a></th><td>    <span class="o">}</span></td></tr><tr><th id="L147"><a href="#L147">147</a></th><td>    </td></tr><tr><th id="L148"><a href="#L148">148</a></th><td>    </td></tr><tr><th id="L149"><a href="#L149">149</a></th><td>    <span class="cm">/**</span></td></tr><tr><th id="L150"><a href="#L150">150</a></th><td><span class="cm">     * Tallentaa muutokset</span></td></tr><tr><th id="L151"><a href="#L151">151</a></th><td><span class="cm">     */</span></td></tr><tr><th id="L152"><a href="#L152">152</a></th><td>    <span class="nd">@FXML</span> <span class="kd">private</span> <span class="kt">void</span> handleTallenna<span class="o">()</span> <span class="o">{</span></td></tr><tr><th id="L153"><a href="#L153">153</a></th><td>        tallenna<span class="o">();</span></td></tr><tr><th id="L154"><a href="#L154">154</a></th><td>    <span class="o">}</span></td></tr><tr><th id="L155"><a href="#L155">155</a></th><td>    </td></tr><tr><th id="L156"><a href="#L156">156</a></th><td>    </td></tr><tr><th id="L157"><a href="#L157">157</a></th><td>    <span class="cm">/**</span></td></tr><tr><th id="L158"><a href="#L158">158</a></th><td><span class="cm">     * Näyttää ohjelman tiedot</span></td></tr><tr><th id="L159"><a href="#L159">159</a></th><td><span class="cm">     */</span></td></tr><tr><th id="L160"><a href="#L160">160</a></th><td>    <span class="nd">@FXML</span> <span class="kd">private</span> <span class="kt">void</span> handleTietoja<span class="o">()</span> <span class="o">{</span></td></tr><tr><th id="L161"><a href="#L161">161</a></th><td>        ModalController<span class="o">.</span><span class="na">showModal</span><span class="o">(</span>ElokuvatController<span class="o">.</span><span class="na">class</span><span class="o">.</span><span class="na">getResource</span><span class="o">(</span><span class="s">"AboutView.fxml"</span><span class="o">),</span> <span class="s">"Tietoja"</span><span class="o">,</span> <span class="kc">null</span><span class="o">,</span> <span class="s">""</span><span class="o">);</span></td></tr><tr><th id="L162"><a href="#L162">162</a></th><td>    <span class="o">}</span></td></tr><tr><th id="L163"><a href="#L163">163</a></th><td>    </td></tr><tr><th id="L164"><a href="#L164">164</a></th><td>    </td></tr><tr><th id="L165"><a href="#L165">165</a></th><td>    <span class="cm">/**</span></td></tr><tr><th id="L166"><a href="#L166">166</a></th><td><span class="cm">     * Avaa tulostusnäkymän</span></td></tr><tr><th id="L167"><a href="#L167">167</a></th><td><span class="cm">     */</span></td></tr><tr><th id="L168"><a href="#L168">168</a></th><td>    <span class="nd">@FXML</span> <span class="kd">private</span> <span class="kt">void</span> handleTulostus<span class="o">()</span> <span class="o">{</span></td></tr><tr><th id="L169"><a href="#L169">169</a></th><td>        ModalController<span class="o">.</span><span class="na">showModal</span><span class="o">(</span>ElokuvatController<span class="o">.</span><span class="na">class</span><span class="o">.</span><span class="na">getResource</span><span class="o">(</span><span class="s">"TulostusView.fxml"</span><span class="o">),</span> <span class="s">"Tulostus"</span><span class="o">,</span> <span class="kc">null</span><span class="o">,</span> <span class="s">""</span><span class="o">);</span></td></tr><tr><th id="L170"><a href="#L170">170</a></th><td>    <span class="o">}</span></td></tr><tr><th id="L171"><a href="#L171">171</a></th><td>    </td></tr><tr><th id="L172"><a href="#L172">172</a></th><td>    </td></tr><tr><th id="L173"><a href="#L173">173</a></th><td>    <span class="cm">/**</span></td></tr><tr><th id="L174"><a href="#L174">174</a></th><td><span class="cm">     * Lisää uuden elokuvan</span></td></tr><tr><th id="L175"><a href="#L175">175</a></th><td><span class="cm">     */</span></td></tr><tr><th id="L176"><a href="#L176">176</a></th><td>    <span class="nd">@FXML</span> <span class="kd">private</span> <span class="kt">void</span> handleUusiElokuva<span class="o">()</span> <span class="o">{</span></td></tr><tr><th id="L177"><a href="#L177">177</a></th><td>        uusiElokuva<span class="o">();</span></td></tr><tr><th id="L178"><a href="#L178">178</a></th><td>    <span class="o">}</span></td></tr><tr><th id="L179"><a href="#L179">179</a></th><td>    </td></tr><tr><th id="L180"><a href="#L180">180</a></th><td>    </td></tr><tr><th id="L181"><a href="#L181">181</a></th><td>    <span class="cm">/**</span></td></tr><tr><th id="L182"><a href="#L182">182</a></th><td><span class="cm">     * Lisää uuden näyttelijän</span></td></tr><tr><th id="L183"><a href="#L183">183</a></th><td><span class="cm">     */</span></td></tr><tr><th id="L184"><a href="#L184">184</a></th><td>    <span class="nd">@FXML</span> <span class="kd">private</span> <span class="kt">void</span> handleUusiNayttelija<span class="o">()</span> <span class="o">{</span></td></tr><tr><th id="L185"><a href="#L185">185</a></th><td>        uusiNayttelija<span class="o">();</span></td></tr><tr><th id="L186"><a href="#L186">186</a></th><td>    <span class="o">}</span></td></tr><tr><th id="L187"><a href="#L187">187</a></th><td>    </td></tr><tr><th id="L188"><a href="#L188">188</a></th><td>    </td></tr><tr><th id="L189"><a href="#L189">189</a></th><td><span class="c1">//=========================================================================   </span></td></tr><tr><th id="L190"><a href="#L190">190</a></th><td><span class="c1"></span>    </td></tr><tr><th id="L191"><a href="#L191">191</a></th><td>    </td></tr><tr><th id="L192"><a href="#L192">192</a></th><td>    <span class="cm">/**</span></td></tr><tr><th id="L193"><a href="#L193">193</a></th><td><span class="cm">     * Alustaa elokuvan tiedot</span></td></tr><tr><th id="L194"><a href="#L194">194</a></th><td><span class="cm">     */</span></td></tr><tr><th id="L195"><a href="#L195">195</a></th><td>    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">alusta</span><span class="o">()</span> <span class="o">{</span></td></tr><tr><th id="L196"><a href="#L196">196</a></th><td>        chooserElokuvat<span class="o">.</span><span class="na">clear</span><span class="o">();</span></td></tr><tr><th id="L197"><a href="#L197">197</a></th><td>        chooserElokuvat<span class="o">.</span><span class="na">addSelectionListener</span><span class="o">(</span>e <span class="o">-&gt;</span> naytaElokuva<span class="o">());</span></td></tr><tr><th id="L198"><a href="#L198">198</a></th><td>        cbKentat<span class="o">.</span><span class="na">clear</span><span class="o">();</span> </td></tr><tr><th id="L199"><a href="#L199">199</a></th><td>        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> k <span class="o">=</span> apuelokuva<span class="o">.</span><span class="na">ekaKentta</span><span class="o">();</span> k <span class="o">&lt;</span> apuelokuva<span class="o">.</span><span class="na">getKenttia</span><span class="o">();</span> k<span class="o">++)</span> <span class="o">{</span></td></tr><tr><th id="L200"><a href="#L200">200</a></th><td>            cbKentat<span class="o">.</span><span class="na">add</span><span class="o">(</span>apuelokuva<span class="o">.</span><span class="na">getKysymys</span><span class="o">(</span>k<span class="o">),</span> <span class="kc">null</span><span class="o">);</span> </td></tr><tr><th id="L201"><a href="#L201">201</a></th><td>        <span class="o">}</span></td></tr><tr><th id="L202"><a href="#L202">202</a></th><td>        cbKentat<span class="o">.</span><span class="na">getSelectionModel</span><span class="o">().</span><span class="na">select</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span> </td></tr><tr><th id="L203"><a href="#L203">203</a></th><td>        </td></tr><tr><th id="L204"><a href="#L204">204</a></th><td>        edits <span class="o">=</span> TietueDialogController<span class="o">.</span><span class="na">luoKentat</span><span class="o">(</span>gridElokuva<span class="o">,</span> apuelokuva<span class="o">);</span></td></tr><tr><th id="L205"><a href="#L205">205</a></th><td>        <span class="k">for</span> <span class="o">(</span>TextField <span class="nl">edit:</span> edits<span class="o">)</span> <span class="o">{</span></td></tr><tr><th id="L206"><a href="#L206">206</a></th><td>             <span class="k">if</span> <span class="o">(</span> edit <span class="o">!=</span> <span class="kc">null</span> <span class="o">)</span> <span class="o">{</span> </td></tr><tr><th id="L207"><a href="#L207">207</a></th><td>                 edit<span class="o">.</span><span class="na">setEditable</span><span class="o">(</span><span class="kc">false</span><span class="o">);</span> </td></tr><tr><th id="L208"><a href="#L208">208</a></th><td>                 edit<span class="o">.</span><span class="na">setOnMouseClicked</span><span class="o">(</span>e <span class="o">-&gt;</span> <span class="o">{</span> <span class="k">if</span> <span class="o">(</span> e<span class="o">.</span><span class="na">getClickCount</span><span class="o">()</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="o">)</span> muokkaa<span class="o">(</span>getFieldId<span class="o">(</span>e<span class="o">.</span><span class="na">getSource</span><span class="o">(),</span><span class="mi">0</span><span class="o">));</span> <span class="o">});</span> </td></tr><tr><th id="L209"><a href="#L209">209</a></th><td>                 edit<span class="o">.</span><span class="na">focusedProperty</span><span class="o">().</span><span class="na">addListener</span><span class="o">((</span>a<span class="o">,</span>o<span class="o">,</span>n<span class="o">)</span> <span class="o">-&gt;</span> kentta <span class="o">=</span> getFieldId<span class="o">(</span>edit<span class="o">,</span>kentta<span class="o">));</span> </td></tr><tr><th id="L210"><a href="#L210">210</a></th><td>                 edit<span class="o">.</span><span class="na">setOnKeyPressed</span><span class="o">(</span> e <span class="o">-&gt;</span> <span class="o">{</span><span class="k">if</span> <span class="o">(</span> e<span class="o">.</span><span class="na">getCode</span><span class="o">()</span> <span class="o">==</span> KeyCode<span class="o">.</span><span class="na">F2</span> <span class="o">)</span> muokkaa<span class="o">(</span>kentta<span class="o">);});</span></td></tr><tr><th id="L211"><a href="#L211">211</a></th><td>             <span class="o">}</span></td></tr><tr><th id="L212"><a href="#L212">212</a></th><td>        <span class="o">}</span></td></tr><tr><th id="L213"><a href="#L213">213</a></th><td>        </td></tr><tr><th id="L214"><a href="#L214">214</a></th><td>        </td></tr><tr><th id="L215"><a href="#L215">215</a></th><td>        <span class="c1">// alustetaan näyttelijätaulukon otsikot</span></td></tr><tr><th id="L216"><a href="#L216">216</a></th><td><span class="c1"></span>        <span class="kt">int</span> eka <span class="o">=</span> apunayttelija<span class="o">.</span><span class="na">ekaKentta</span><span class="o">();</span></td></tr><tr><th id="L217"><a href="#L217">217</a></th><td>        <span class="kt">int</span> lkm <span class="o">=</span> apunayttelija<span class="o">.</span><span class="na">getKenttia</span><span class="o">();</span></td></tr><tr><th id="L218"><a href="#L218">218</a></th><td>        String<span class="o">[]</span> headings <span class="o">=</span> <span class="k">new</span> String<span class="o">[</span>lkm<span class="o">-</span>eka<span class="o">];</span></td></tr><tr><th id="L219"><a href="#L219">219</a></th><td>        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> i<span class="o">=</span><span class="mi">0</span><span class="o">,</span> k<span class="o">=</span>eka<span class="o">;</span> k<span class="o">&lt;</span>lkm<span class="o">;</span> i<span class="o">++,</span> k<span class="o">++)</span> <span class="o">{</span></td></tr><tr><th id="L220"><a href="#L220">220</a></th><td>            headings<span class="o">[</span>i<span class="o">]</span> <span class="o">=</span> apunayttelija<span class="o">.</span><span class="na">getKysymys</span><span class="o">(</span>k<span class="o">);</span></td></tr><tr><th id="L221"><a href="#L221">221</a></th><td>        <span class="o">}</span></td></tr><tr><th id="L222"><a href="#L222">222</a></th><td>        tableNayttelijat<span class="o">.</span><span class="na">initTable</span><span class="o">(</span>headings<span class="o">);</span></td></tr><tr><th id="L223"><a href="#L223">223</a></th><td>        tableNayttelijat<span class="o">.</span><span class="na">setColumnResizePolicy</span><span class="o">(</span>TableView<span class="o">.</span><span class="na">CONSTRAINED_RESIZE_POLICY</span><span class="o">);</span></td></tr><tr><th id="L224"><a href="#L224">224</a></th><td>        tableNayttelijat<span class="o">.</span><span class="na">setEditable</span><span class="o">(</span><span class="kc">false</span><span class="o">);</span></td></tr><tr><th id="L225"><a href="#L225">225</a></th><td>        tableNayttelijat<span class="o">.</span><span class="na">setPlaceholder</span><span class="o">(</span><span class="k">new</span> Label<span class="o">(</span><span class="s">"Ei vielä näyttelijöitä"</span><span class="o">));</span></td></tr><tr><th id="L226"><a href="#L226">226</a></th><td>        </td></tr><tr><th id="L227"><a href="#L227">227</a></th><td>        </td></tr><tr><th id="L228"><a href="#L228">228</a></th><td>        tableNayttelijat<span class="o">.</span><span class="na">setOnMouseClicked</span><span class="o">(</span> e <span class="o">-&gt;</span> <span class="o">{</span> <span class="k">if</span> <span class="o">(</span> e<span class="o">.</span><span class="na">getClickCount</span><span class="o">()</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="o">)</span> muokkaaNayttelijaa<span class="o">();</span> <span class="o">}</span> <span class="o">);</span></td></tr><tr><th id="L229"><a href="#L229">229</a></th><td>        tableNayttelijat<span class="o">.</span><span class="na">setOnKeyPressed</span><span class="o">(</span> e <span class="o">-&gt;</span> <span class="o">{</span><span class="k">if</span> <span class="o">(</span> e<span class="o">.</span><span class="na">getCode</span><span class="o">()</span> <span class="o">==</span> KeyCode<span class="o">.</span><span class="na">F2</span> <span class="o">)</span> muokkaaNayttelijaa<span class="o">();});</span></td></tr><tr><th id="L230"><a href="#L230">230</a></th><td>           </td></tr><tr><th id="L231"><a href="#L231">231</a></th><td>    <span class="o">}</span></td></tr><tr><th id="L232"><a href="#L232">232</a></th><td>    </td></tr><tr><th id="L233"><a href="#L233">233</a></th><td>    </td></tr><tr><th id="L234"><a href="#L234">234</a></th><td>    <span class="cm">/**</span></td></tr><tr><th id="L235"><a href="#L235">235</a></th><td><span class="cm">     * Kysytään tiedoston nimi ja luetaan se</span></td></tr><tr><th id="L236"><a href="#L236">236</a></th><td><span class="cm">     * @return true jos onnistui, false jos ei</span></td></tr><tr><th id="L237"><a href="#L237">237</a></th><td><span class="cm">     */</span></td></tr><tr><th id="L238"><a href="#L238">238</a></th><td>    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">avaa</span><span class="o">()</span> <span class="o">{</span></td></tr><tr><th id="L239"><a href="#L239">239</a></th><td>        String uusinimi <span class="o">=</span> TietokannanNimiController<span class="o">.</span><span class="na">kysyNimi</span><span class="o">(</span><span class="kc">null</span><span class="o">,</span> tietokannanNimi<span class="o">);</span></td></tr><tr><th id="L240"><a href="#L240">240</a></th><td>        <span class="k">if</span> <span class="o">(</span>uusinimi <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span></td></tr><tr><th id="L241"><a href="#L241">241</a></th><td>            <span class="k">return</span> <span class="kc">false</span><span class="o">;</span></td></tr><tr><th id="L242"><a href="#L242">242</a></th><td>        <span class="o">}</span></td></tr><tr><th id="L243"><a href="#L243">243</a></th><td>        lueTiedosto<span class="o">(</span>uusinimi<span class="o">);</span></td></tr><tr><th id="L244"><a href="#L244">244</a></th><td>        <span class="k">return</span> <span class="kc">true</span><span class="o">;</span></td></tr><tr><th id="L245"><a href="#L245">245</a></th><td>    <span class="o">}</span></td></tr><tr><th id="L246"><a href="#L246">246</a></th><td>    </td></tr><tr><th id="L247"><a href="#L247">247</a></th><td>    </td></tr><tr><th id="L248"><a href="#L248">248</a></th><td>    <span class="cm">/**</span></td></tr><tr><th id="L249"><a href="#L249">249</a></th><td><span class="cm">     * Näytetään ohjelman suunnitelma erillisessä selaimessa.</span></td></tr><tr><th id="L250"><a href="#L250">250</a></th><td><span class="cm">     */</span></td></tr><tr><th id="L251"><a href="#L251">251</a></th><td>    <span class="kd">private</span> <span class="kt">void</span> <span class="nf">avustus</span><span class="o">()</span> <span class="o">{</span></td></tr><tr><th id="L252"><a href="#L252">252</a></th><td>        Desktop desktop <span class="o">=</span> Desktop<span class="o">.</span><span class="na">getDesktop</span><span class="o">();</span></td></tr><tr><th id="L253"><a href="#L253">253</a></th><td>        <span class="k">try</span> <span class="o">{</span></td></tr><tr><th id="L254"><a href="#L254">254</a></th><td>            URI uri <span class="o">=</span> <span class="k">new</span> URI<span class="o">(</span><span class="s">"https://tim.jyu.fi/view/kurssit/tie/ohj2/2018k/ht/kijohiet"</span><span class="o">);</span></td></tr><tr><th id="L255"><a href="#L255">255</a></th><td>            desktop<span class="o">.</span><span class="na">browse</span><span class="o">(</span>uri<span class="o">);</span></td></tr><tr><th id="L256"><a href="#L256">256</a></th><td>        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span>URISyntaxException e<span class="o">)</span> <span class="o">{</span></td></tr><tr><th id="L257"><a href="#L257">257</a></th><td>            <span class="k">return</span><span class="o">;</span></td></tr><tr><th id="L258"><a href="#L258">258</a></th><td>        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span>IOException e<span class="o">)</span> <span class="o">{</span></td></tr><tr><th id="L259"><a href="#L259">259</a></th><td>            <span class="k">return</span><span class="o">;</span></td></tr><tr><th id="L260"><a href="#L260">260</a></th><td>        <span class="o">}</span></td></tr><tr><th id="L261"><a href="#L261">261</a></th><td>    <span class="o">}</span></td></tr><tr><th id="L262"><a href="#L262">262</a></th><td>    </td></tr><tr><th id="L263"><a href="#L263">263</a></th><td>    </td></tr><tr><th id="L264"><a href="#L264">264</a></th><td>    <span class="cm">/**</span></td></tr><tr><th id="L265"><a href="#L265">265</a></th><td><span class="cm">     * Hakee elokuvien tiedot listaan</span></td></tr><tr><th id="L266"><a href="#L266">266</a></th><td><span class="cm">     * @param enr elokuvan numero, joka aktivoidaan haun jälkeen</span></td></tr><tr><th id="L267"><a href="#L267">267</a></th><td><span class="cm">     */</span></td></tr><tr><th id="L268"><a href="#L268">268</a></th><td>    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">hae</span><span class="o">(</span><span class="kt">int</span> enr<span class="o">)</span> <span class="o">{</span></td></tr><tr><th id="L269"><a href="#L269">269</a></th><td>        <span class="kt">int</span> eNro <span class="o">=</span> enr<span class="o">;</span> <span class="c1">// eNro elokuvan numero, joka aktivoidaan haun jälkeen</span></td></tr><tr><th id="L270"><a href="#L270">270</a></th><td><span class="c1"></span>        <span class="k">if</span> <span class="o">(</span> eNro <span class="o">&lt;=</span> <span class="mi">0</span> <span class="o">)</span> <span class="o">{</span></td></tr><tr><th id="L271"><a href="#L271">271</a></th><td>            Elokuva kohdalla <span class="o">=</span> elokuvaKohdalla<span class="o">;</span></td></tr><tr><th id="L272"><a href="#L272">272</a></th><td>            <span class="k">if</span> <span class="o">(</span> kohdalla <span class="o">!=</span> <span class="kc">null</span> <span class="o">)</span> <span class="o">{</span></td></tr><tr><th id="L273"><a href="#L273">273</a></th><td>                eNro <span class="o">=</span> kohdalla<span class="o">.</span><span class="na">getTunnusNro</span><span class="o">();</span></td></tr><tr><th id="L274"><a href="#L274">274</a></th><td>            <span class="o">}</span></td></tr><tr><th id="L275"><a href="#L275">275</a></th><td>        <span class="o">}</span></td></tr><tr><th id="L276"><a href="#L276">276</a></th><td>        </td></tr><tr><th id="L277"><a href="#L277">277</a></th><td>        <span class="kt">int</span> k <span class="o">=</span> cbKentat<span class="o">.</span><span class="na">getSelectedIndex</span><span class="o">()</span> <span class="o">+</span> apuelokuva<span class="o">.</span><span class="na">ekaKentta</span><span class="o">();</span></td></tr><tr><th id="L278"><a href="#L278">278</a></th><td>        String ehto <span class="o">=</span> hakuehto<span class="o">.</span><span class="na">getText</span><span class="o">();</span> </td></tr><tr><th id="L279"><a href="#L279">279</a></th><td>        <span class="k">if</span> <span class="o">(</span>ehto<span class="o">.</span><span class="na">indexOf</span><span class="o">(</span><span class="sc">'*'</span><span class="o">)</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span></td></tr><tr><th id="L280"><a href="#L280">280</a></th><td>            ehto <span class="o">=</span> <span class="s">"*"</span> <span class="o">+</span> ehto <span class="o">+</span> <span class="s">"*"</span><span class="o">;</span></td></tr><tr><th id="L281"><a href="#L281">281</a></th><td>        <span class="o">}</span></td></tr><tr><th id="L282"><a href="#L282">282</a></th><td>        </td></tr><tr><th id="L283"><a href="#L283">283</a></th><td>        chooserElokuvat<span class="o">.</span><span class="na">clear</span><span class="o">();</span> </td></tr><tr><th id="L284"><a href="#L284">284</a></th><td>        </td></tr><tr><th id="L285"><a href="#L285">285</a></th><td>        <span class="kt">int</span> index <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> </td></tr><tr><th id="L286"><a href="#L286">286</a></th><td>        Collection<span class="o">&lt;</span>Elokuva<span class="o">&gt;</span> elokuvat<span class="o">;</span> </td></tr><tr><th id="L287"><a href="#L287">287</a></th><td>        <span class="k">try</span> <span class="o">{</span> </td></tr><tr><th id="L288"><a href="#L288">288</a></th><td>            elokuvat <span class="o">=</span> elokuvarekisteri<span class="o">.</span><span class="na">etsi</span><span class="o">(</span>ehto<span class="o">,</span> k<span class="o">);</span> </td></tr><tr><th id="L289"><a href="#L289">289</a></th><td>            <span class="kt">int</span> i <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> </td></tr><tr><th id="L290"><a href="#L290">290</a></th><td>            <span class="k">for</span> <span class="o">(</span>Elokuva elokuva <span class="o">:</span> elokuvat<span class="o">)</span> <span class="o">{</span> </td></tr><tr><th id="L291"><a href="#L291">291</a></th><td>                <span class="k">if</span> <span class="o">(</span>elokuva <span class="o">.</span><span class="na">getTunnusNro</span><span class="o">()</span> <span class="o">==</span> eNro<span class="o">)</span> <span class="o">{</span></td></tr><tr><th id="L292"><a href="#L292">292</a></th><td>                    index <span class="o">=</span> i<span class="o">;</span> </td></tr><tr><th id="L293"><a href="#L293">293</a></th><td>                <span class="o">}</span></td></tr><tr><th id="L294"><a href="#L294">294</a></th><td>                chooserElokuvat<span class="o">.</span><span class="na">add</span><span class="o">(</span>elokuva<span class="o">.</span><span class="na">getNimi</span><span class="o">(),</span> elokuva <span class="o">);</span> </td></tr><tr><th id="L295"><a href="#L295">295</a></th><td>                i<span class="o">++;</span> </td></tr><tr><th id="L296"><a href="#L296">296</a></th><td>            <span class="o">}</span> </td></tr><tr><th id="L297"><a href="#L297">297</a></th><td>        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span>SailoException ex<span class="o">)</span> <span class="o">{</span> </td></tr><tr><th id="L298"><a href="#L298">298</a></th><td>            Dialogs<span class="o">.</span><span class="na">showMessageDialog</span><span class="o">(</span><span class="s">"Elokuvan hakemisessa ongelmia! "</span> <span class="o">+</span> ex<span class="o">.</span><span class="na">getMessage</span><span class="o">());</span> </td></tr><tr><th id="L299"><a href="#L299">299</a></th><td>        <span class="o">}</span>       </td></tr><tr><th id="L300"><a href="#L300">300</a></th><td>        chooserElokuvat<span class="o">.</span><span class="na">setSelectedIndex</span><span class="o">(</span>index<span class="o">);</span> <span class="c1">// tästä tulee muutosviesti joka näyttää elokuvan</span></td></tr><tr><th id="L301"><a href="#L301">301</a></th><td><span class="c1"></span>    <span class="o">}</span></td></tr><tr><th id="L302"><a href="#L302">302</a></th><td>    </td></tr><tr><th id="L303"><a href="#L303">303</a></th><td>    </td></tr><tr><th id="L304"><a href="#L304">304</a></th><td>    <span class="nd">@Override</span></td></tr><tr><th id="L305"><a href="#L305">305</a></th><td>    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">initialize</span><span class="o">(</span>URL url<span class="o">,</span> ResourceBundle bundle<span class="o">)</span> <span class="o">{</span></td></tr><tr><th id="L306"><a href="#L306">306</a></th><td>        alusta<span class="o">();</span></td></tr><tr><th id="L307"><a href="#L307">307</a></th><td>    <span class="o">}</span></td></tr><tr><th id="L308"><a href="#L308">308</a></th><td>    </td></tr><tr><th id="L309"><a href="#L309">309</a></th><td>    </td></tr><tr><th id="L310"><a href="#L310">310</a></th><td>    <span class="cm">/**</span></td></tr><tr><th id="L311"><a href="#L311">311</a></th><td><span class="cm">     * Alustaa elokuvarekisterin lukemalla sen valitun nimisestä tiedostosta</span></td></tr><tr><th id="L312"><a href="#L312">312</a></th><td><span class="cm">     * @param nimi tiedosto josta elokuvarekisterin tiedot luetaan</span></td></tr><tr><th id="L313"><a href="#L313">313</a></th><td><span class="cm">     * @return null jos onnistuu, muuten virhe</span></td></tr><tr><th id="L314"><a href="#L314">314</a></th><td><span class="cm">     */</span></td></tr><tr><th id="L315"><a href="#L315">315</a></th><td>    <span class="kd">protected</span> String <span class="nf">lueTiedosto</span><span class="o">(</span>String nimi<span class="o">)</span> <span class="o">{</span></td></tr><tr><th id="L316"><a href="#L316">316</a></th><td>        tietokannanNimi <span class="o">=</span> nimi<span class="o">;</span></td></tr><tr><th id="L317"><a href="#L317">317</a></th><td>        setTitle<span class="o">(</span><span class="s">"Tietokanta - "</span> <span class="o">+</span> tietokannanNimi<span class="o">);</span></td></tr><tr><th id="L318"><a href="#L318">318</a></th><td>        <span class="k">try</span> <span class="o">{</span></td></tr><tr><th id="L319"><a href="#L319">319</a></th><td>            elokuvarekisteri<span class="o">.</span><span class="na">lueTiedostosta</span><span class="o">(</span>nimi<span class="o">);</span></td></tr><tr><th id="L320"><a href="#L320">320</a></th><td>            hae<span class="o">(</span><span class="mi">0</span><span class="o">);</span></td></tr><tr><th id="L321"><a href="#L321">321</a></th><td>            <span class="k">return</span> <span class="kc">null</span><span class="o">;</span></td></tr><tr><th id="L322"><a href="#L322">322</a></th><td>        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span>SailoException e<span class="o">)</span> <span class="o">{</span></td></tr><tr><th id="L323"><a href="#L323">323</a></th><td>            hae<span class="o">(</span><span class="mi">0</span><span class="o">);</span></td></tr><tr><th id="L324"><a href="#L324">324</a></th><td>            String virhe <span class="o">=</span> e<span class="o">.</span><span class="na">getMessage</span><span class="o">();</span></td></tr><tr><th id="L325"><a href="#L325">325</a></th><td>            <span class="k">if</span> <span class="o">(</span>virhe <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span></td></tr><tr><th id="L326"><a href="#L326">326</a></th><td>                Dialogs<span class="o">.</span><span class="na">showMessageDialog</span><span class="o">(</span>virhe<span class="o">);</span></td></tr><tr><th id="L327"><a href="#L327">327</a></th><td>            <span class="o">}</span></td></tr><tr><th id="L328"><a href="#L328">328</a></th><td>            <span class="k">return</span> virhe<span class="o">;</span></td></tr><tr><th id="L329"><a href="#L329">329</a></th><td>        <span class="o">}</span></td></tr><tr><th id="L330"><a href="#L330">330</a></th><td>    <span class="o">}</span></td></tr><tr><th id="L331"><a href="#L331">331</a></th><td>    </td></tr><tr><th id="L332"><a href="#L332">332</a></th><td>    </td></tr><tr><th id="L333"><a href="#L333">333</a></th><td>    <span class="cm">/**</span></td></tr><tr><th id="L334"><a href="#L334">334</a></th><td><span class="cm">     * Muokataan elokuvaa</span></td></tr><tr><th id="L335"><a href="#L335">335</a></th><td><span class="cm">     * @param k kenttä</span></td></tr><tr><th id="L336"><a href="#L336">336</a></th><td><span class="cm">     */</span></td></tr><tr><th id="L337"><a href="#L337">337</a></th><td>    <span class="kd">private</span> <span class="kt">void</span> <span class="nf">muokkaa</span><span class="o">(</span><span class="kt">int</span> k<span class="o">)</span> <span class="o">{</span> </td></tr><tr><th id="L338"><a href="#L338">338</a></th><td>         <span class="k">if</span> <span class="o">(</span> elokuvaKohdalla <span class="o">==</span> <span class="kc">null</span> <span class="o">)</span> <span class="o">{</span></td></tr><tr><th id="L339"><a href="#L339">339</a></th><td>             <span class="k">return</span><span class="o">;</span> </td></tr><tr><th id="L340"><a href="#L340">340</a></th><td>         <span class="o">}</span></td></tr><tr><th id="L341"><a href="#L341">341</a></th><td>         <span class="k">try</span> <span class="o">{</span> </td></tr><tr><th id="L342"><a href="#L342">342</a></th><td>             Elokuva elokuva<span class="o">;</span> </td></tr><tr><th id="L343"><a href="#L343">343</a></th><td>             elokuva <span class="o">=</span> TietueDialogController<span class="o">.</span><span class="na">kysyTietue</span><span class="o">(</span><span class="kc">null</span><span class="o">,</span> elokuvaKohdalla<span class="o">.</span><span class="na">clone</span><span class="o">(),</span> k<span class="o">);</span> </td></tr><tr><th id="L344"><a href="#L344">344</a></th><td>             <span class="k">if</span> <span class="o">(</span> elokuva <span class="o">==</span> <span class="kc">null</span> <span class="o">)</span> <span class="o">{</span></td></tr><tr><th id="L345"><a href="#L345">345</a></th><td>                 <span class="k">return</span><span class="o">;</span></td></tr><tr><th id="L346"><a href="#L346">346</a></th><td>             <span class="o">}</span></td></tr><tr><th id="L347"><a href="#L347">347</a></th><td>             elokuvarekisteri<span class="o">.</span><span class="na">korvaaTaiLisaa</span><span class="o">(</span>elokuva<span class="o">);</span> </td></tr><tr><th id="L348"><a href="#L348">348</a></th><td>             hae<span class="o">(</span>elokuva<span class="o">.</span><span class="na">getTunnusNro</span><span class="o">());</span> </td></tr><tr><th id="L349"><a href="#L349">349</a></th><td>         <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span>CloneNotSupportedException e<span class="o">)</span> <span class="o">{</span> </td></tr><tr><th id="L350"><a href="#L350">350</a></th><td>             <span class="c1">//</span></td></tr><tr><th id="L351"><a href="#L351">351</a></th><td><span class="c1"></span>         <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span>SailoException e<span class="o">)</span> <span class="o">{</span> </td></tr><tr><th id="L352"><a href="#L352">352</a></th><td>             Dialogs<span class="o">.</span><span class="na">showMessageDialog</span><span class="o">(</span>e<span class="o">.</span><span class="na">getMessage</span><span class="o">());</span> </td></tr><tr><th id="L353"><a href="#L353">353</a></th><td>         <span class="o">}</span> </td></tr><tr><th id="L354"><a href="#L354">354</a></th><td>    <span class="o">}</span></td></tr><tr><th id="L355"><a href="#L355">355</a></th><td>    </td></tr><tr><th id="L356"><a href="#L356">356</a></th><td></td></tr><tr><th id="L357"><a href="#L357">357</a></th><td>    <span class="cm">/**</span></td></tr><tr><th id="L358"><a href="#L358">358</a></th><td><span class="cm">     * Muokataan näyttelijää</span></td></tr><tr><th id="L359"><a href="#L359">359</a></th><td><span class="cm">     */</span></td></tr><tr><th id="L360"><a href="#L360">360</a></th><td>    <span class="kd">private</span> <span class="kt">void</span> <span class="nf">muokkaaNayttelijaa</span><span class="o">()</span> <span class="o">{</span></td></tr><tr><th id="L361"><a href="#L361">361</a></th><td>        <span class="kt">int</span> r <span class="o">=</span> tableNayttelijat<span class="o">.</span><span class="na">getRowNr</span><span class="o">();</span></td></tr><tr><th id="L362"><a href="#L362">362</a></th><td>        <span class="k">if</span> <span class="o">(</span> r <span class="o">&lt;</span> <span class="mi">0</span> <span class="o">)</span> <span class="o">{</span></td></tr><tr><th id="L363"><a href="#L363">363</a></th><td>            <span class="k">return</span><span class="o">;</span> <span class="c1">// klikattu ehkä otsikkoriviä</span></td></tr><tr><th id="L364"><a href="#L364">364</a></th><td><span class="c1"></span>        <span class="o">}</span></td></tr><tr><th id="L365"><a href="#L365">365</a></th><td>        Nayttelija nayttelija <span class="o">=</span> tableNayttelijat<span class="o">.</span><span class="na">getObject</span><span class="o">();</span></td></tr><tr><th id="L366"><a href="#L366">366</a></th><td>        <span class="k">if</span> <span class="o">(</span> nayttelija <span class="o">==</span> <span class="kc">null</span> <span class="o">)</span> <span class="k">return</span><span class="o">;</span></td></tr><tr><th id="L367"><a href="#L367">367</a></th><td>        <span class="kt">int</span> k <span class="o">=</span> tableNayttelijat<span class="o">.</span><span class="na">getColumnNr</span><span class="o">()+</span>nayttelija<span class="o">.</span><span class="na">ekaKentta</span><span class="o">();</span></td></tr><tr><th id="L368"><a href="#L368">368</a></th><td>        <span class="k">try</span> <span class="o">{</span></td></tr><tr><th id="L369"><a href="#L369">369</a></th><td>            nayttelija <span class="o">=</span> TietueDialogController<span class="o">.</span><span class="na">kysyTietue</span><span class="o">(</span><span class="kc">null</span><span class="o">,</span> nayttelija<span class="o">.</span><span class="na">clone</span><span class="o">(),</span> k<span class="o">);</span></td></tr><tr><th id="L370"><a href="#L370">370</a></th><td>            <span class="k">if</span> <span class="o">(</span> nayttelija <span class="o">==</span> <span class="kc">null</span> <span class="o">)</span> <span class="o">{</span></td></tr><tr><th id="L371"><a href="#L371">371</a></th><td>                <span class="k">return</span><span class="o">;</span></td></tr><tr><th id="L372"><a href="#L372">372</a></th><td>            <span class="o">}</span></td></tr><tr><th id="L373"><a href="#L373">373</a></th><td>            elokuvarekisteri<span class="o">.</span><span class="na">korvaaTaiLisaa</span><span class="o">(</span>nayttelija<span class="o">);</span> </td></tr><tr><th id="L374"><a href="#L374">374</a></th><td>            naytaNayttelijat<span class="o">(</span>elokuvaKohdalla<span class="o">);</span> </td></tr><tr><th id="L375"><a href="#L375">375</a></th><td>            tableNayttelijat<span class="o">.</span><span class="na">selectRow</span><span class="o">(</span>r<span class="o">);</span>  <span class="c1">// järjestetään sama rivi takaisin valituksi</span></td></tr><tr><th id="L376"><a href="#L376">376</a></th><td><span class="c1"></span>        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span>CloneNotSupportedException  e<span class="o">)</span> <span class="o">{</span> <span class="cm">/* clone on tehty */</span> </td></tr><tr><th id="L377"><a href="#L377">377</a></th><td>        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span>SailoException e<span class="o">)</span> <span class="o">{</span></td></tr><tr><th id="L378"><a href="#L378">378</a></th><td>            Dialogs<span class="o">.</span><span class="na">showMessageDialog</span><span class="o">(</span><span class="s">"Ongelmia lisäämisessä: "</span> <span class="o">+</span> e<span class="o">.</span><span class="na">getMessage</span><span class="o">());</span></td></tr><tr><th id="L379"><a href="#L379">379</a></th><td>        <span class="o">}</span></td></tr><tr><th id="L380"><a href="#L380">380</a></th><td>    <span class="o">}</span></td></tr><tr><th id="L381"><a href="#L381">381</a></th><td>    </td></tr><tr><th id="L382"><a href="#L382">382</a></th><td>    </td></tr><tr><th id="L383"><a href="#L383">383</a></th><td>    <span class="cm">/**</span></td></tr><tr><th id="L384"><a href="#L384">384</a></th><td><span class="cm">     * Näyttää listasta valitun elokuvan tiedot, tilapäisesti yhteen isoon edit-kenttään</span></td></tr><tr><th id="L385"><a href="#L385">385</a></th><td><span class="cm">     */</span></td></tr><tr><th id="L386"><a href="#L386">386</a></th><td>    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">naytaElokuva</span><span class="o">()</span> <span class="o">{</span></td></tr><tr><th id="L387"><a href="#L387">387</a></th><td>        elokuvaKohdalla <span class="o">=</span> chooserElokuvat<span class="o">.</span><span class="na">getSelectedObject</span><span class="o">();</span></td></tr><tr><th id="L388"><a href="#L388">388</a></th><td>        <span class="k">if</span> <span class="o">(</span>elokuvaKohdalla <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span></td></tr><tr><th id="L389"><a href="#L389">389</a></th><td>            <span class="k">return</span><span class="o">;</span></td></tr><tr><th id="L390"><a href="#L390">390</a></th><td>        <span class="o">}</span></td></tr><tr><th id="L391"><a href="#L391">391</a></th><td>        </td></tr><tr><th id="L392"><a href="#L392">392</a></th><td>        TietueDialogController<span class="o">.</span><span class="na">naytaTietue</span><span class="o">(</span>edits<span class="o">,</span> elokuvaKohdalla<span class="o">);</span></td></tr><tr><th id="L393"><a href="#L393">393</a></th><td>        naytaNayttelijat<span class="o">(</span>elokuvaKohdalla<span class="o">);</span></td></tr><tr><th id="L394"><a href="#L394">394</a></th><td>        </td></tr><tr><th id="L395"><a href="#L395">395</a></th><td>    <span class="o">}</span></td></tr><tr><th id="L396"><a href="#L396">396</a></th><td>    </td></tr><tr><th id="L397"><a href="#L397">397</a></th><td>    </td></tr><tr><th id="L398"><a href="#L398">398</a></th><td>    <span class="cm">/**</span></td></tr><tr><th id="L399"><a href="#L399">399</a></th><td><span class="cm">     * Lisätään yhden harrastuksen tiedot taulukkoon. </span></td></tr><tr><th id="L400"><a href="#L400">400</a></th><td><span class="cm">     * @param nayttelija näyttelijä joka näytetään</span></td></tr><tr><th id="L401"><a href="#L401">401</a></th><td><span class="cm">     */</span></td></tr><tr><th id="L402"><a href="#L402">402</a></th><td>    <span class="kd">private</span> <span class="kt">void</span> <span class="nf">naytaNayttelija</span><span class="o">(</span>Nayttelija nayttelija<span class="o">)</span> <span class="o">{</span></td></tr><tr><th id="L403"><a href="#L403">403</a></th><td>        <span class="kt">int</span> kenttia <span class="o">=</span> nayttelija<span class="o">.</span><span class="na">getKenttia</span><span class="o">();</span></td></tr><tr><th id="L404"><a href="#L404">404</a></th><td>        String<span class="o">[]</span> rivi <span class="o">=</span> <span class="k">new</span> String<span class="o">[</span>kenttia<span class="o">-</span>nayttelija<span class="o">.</span><span class="na">ekaKentta</span><span class="o">()];</span></td></tr><tr><th id="L405"><a href="#L405">405</a></th><td>        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> i<span class="o">=</span><span class="mi">0</span><span class="o">,</span> k<span class="o">=</span>nayttelija<span class="o">.</span><span class="na">ekaKentta</span><span class="o">();</span> k <span class="o">&lt;</span> kenttia<span class="o">;</span> i<span class="o">++,</span> k<span class="o">++)</span> <span class="o">{</span></td></tr><tr><th id="L406"><a href="#L406">406</a></th><td>            rivi<span class="o">[</span>i<span class="o">]</span> <span class="o">=</span> nayttelija<span class="o">.</span><span class="na">anna</span><span class="o">(</span>k<span class="o">);</span></td></tr><tr><th id="L407"><a href="#L407">407</a></th><td>        <span class="o">}</span></td></tr><tr><th id="L408"><a href="#L408">408</a></th><td>        tableNayttelijat<span class="o">.</span><span class="na">add</span><span class="o">(</span>nayttelija<span class="o">,</span>rivi<span class="o">);</span></td></tr><tr><th id="L409"><a href="#L409">409</a></th><td>    <span class="o">}</span></td></tr><tr><th id="L410"><a href="#L410">410</a></th><td>    </td></tr><tr><th id="L411"><a href="#L411">411</a></th><td>    </td></tr><tr><th id="L412"><a href="#L412">412</a></th><td>    <span class="cm">/**</span></td></tr><tr><th id="L413"><a href="#L413">413</a></th><td><span class="cm">     * Näytetään näyttelijät taulukkoon.  Tyhjennetään ensin taulukko ja sitten</span></td></tr><tr><th id="L414"><a href="#L414">414</a></th><td><span class="cm">     * lisätään siihen kaikki näyttelijät</span></td></tr><tr><th id="L415"><a href="#L415">415</a></th><td><span class="cm">     * @param elokuva elokuva, jonka näyttelijät näytetään</span></td></tr><tr><th id="L416"><a href="#L416">416</a></th><td><span class="cm">     */</span></td></tr><tr><th id="L417"><a href="#L417">417</a></th><td>    <span class="kd">private</span> <span class="kt">void</span> <span class="nf">naytaNayttelijat</span><span class="o">(</span>Elokuva elokuva<span class="o">)</span> <span class="o">{</span></td></tr><tr><th id="L418"><a href="#L418">418</a></th><td>        tableNayttelijat<span class="o">.</span><span class="na">clear</span><span class="o">();</span></td></tr><tr><th id="L419"><a href="#L419">419</a></th><td>        <span class="k">if</span> <span class="o">(</span> elokuva <span class="o">==</span> <span class="kc">null</span> <span class="o">)</span> <span class="o">{</span></td></tr><tr><th id="L420"><a href="#L420">420</a></th><td>            <span class="k">return</span><span class="o">;</span></td></tr><tr><th id="L421"><a href="#L421">421</a></th><td>        <span class="o">}</span></td></tr><tr><th id="L422"><a href="#L422">422</a></th><td>       </td></tr><tr><th id="L423"><a href="#L423">423</a></th><td>        <span class="k">try</span> <span class="o">{</span></td></tr><tr><th id="L424"><a href="#L424">424</a></th><td>            List<span class="o">&lt;</span>Nayttelija<span class="o">&gt;</span> nayttelijat <span class="o">=</span> elokuvarekisteri<span class="o">.</span><span class="na">annaNayttelijat</span><span class="o">(</span>elokuva<span class="o">);</span></td></tr><tr><th id="L425"><a href="#L425">425</a></th><td>            <span class="k">if</span> <span class="o">(</span> nayttelijat<span class="o">.</span><span class="na">size</span><span class="o">()</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">)</span> <span class="o">{</span></td></tr><tr><th id="L426"><a href="#L426">426</a></th><td>                <span class="k">return</span><span class="o">;</span></td></tr><tr><th id="L427"><a href="#L427">427</a></th><td>            <span class="o">}</span></td></tr><tr><th id="L428"><a href="#L428">428</a></th><td>            <span class="k">for</span> <span class="o">(</span>Nayttelija <span class="nl">nayttelija:</span> nayttelijat<span class="o">)</span> <span class="o">{</span></td></tr><tr><th id="L429"><a href="#L429">429</a></th><td>                naytaNayttelija<span class="o">(</span>nayttelija<span class="o">);</span></td></tr><tr><th id="L430"><a href="#L430">430</a></th><td>            <span class="o">}</span></td></tr><tr><th id="L431"><a href="#L431">431</a></th><td>        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span>SailoException e<span class="o">)</span> <span class="o">{</span></td></tr><tr><th id="L432"><a href="#L432">432</a></th><td>            <span class="c1">// naytaVirhe(e.getMessage());</span></td></tr><tr><th id="L433"><a href="#L433">433</a></th><td><span class="c1"></span>        <span class="o">}</span> </td></tr><tr><th id="L434"><a href="#L434">434</a></th><td>    <span class="o">}</span></td></tr><tr><th id="L435"><a href="#L435">435</a></th><td>    </td></tr><tr><th id="L436"><a href="#L436">436</a></th><td>    </td></tr><tr><th id="L437"><a href="#L437">437</a></th><td>    <span class="cm">/**</span></td></tr><tr><th id="L438"><a href="#L438">438</a></th><td><span class="cm">     * Poistetaan listalta valittu elokuva</span></td></tr><tr><th id="L439"><a href="#L439">439</a></th><td><span class="cm">     */</span></td></tr><tr><th id="L440"><a href="#L440">440</a></th><td>    <span class="kd">private</span> <span class="kt">void</span> <span class="nf">poistaElokuva</span><span class="o">()</span> <span class="o">{</span></td></tr><tr><th id="L441"><a href="#L441">441</a></th><td>        <span class="k">if</span> <span class="o">(</span> elokuvaKohdalla <span class="o">==</span> <span class="kc">null</span> <span class="o">)</span> <span class="o">{</span></td></tr><tr><th id="L442"><a href="#L442">442</a></th><td>            <span class="k">return</span><span class="o">;</span></td></tr><tr><th id="L443"><a href="#L443">443</a></th><td>        <span class="o">}</span></td></tr><tr><th id="L444"><a href="#L444">444</a></th><td>        <span class="k">if</span> <span class="o">(</span> <span class="o">!</span>Dialogs<span class="o">.</span><span class="na">showQuestionDialog</span><span class="o">(</span><span class="s">"Poisto"</span><span class="o">,</span> <span class="s">"Poistetaanko elokuva: "</span> <span class="o">+</span> elokuvaKohdalla<span class="o">.</span><span class="na">getNimi</span><span class="o">(),</span> <span class="s">"Kyllä"</span><span class="o">,</span> <span class="s">"Ei"</span><span class="o">)</span> <span class="o">)</span> <span class="o">{</span></td></tr><tr><th id="L445"><a href="#L445">445</a></th><td>            <span class="k">return</span><span class="o">;</span></td></tr><tr><th id="L446"><a href="#L446">446</a></th><td>        <span class="o">}</span></td></tr><tr><th id="L447"><a href="#L447">447</a></th><td>        elokuvarekisteri<span class="o">.</span><span class="na">poista</span><span class="o">(</span>elokuvaKohdalla<span class="o">);</span></td></tr><tr><th id="L448"><a href="#L448">448</a></th><td>        <span class="kt">int</span> index <span class="o">=</span> chooserElokuvat<span class="o">.</span><span class="na">getSelectedIndex</span><span class="o">();</span></td></tr><tr><th id="L449"><a href="#L449">449</a></th><td>        hae<span class="o">(</span><span class="mi">0</span><span class="o">);</span></td></tr><tr><th id="L450"><a href="#L450">450</a></th><td>        chooserElokuvat<span class="o">.</span><span class="na">setSelectedIndex</span><span class="o">(</span>index<span class="o">);</span></td></tr><tr><th id="L451"><a href="#L451">451</a></th><td>    <span class="o">}</span></td></tr><tr><th id="L452"><a href="#L452">452</a></th><td>    </td></tr><tr><th id="L453"><a href="#L453">453</a></th><td>    </td></tr><tr><th id="L454"><a href="#L454">454</a></th><td>    <span class="cm">/**</span></td></tr><tr><th id="L455"><a href="#L455">455</a></th><td><span class="cm">     * Poistetaan näyttelijätaulukosta valitulla kohdalla oleva näyttelijä.</span></td></tr><tr><th id="L456"><a href="#L456">456</a></th><td><span class="cm">     */</span></td></tr><tr><th id="L457"><a href="#L457">457</a></th><td>    <span class="kd">private</span> <span class="kt">void</span> <span class="nf">poistaNayttelija</span><span class="o">()</span> <span class="o">{</span></td></tr><tr><th id="L458"><a href="#L458">458</a></th><td>        Nayttelija nayttelija <span class="o">=</span> tableNayttelijat<span class="o">.</span><span class="na">getObject</span><span class="o">();</span></td></tr><tr><th id="L459"><a href="#L459">459</a></th><td>        <span class="k">if</span> <span class="o">(</span> nayttelija <span class="o">==</span> <span class="kc">null</span> <span class="o">)</span> <span class="o">{</span></td></tr><tr><th id="L460"><a href="#L460">460</a></th><td>            <span class="k">return</span><span class="o">;</span></td></tr><tr><th id="L461"><a href="#L461">461</a></th><td>        <span class="o">}</span></td></tr><tr><th id="L462"><a href="#L462">462</a></th><td>        <span class="kt">int</span> rivi <span class="o">=</span> tableNayttelijat<span class="o">.</span><span class="na">getRowNr</span><span class="o">();</span></td></tr><tr><th id="L463"><a href="#L463">463</a></th><td>        elokuvarekisteri<span class="o">.</span><span class="na">poistaNayttelija</span><span class="o">(</span>nayttelija<span class="o">);</span></td></tr><tr><th id="L464"><a href="#L464">464</a></th><td>        naytaNayttelijat<span class="o">(</span>elokuvaKohdalla<span class="o">);</span></td></tr><tr><th id="L465"><a href="#L465">465</a></th><td>        tableNayttelijat<span class="o">.</span><span class="na">selectRow</span><span class="o">(</span>rivi<span class="o">);</span></td></tr><tr><th id="L466"><a href="#L466">466</a></th><td>    <span class="o">}</span></td></tr><tr><th id="L467"><a href="#L467">467</a></th><td>    </td></tr><tr><th id="L468"><a href="#L468">468</a></th><td>    </td></tr><tr><th id="L469"><a href="#L469">469</a></th><td>    <span class="cm">/**</span></td></tr><tr><th id="L470"><a href="#L470">470</a></th><td><span class="cm">     * Näytetään random elokuvaehdotus</span></td></tr><tr><th id="L471"><a href="#L471">471</a></th><td><span class="cm">     */</span></td></tr><tr><th id="L472"><a href="#L472">472</a></th><td>    <span class="kd">private</span> <span class="kt">void</span> <span class="nf">random</span><span class="o">()</span> <span class="o">{</span></td></tr><tr><th id="L473"><a href="#L473">473</a></th><td>        Dialogs<span class="o">.</span><span class="na">showMessageDialog</span><span class="o">(</span><span class="s">"Elokuvaehdotus: "</span> <span class="o">+</span> Elokuvat<span class="o">.</span><span class="na">alkiot</span><span class="o">[</span>Tarkistaja<span class="o">.</span><span class="na">rand</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> Elokuvat<span class="o">.</span><span class="na">alkiot</span><span class="o">.</span><span class="na">length</span><span class="o">-</span><span class="mi">2</span><span class="o">)].</span><span class="na">getNimi</span><span class="o">());</span></td></tr><tr><th id="L474"><a href="#L474">474</a></th><td>    <span class="o">}</span></td></tr><tr><th id="L475"><a href="#L475">475</a></th><td>    </td></tr><tr><th id="L476"><a href="#L476">476</a></th><td>    </td></tr><tr><th id="L477"><a href="#L477">477</a></th><td>    <span class="cm">/**</span></td></tr><tr><th id="L478"><a href="#L478">478</a></th><td><span class="cm">     * @param elokuvarekisteri rekisteri jota käytetään tässä käyttöliittymässä</span></td></tr><tr><th id="L479"><a href="#L479">479</a></th><td><span class="cm">     */</span></td></tr><tr><th id="L480"><a href="#L480">480</a></th><td>    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setElokuvarekisteri</span><span class="o">(</span>Elokuvarekisteri elokuvarekisteri<span class="o">)</span> <span class="o">{</span></td></tr><tr><th id="L481"><a href="#L481">481</a></th><td>        <span class="k">this</span><span class="o">.</span><span class="na">elokuvarekisteri</span> <span class="o">=</span> elokuvarekisteri<span class="o">;</span></td></tr><tr><th id="L482"><a href="#L482">482</a></th><td>    <span class="o">}</span></td></tr><tr><th id="L483"><a href="#L483">483</a></th><td>    </td></tr><tr><th id="L484"><a href="#L484">484</a></th><td>    </td></tr><tr><th id="L485"><a href="#L485">485</a></th><td>    <span class="cm">/**</span></td></tr><tr><th id="L486"><a href="#L486">486</a></th><td><span class="cm">     * Asettaa otsikon ohjelmalle</span></td></tr><tr><th id="L487"><a href="#L487">487</a></th><td><span class="cm">     */</span></td></tr><tr><th id="L488"><a href="#L488">488</a></th><td>    <span class="kd">private</span> <span class="kt">void</span> <span class="nf">setTitle</span><span class="o">(</span>String title<span class="o">)</span> <span class="o">{</span></td></tr><tr><th id="L489"><a href="#L489">489</a></th><td>        ModalController<span class="o">.</span><span class="na">getStage</span><span class="o">(</span>hakuehto<span class="o">).</span><span class="na">setTitle</span><span class="o">(</span>title<span class="o">);</span></td></tr><tr><th id="L490"><a href="#L490">490</a></th><td>    <span class="o">}</span></td></tr><tr><th id="L491"><a href="#L491">491</a></th><td>    </td></tr><tr><th id="L492"><a href="#L492">492</a></th><td>    </td></tr><tr><th id="L493"><a href="#L493">493</a></th><td>    <span class="cm">/**</span></td></tr><tr><th id="L494"><a href="#L494">494</a></th><td><span class="cm">     * Tietojen tallennus</span></td></tr><tr><th id="L495"><a href="#L495">495</a></th><td><span class="cm">     * @return null jos onnistuu, muuten virhe tekstinä </span></td></tr><tr><th id="L496"><a href="#L496">496</a></th><td><span class="cm">     */</span></td></tr><tr><th id="L497"><a href="#L497">497</a></th><td>    <span class="kd">private</span> String <span class="nf">tallenna</span><span class="o">()</span> <span class="o">{</span></td></tr><tr><th id="L498"><a href="#L498">498</a></th><td>        <span class="k">try</span> <span class="o">{</span></td></tr><tr><th id="L499"><a href="#L499">499</a></th><td>            elokuvarekisteri<span class="o">.</span><span class="na">tallenna</span><span class="o">();</span></td></tr><tr><th id="L500"><a href="#L500">500</a></th><td>            <span class="k">return</span> <span class="kc">null</span><span class="o">;</span></td></tr><tr><th id="L501"><a href="#L501">501</a></th><td>        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span>SailoException ex<span class="o">)</span> <span class="o">{</span></td></tr><tr><th id="L502"><a href="#L502">502</a></th><td>            Dialogs<span class="o">.</span><span class="na">showMessageDialog</span><span class="o">(</span><span class="s">"Talletuksessa ongelmia! "</span> <span class="o">+</span> ex<span class="o">.</span><span class="na">getMessage</span><span class="o">());</span></td></tr><tr><th id="L503"><a href="#L503">503</a></th><td>            <span class="k">return</span> ex<span class="o">.</span><span class="na">getMessage</span><span class="o">();</span></td></tr><tr><th id="L504"><a href="#L504">504</a></th><td>        <span class="o">}</span></td></tr><tr><th id="L505"><a href="#L505">505</a></th><td>    <span class="o">}</span></td></tr><tr><th id="L506"><a href="#L506">506</a></th><td>    </td></tr><tr><th id="L507"><a href="#L507">507</a></th><td>    </td></tr><tr><th id="L508"><a href="#L508">508</a></th><td>    <span class="cm">/**</span></td></tr><tr><th id="L509"><a href="#L509">509</a></th><td><span class="cm">     * Tulostaa elokuvan tiedot muun muassa näyttelijät</span></td></tr><tr><th id="L510"><a href="#L510">510</a></th><td><span class="cm">     * @param os tietovirta johon tulostetaan</span></td></tr><tr><th id="L511"><a href="#L511">511</a></th><td><span class="cm">     * @param elokuva tulostettava elokuva</span></td></tr><tr><th id="L512"><a href="#L512">512</a></th><td><span class="cm">     */</span></td></tr><tr><th id="L513"><a href="#L513">513</a></th><td>    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">tulosta</span><span class="o">(</span>PrintStream os<span class="o">,</span> <span class="kd">final</span> Elokuva elokuva<span class="o">)</span> <span class="o">{</span></td></tr><tr><th id="L514"><a href="#L514">514</a></th><td>        os<span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"----------------------------------------------"</span><span class="o">);</span></td></tr><tr><th id="L515"><a href="#L515">515</a></th><td>        elokuva<span class="o">.</span><span class="na">tulosta</span><span class="o">(</span>os<span class="o">);</span></td></tr><tr><th id="L516"><a href="#L516">516</a></th><td>        os<span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"----------------------------------------------"</span><span class="o">);</span></td></tr><tr><th id="L517"><a href="#L517">517</a></th><td>        <span class="k">try</span> <span class="o">{</span></td></tr><tr><th id="L518"><a href="#L518">518</a></th><td>            List<span class="o">&lt;</span>Nayttelija<span class="o">&gt;</span> nayttelijat <span class="o">=</span> elokuvarekisteri<span class="o">.</span><span class="na">annaNayttelijat</span><span class="o">(</span>elokuva<span class="o">);</span></td></tr><tr><th id="L519"><a href="#L519">519</a></th><td>            <span class="k">for</span> <span class="o">(</span>Nayttelija <span class="nl">nayttelija:</span>nayttelijat<span class="o">)</span> <span class="o">{</span></td></tr><tr><th id="L520"><a href="#L520">520</a></th><td>                nayttelija<span class="o">.</span><span class="na">tulosta</span><span class="o">(</span>os<span class="o">);</span></td></tr><tr><th id="L521"><a href="#L521">521</a></th><td>            <span class="o">}</span>  </td></tr><tr><th id="L522"><a href="#L522">522</a></th><td>        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span>SailoException ex<span class="o">)</span> <span class="o">{</span></td></tr><tr><th id="L523"><a href="#L523">523</a></th><td>            Dialogs<span class="o">.</span><span class="na">showMessageDialog</span><span class="o">(</span><span class="s">"Näyttelijöiden lisäämisessä ongelmia! "</span> <span class="o">+</span> ex<span class="o">.</span><span class="na">getMessage</span><span class="o">());</span></td></tr><tr><th id="L524"><a href="#L524">524</a></th><td>        <span class="o">}</span></td></tr><tr><th id="L525"><a href="#L525">525</a></th><td>    <span class="o">}</span></td></tr><tr><th id="L526"><a href="#L526">526</a></th><td>    </td></tr><tr><th id="L527"><a href="#L527">527</a></th><td>    </td></tr><tr><th id="L528"><a href="#L528">528</a></th><td>    <span class="cm">/**</span></td></tr><tr><th id="L529"><a href="#L529">529</a></th><td><span class="cm">     * Tulostaa listassa olevat elokuvat tekstialueeseen</span></td></tr><tr><th id="L530"><a href="#L530">530</a></th><td><span class="cm">     * @param text alue johon tulostetaan</span></td></tr><tr><th id="L531"><a href="#L531">531</a></th><td><span class="cm">     */</span></td></tr><tr><th id="L532"><a href="#L532">532</a></th><td>    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">tulostaValitut</span><span class="o">(</span>TextArea text<span class="o">)</span> <span class="o">{</span></td></tr><tr><th id="L533"><a href="#L533">533</a></th><td>        <span class="k">try</span> <span class="o">(</span>PrintStream os <span class="o">=</span> TextAreaOutputStream<span class="o">.</span><span class="na">getTextPrintStream</span><span class="o">(</span>text<span class="o">))</span> <span class="o">{</span></td></tr><tr><th id="L534"><a href="#L534">534</a></th><td>            os<span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Tulostetaan kaikki elokuvat"</span><span class="o">);</span></td></tr><tr><th id="L535"><a href="#L535">535</a></th><td>            Collection<span class="o">&lt;</span>Elokuva<span class="o">&gt;</span> elokuvat <span class="o">=</span> elokuvarekisteri<span class="o">.</span><span class="na">etsi</span><span class="o">(</span><span class="s">""</span><span class="o">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">);</span></td></tr><tr><th id="L536"><a href="#L536">536</a></th><td>            <span class="k">for</span> <span class="o">(</span>Elokuva <span class="nl">elokuva:</span>elokuvat<span class="o">)</span> <span class="o">{</span></td></tr><tr><th id="L537"><a href="#L537">537</a></th><td>                tulosta<span class="o">(</span>os<span class="o">,</span> elokuva<span class="o">);</span></td></tr><tr><th id="L538"><a href="#L538">538</a></th><td>                os<span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"\n\n"</span><span class="o">);</span></td></tr><tr><th id="L539"><a href="#L539">539</a></th><td>            <span class="o">}</span></td></tr><tr><th id="L540"><a href="#L540">540</a></th><td>        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span>SailoException ex<span class="o">)</span> <span class="o">{</span></td></tr><tr><th id="L541"><a href="#L541">541</a></th><td>            Dialogs<span class="o">.</span><span class="na">showMessageDialog</span><span class="o">(</span><span class="s">"Elokuvan hakemisessa ongelmia! "</span> <span class="o">+</span> ex<span class="o">.</span><span class="na">getMessage</span><span class="o">());</span></td></tr><tr><th id="L542"><a href="#L542">542</a></th><td>        <span class="o">}</span></td></tr><tr><th id="L543"><a href="#L543">543</a></th><td>    <span class="o">}</span></td></tr><tr><th id="L544"><a href="#L544">544</a></th><td>    </td></tr><tr><th id="L545"><a href="#L545">545</a></th><td>    </td></tr><tr><th id="L546"><a href="#L546">546</a></th><td>    <span class="cm">/**</span></td></tr><tr><th id="L547"><a href="#L547">547</a></th><td><span class="cm">     * Luo uuden elokuvan jota aletaan editoimaan </span></td></tr><tr><th id="L548"><a href="#L548">548</a></th><td><span class="cm">     */</span></td></tr><tr><th id="L549"><a href="#L549">549</a></th><td>    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">uusiElokuva</span><span class="o">()</span> <span class="o">{</span></td></tr><tr><th id="L550"><a href="#L550">550</a></th><td>        <span class="k">try</span> <span class="o">{</span></td></tr><tr><th id="L551"><a href="#L551">551</a></th><td>            Elokuva uusi <span class="o">=</span> <span class="k">new</span> Elokuva<span class="o">();</span></td></tr><tr><th id="L552"><a href="#L552">552</a></th><td>            uusi <span class="o">=</span> TietueDialogController<span class="o">.</span><span class="na">kysyTietue</span><span class="o">(</span><span class="kc">null</span><span class="o">,</span> uusi<span class="o">,</span> <span class="mi">0</span><span class="o">);</span> </td></tr><tr><th id="L553"><a href="#L553">553</a></th><td>            <span class="k">if</span> <span class="o">(</span> uusi <span class="o">==</span> <span class="kc">null</span> <span class="o">)</span> <span class="o">{</span></td></tr><tr><th id="L554"><a href="#L554">554</a></th><td>                <span class="k">return</span><span class="o">;</span> </td></tr><tr><th id="L555"><a href="#L555">555</a></th><td>            <span class="o">}</span></td></tr><tr><th id="L556"><a href="#L556">556</a></th><td>            uusi<span class="o">.</span><span class="na">rekisteroi</span><span class="o">();</span> </td></tr><tr><th id="L557"><a href="#L557">557</a></th><td>            elokuvarekisteri<span class="o">.</span><span class="na">lisaa</span><span class="o">(</span>uusi<span class="o">);</span></td></tr><tr><th id="L558"><a href="#L558">558</a></th><td>            hae<span class="o">(</span>uusi<span class="o">.</span><span class="na">getTunnusNro</span><span class="o">());</span> </td></tr><tr><th id="L559"><a href="#L559">559</a></th><td>        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span>SailoException e<span class="o">)</span> <span class="o">{</span></td></tr><tr><th id="L560"><a href="#L560">560</a></th><td>            Dialogs<span class="o">.</span><span class="na">showMessageDialog</span><span class="o">(</span><span class="s">"Ongelmia uuden luomisessa "</span> <span class="o">+</span> e<span class="o">.</span><span class="na">getMessage</span><span class="o">());</span></td></tr><tr><th id="L561"><a href="#L561">561</a></th><td>            <span class="k">return</span><span class="o">;</span></td></tr><tr><th id="L562"><a href="#L562">562</a></th><td>        <span class="o">}</span></td></tr><tr><th id="L563"><a href="#L563">563</a></th><td>    <span class="o">}</span></td></tr><tr><th id="L564"><a href="#L564">564</a></th><td>    </td></tr><tr><th id="L565"><a href="#L565">565</a></th><td>    </td></tr><tr><th id="L566"><a href="#L566">566</a></th><td>    <span class="cm">/**</span></td></tr><tr><th id="L567"><a href="#L567">567</a></th><td><span class="cm">     * Luo uuden näyttelijän jota aletaan editoimaan </span></td></tr><tr><th id="L568"><a href="#L568">568</a></th><td><span class="cm">     */</span></td></tr><tr><th id="L569"><a href="#L569">569</a></th><td>    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">uusiNayttelija</span><span class="o">()</span> <span class="o">{</span></td></tr><tr><th id="L570"><a href="#L570">570</a></th><td>        <span class="k">if</span> <span class="o">(</span> elokuvaKohdalla <span class="o">==</span> <span class="kc">null</span> <span class="o">)</span> <span class="o">{</span></td></tr><tr><th id="L571"><a href="#L571">571</a></th><td>            <span class="k">return</span><span class="o">;</span></td></tr><tr><th id="L572"><a href="#L572">572</a></th><td>        <span class="o">}</span></td></tr><tr><th id="L573"><a href="#L573">573</a></th><td>        <span class="k">try</span> <span class="o">{</span></td></tr><tr><th id="L574"><a href="#L574">574</a></th><td>            Nayttelija uusi <span class="o">=</span> <span class="k">new</span> Nayttelija<span class="o">(</span>elokuvaKohdalla<span class="o">.</span><span class="na">getTunnusNro</span><span class="o">());</span></td></tr><tr><th id="L575"><a href="#L575">575</a></th><td>            uusi <span class="o">=</span> TietueDialogController<span class="o">.</span><span class="na">kysyTietue</span><span class="o">(</span><span class="kc">null</span><span class="o">,</span> uusi<span class="o">,</span> <span class="mi">0</span><span class="o">);</span></td></tr><tr><th id="L576"><a href="#L576">576</a></th><td>            <span class="k">if</span> <span class="o">(</span> uusi <span class="o">==</span> <span class="kc">null</span> <span class="o">)</span> <span class="o">{</span></td></tr><tr><th id="L577"><a href="#L577">577</a></th><td>                <span class="k">return</span><span class="o">;</span></td></tr><tr><th id="L578"><a href="#L578">578</a></th><td>            <span class="o">}</span></td></tr><tr><th id="L579"><a href="#L579">579</a></th><td>            uusi<span class="o">.</span><span class="na">rekisteroi</span><span class="o">();</span></td></tr><tr><th id="L580"><a href="#L580">580</a></th><td>            elokuvarekisteri<span class="o">.</span><span class="na">lisaa</span><span class="o">(</span>uusi<span class="o">);</span></td></tr><tr><th id="L581"><a href="#L581">581</a></th><td>            naytaNayttelijat<span class="o">(</span>elokuvaKohdalla<span class="o">);</span> </td></tr><tr><th id="L582"><a href="#L582">582</a></th><td>            tableNayttelijat<span class="o">.</span><span class="na">selectRow</span><span class="o">(</span><span class="mi">1000</span><span class="o">);</span>  <span class="c1">// järjestetään viimeinen rivi valituksi</span></td></tr><tr><th id="L583"><a href="#L583">583</a></th><td><span class="c1"></span>        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span>SailoException e<span class="o">)</span> <span class="o">{</span></td></tr><tr><th id="L584"><a href="#L584">584</a></th><td>            Dialogs<span class="o">.</span><span class="na">showMessageDialog</span><span class="o">(</span><span class="s">"Lisääminen epäonnistui: "</span> <span class="o">+</span> e<span class="o">.</span><span class="na">getMessage</span><span class="o">());</span></td></tr><tr><th id="L585"><a href="#L585">585</a></th><td>        <span class="o">}</span> </td></tr><tr><th id="L586"><a href="#L586">586</a></th><td>    <span class="o">}</span></td></tr><tr><th id="L587"><a href="#L587">587</a></th><td>    </td></tr><tr><th id="L588"><a href="#L588">588</a></th><td>    </td></tr><tr><th id="L589"><a href="#L589">589</a></th><td>    <span class="cm">/**</span></td></tr><tr><th id="L590"><a href="#L590">590</a></th><td><span class="cm">     * Tarkistetaan onko tallennus tehty</span></td></tr><tr><th id="L591"><a href="#L591">591</a></th><td><span class="cm">     * @return true jos saa sulkea sovelluksen, false jos ei</span></td></tr><tr><th id="L592"><a href="#L592">592</a></th><td><span class="cm">     */</span></td></tr><tr><th id="L593"><a href="#L593">593</a></th><td>    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">voikoSulkea</span><span class="o">()</span> <span class="o">{</span></td></tr><tr><th id="L594"><a href="#L594">594</a></th><td>        tallenna<span class="o">();</span></td></tr><tr><th id="L595"><a href="#L595">595</a></th><td>        <span class="k">return</span> <span class="kc">true</span><span class="o">;</span></td></tr><tr><th id="L596"><a href="#L596">596</a></th><td>    <span class="o">}</span></td></tr><tr><th id="L597"><a href="#L597">597</a></th><td><span class="o">}</span></td></tr></tbody></table>
+        edits = TietueDialogController.luoKentat(gridElokuva, apuelokuva);
+        for (TextField edit: edits) {
+             if ( edit != null ) { 
+                 edit.setEditable(false); 
+                 edit.setOnMouseClicked(e -> { if ( e.getClickCount() > 1 ) muokkaa(getFieldId(e.getSource(),0)); }); 
+                 edit.focusedProperty().addListener((a,o,n) -> kentta = getFieldId(edit,kentta)); 
+                 edit.setOnKeyPressed( e -> {if ( e.getCode() == KeyCode.F2 ) muokkaa(kentta);});
+             }
+        }
+        
+        
+        // alustetaan n�yttelij�taulukon otsikot
+        int eka = apunayttelija.ekaKentta();
+        int lkm = apunayttelija.getKenttia();
+        String[] headings = new String[lkm-eka];
+        for (int i=0, k=eka; k<lkm; i++, k++) {
+            headings[i] = apunayttelija.getKysymys(k);
+        }
+        tableNayttelijat.initTable(headings);
+        tableNayttelijat.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
+        tableNayttelijat.setEditable(false);
+        tableNayttelijat.setPlaceholder(new Label("Ei viel� n�yttelij�it�"));
+        
+        
+        tableNayttelijat.setOnMouseClicked( e -> { if ( e.getClickCount() > 1 ) muokkaaNayttelijaa(); } );
+        tableNayttelijat.setOnKeyPressed( e -> {if ( e.getCode() == KeyCode.F2 ) muokkaaNayttelijaa();});
+           
+    }
+    
+    
+    /**
+     * Kysyt��n tiedoston nimi ja luetaan se
+     * @return true jos onnistui, false jos ei
+     */
+    public boolean avaa() {
+        String uusinimi = TietokannanNimiController.kysyNimi(null, tietokannanNimi);
+        if (uusinimi == null) {
+            return false;
+        }
+        lueTiedosto(uusinimi);
+        return true;
+    }
+    
+    
+    /**
+     * N�ytet��n ohjelman suunnitelma erillisess� selaimessa.
+     */
+    private void avustus() {
+        Desktop desktop = Desktop.getDesktop();
+        try {
+            URI uri = new URI("https://tim.jyu.fi/view/kurssit/tie/ohj2/2018k/ht/kijohiet");
+            desktop.browse(uri);
+        } catch (URISyntaxException e) {
+            return;
+        } catch (IOException e) {
+            return;
+        }
+    }
+    
+    
+    /**
+     * Hakee elokuvien tiedot listaan
+     * @param enr elokuvan numero, joka aktivoidaan haun j�lkeen
+     */
+    protected void hae(int enr) {
+        int eNro = enr; // eNro elokuvan numero, joka aktivoidaan haun j�lkeen
+        if ( eNro <= 0 ) {
+            Elokuva kohdalla = elokuvaKohdalla;
+            if ( kohdalla != null ) {
+                eNro = kohdalla.getTunnusNro();
+            }
+        }
+        
+        int k = cbKentat.getSelectedIndex() + apuelokuva.ekaKentta();
+        String ehto = hakuehto.getText(); 
+        if (ehto.indexOf('*') < 0) {
+            ehto = "*" + ehto + "*";
+        }
+        
+        chooserElokuvat.clear(); 
+        
+        int index = 0; 
+        Collection<Elokuva> elokuvat; 
+        try { 
+            elokuvat = elokuvarekisteri.etsi(ehto, k); 
+            int i = 0; 
+            for (Elokuva elokuva : elokuvat) { 
+                if (elokuva .getTunnusNro() == eNro) {
+                    index = i; 
+                }
+                chooserElokuvat.add(elokuva.getNimi(), elokuva ); 
+                i++; 
+            } 
+        } catch (SailoException ex) { 
+            Dialogs.showMessageDialog("Elokuvan hakemisessa ongelmia! " + ex.getMessage()); 
+        }       
+        chooserElokuvat.setSelectedIndex(index); // t�st� tulee muutosviesti joka n�ytt�� elokuvan
+    }
+    
+    
+    @Override
+    public void initialize(URL url, ResourceBundle bundle) {
+        alusta();
+    }
+    
+    
+    /**
+     * Alustaa elokuvarekisterin lukemalla sen valitun nimisest� tiedostosta
+     * @param nimi tiedosto josta elokuvarekisterin tiedot luetaan
+     * @return null jos onnistuu, muuten virhe
+     */
+    protected String lueTiedosto(String nimi) {
+        tietokannanNimi = nimi;
+        setTitle("Tietokanta - " + tietokannanNimi);
+        try {
+            elokuvarekisteri.lueTiedostosta(nimi);
+            hae(0);
+            return null;
+        } catch (SailoException e) {
+            hae(0);
+            String virhe = e.getMessage();
+            if (virhe != null) {
+                Dialogs.showMessageDialog(virhe);
+            }
+            return virhe;
+        }
+    }
+    
+    
+    /**
+     * Muokataan elokuvaa
+     * @param k kentt�
+     */
+    private void muokkaa(int k) { 
+         if ( elokuvaKohdalla == null ) {
+             return; 
+         }
+         try { 
+             Elokuva elokuva; 
+             elokuva = TietueDialogController.kysyTietue(null, elokuvaKohdalla.clone(), k); 
+             if ( elokuva == null ) {
+                 return;
+             }
+             elokuvarekisteri.korvaaTaiLisaa(elokuva); 
+             hae(elokuva.getTunnusNro()); 
+         } catch (CloneNotSupportedException e) { 
+             //
+         } catch (SailoException e) { 
+             Dialogs.showMessageDialog(e.getMessage()); 
+         } 
+    }
+    
 
-      </div>
-      <div id="help"><strong>Huomaa:</strong> Katso <a href="/projects/ohj2ht/wiki/TracBrowser">TracBrowser</a>
-        löytääksesi ohjeita tiedostovaraston selaamiseksi.</div>
-      <div id="anydiff">
-        <form action="/projects/ohj2ht/diff" method="get">
-          <div class="buttons">
-            <input type="hidden" name="new_path" value="/k2018/kijohiet/tags/vaihe7/src/fxElokuvat/ElokuvatController.java" />
-            <input type="hidden" name="old_path" value="/k2018/kijohiet/tags/vaihe7/src/fxElokuvat/ElokuvatController.java" />
-            <input type="hidden" name="new_rev" value="50131" />
-            <input type="hidden" name="old_rev" value="50131" />
-            <input type="submit" value="Näytä muutokset..." title="Select paths and revs for Diff" />
-          </div>
-        </form>
-      </div>
-    </div>
-    <div id="altlinks">
-      <h3>Lataa muissa muodoissa:</h3>
-      <ul>
-        <li class="first">
-          <a rel="nofollow" href="/projects/ohj2ht/browser/k2018/kijohiet/tags/vaihe7/src/fxElokuvat/ElokuvatController.java?rev=50131&amp;format=txt">Pelkkä teksti</a>
-        </li><li class="last">
-          <a rel="nofollow" href="/projects/ohj2ht/export/50131/k2018/kijohiet/tags/vaihe7/src/fxElokuvat/ElokuvatController.java">Alkuperäinen muoto</a>
-        </li>
-      </ul>
-    </div>
-    </div>
-    <div id="footer" lang="en" xml:lang="en"><hr />
-      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="/projects/ohj2ht/chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
-      <p class="left">Ohjelmaversio: <a href="/projects/ohj2ht/about"><strong>Trac 0.12.5</strong></a><br />
-Toimittaja: <a href="http://www.edgewall.org/">Edgewall Software</a>.</p>
-      <p class="right">Trac-projektin sivut löydät osoitteesta <br /><a href="http://trac.edgewall.org/">http://trac.edgewall.org/</a></p>
-    </div>
-    <div id="sitefooter" class="alalinkkipalkki">
-      <p>Ohjelmointi 2 - kevät 2019</p>
-    </div>
-  </body>
-</html>
+    /**
+     * Muokataan n�yttelij��
+     */
+    private void muokkaaNayttelijaa() {
+        int r = tableNayttelijat.getRowNr();
+        if ( r < 0 ) {
+            return; // klikattu ehk� otsikkorivi�
+        }
+        Nayttelija nayttelija = tableNayttelijat.getObject();
+        if ( nayttelija == null ) return;
+        int k = tableNayttelijat.getColumnNr()+nayttelija.ekaKentta();
+        try {
+            nayttelija = TietueDialogController.kysyTietue(null, nayttelija.clone(), k);
+            if ( nayttelija == null ) {
+                return;
+            }
+            elokuvarekisteri.korvaaTaiLisaa(nayttelija); 
+            naytaNayttelijat(elokuvaKohdalla); 
+            tableNayttelijat.selectRow(r);  // j�rjestet��n sama rivi takaisin valituksi
+        } catch (CloneNotSupportedException  e) { /* clone on tehty */ 
+        } catch (SailoException e) {
+            Dialogs.showMessageDialog("Ongelmia lis��misess�: " + e.getMessage());
+        }
+    }
+    
+    
+    /**
+     * N�ytt�� listasta valitun elokuvan tiedot, tilap�isesti yhteen isoon edit-kentt��n
+     */
+    protected void naytaElokuva() {
+        elokuvaKohdalla = chooserElokuvat.getSelectedObject();
+        if (elokuvaKohdalla == null) {
+            return;
+        }
+        
+        TietueDialogController.naytaTietue(edits, elokuvaKohdalla);
+        naytaNayttelijat(elokuvaKohdalla);
+        
+    }
+    
+    
+    /**
+     * Lis�t��n yhden harrastuksen tiedot taulukkoon. 
+     * @param nayttelija n�yttelij� joka n�ytet��n
+     */
+    private void naytaNayttelija(Nayttelija nayttelija) {
+        int kenttia = nayttelija.getKenttia();
+        String[] rivi = new String[kenttia-nayttelija.ekaKentta()];
+        for (int i=0, k=nayttelija.ekaKentta(); k < kenttia; i++, k++) {
+            rivi[i] = nayttelija.anna(k);
+        }
+        tableNayttelijat.add(nayttelija,rivi);
+    }
+    
+    
+    /**
+     * N�ytet��n n�yttelij�t taulukkoon.  Tyhjennet��n ensin taulukko ja sitten
+     * lis�t��n siihen kaikki n�yttelij�t
+     * @param elokuva elokuva, jonka n�yttelij�t n�ytet��n
+     */
+    private void naytaNayttelijat(Elokuva elokuva) {
+        tableNayttelijat.clear();
+        if ( elokuva == null ) {
+            return;
+        }
+       
+        try {
+            List<Nayttelija> nayttelijat = elokuvarekisteri.annaNayttelijat(elokuva);
+            if ( nayttelijat.size() == 0 ) {
+                return;
+            }
+            for (Nayttelija nayttelija: nayttelijat) {
+                naytaNayttelija(nayttelija);
+            }
+        } catch (SailoException e) {
+            // naytaVirhe(e.getMessage());
+        } 
+    }
+    
+    
+    /**
+     * Poistetaan listalta valittu elokuva
+     */
+    private void poistaElokuva() {
+        if ( elokuvaKohdalla == null ) {
+            return;
+        }
+        if ( !Dialogs.showQuestionDialog("Poisto", "Poistetaanko elokuva: " + elokuvaKohdalla.getNimi(), "Kyll�", "Ei") ) {
+            return;
+        }
+        elokuvarekisteri.poista(elokuvaKohdalla);
+        int index = chooserElokuvat.getSelectedIndex();
+        hae(0);
+        chooserElokuvat.setSelectedIndex(index);
+    }
+    
+    
+    /**
+     * Poistetaan n�yttelij�taulukosta valitulla kohdalla oleva n�yttelij�.
+     */
+    private void poistaNayttelija() {
+        Nayttelija nayttelija = tableNayttelijat.getObject();
+        if ( nayttelija == null ) {
+            return;
+        }
+        int rivi = tableNayttelijat.getRowNr();
+        elokuvarekisteri.poistaNayttelija(nayttelija);
+        naytaNayttelijat(elokuvaKohdalla);
+        tableNayttelijat.selectRow(rivi);
+    }
+    
+    
+    /**
+     * N�ytet��n random elokuvaehdotus
+     */
+    private void random() {
+        Dialogs.showMessageDialog("Elokuvaehdotus: " + Elokuvat.alkiot[Tarkistaja.rand(0, Elokuvat.alkiot.length-2)].getNimi());
+    }
+    
+    
+    /**
+     * @param elokuvarekisteri rekisteri jota k�ytet��n t�ss� k�ytt�liittym�ss�
+     */
+    public void setElokuvarekisteri(Elokuvarekisteri elokuvarekisteri) {
+        this.elokuvarekisteri = elokuvarekisteri;
+    }
+    
+    
+    /**
+     * Asettaa otsikon ohjelmalle
+     */
+    private void setTitle(String title) {
+        ModalController.getStage(hakuehto).setTitle(title);
+    }
+    
+    
+    /**
+     * Tietojen tallennus
+     * @return null jos onnistuu, muuten virhe tekstin� 
+     */
+    private String tallenna() {
+        try {
+            elokuvarekisteri.tallenna();
+            return null;
+        } catch (SailoException ex) {
+            Dialogs.showMessageDialog("Talletuksessa ongelmia! " + ex.getMessage());
+            return ex.getMessage();
+        }
+    }
+    
+    
+    /**
+     * Tulostaa elokuvan tiedot muun muassa n�yttelij�t
+     * @param os tietovirta johon tulostetaan
+     * @param elokuva tulostettava elokuva
+     */
+    public void tulosta(PrintStream os, final Elokuva elokuva) {
+        os.println("----------------------------------------------");
+        elokuva.tulosta(os);
+        os.println("----------------------------------------------");
+        try {
+            List<Nayttelija> nayttelijat = elokuvarekisteri.annaNayttelijat(elokuva);
+            for (Nayttelija nayttelija:nayttelijat) {
+                nayttelija.tulosta(os);
+            }  
+        } catch (SailoException ex) {
+            Dialogs.showMessageDialog("N�yttelij�iden lis��misess� ongelmia! " + ex.getMessage());
+        }
+    }
+    
+    
+    /**
+     * Tulostaa listassa olevat elokuvat tekstialueeseen
+     * @param text alue johon tulostetaan
+     */
+    public void tulostaValitut(TextArea text) {
+        try (PrintStream os = TextAreaOutputStream.getTextPrintStream(text)) {
+            os.println("Tulostetaan kaikki elokuvat");
+            Collection<Elokuva> elokuvat = elokuvarekisteri.etsi("", -1);
+            for (Elokuva elokuva:elokuvat) {
+                tulosta(os, elokuva);
+                os.println("\n\n");
+            }
+        } catch (SailoException ex) {
+            Dialogs.showMessageDialog("Elokuvan hakemisessa ongelmia! " + ex.getMessage());
+        }
+    }
+    
+    
+    /**
+     * Luo uuden elokuvan jota aletaan editoimaan 
+     */
+    protected void uusiElokuva() {
+        try {
+            Elokuva uusi = new Elokuva();
+            uusi = TietueDialogController.kysyTietue(null, uusi, 0); 
+            if ( uusi == null ) {
+                return; 
+            }
+            uusi.rekisteroi(); 
+            elokuvarekisteri.lisaa(uusi);
+            hae(uusi.getTunnusNro()); 
+        } catch (SailoException e) {
+            Dialogs.showMessageDialog("Ongelmia uuden luomisessa " + e.getMessage());
+            return;
+        }
+    }
+    
+    
+    /**
+     * Luo uuden n�yttelij�n jota aletaan editoimaan 
+     */
+    protected void uusiNayttelija() {
+        if ( elokuvaKohdalla == null ) {
+            return;
+        }
+        try {
+            Nayttelija uusi = new Nayttelija(elokuvaKohdalla.getTunnusNro());
+            uusi = TietueDialogController.kysyTietue(null, uusi, 0);
+            if ( uusi == null ) {
+                return;
+            }
+            uusi.rekisteroi();
+            elokuvarekisteri.lisaa(uusi);
+            naytaNayttelijat(elokuvaKohdalla); 
+            tableNayttelijat.selectRow(1000);  // j�rjestet��n viimeinen rivi valituksi
+        } catch (SailoException e) {
+            Dialogs.showMessageDialog("Lis��minen ep�onnistui: " + e.getMessage());
+        } 
+    }
+    
+    
+    /**
+     * Tarkistetaan onko tallennus tehty
+     * @return true jos saa sulkea sovelluksen, false jos ei
+     */
+    public boolean voikoSulkea() {
+        tallenna();
+        return true;
+    }
+}

@@ -1,164 +1,199 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-  
-  
+package fxElokuvat;
 
-  
+import java.net.URL;
+import java.util.ResourceBundle;
 
+import fi.jyu.mit.fxgui.Dialogs;
+import fi.jyu.mit.fxgui.ModalController;
+import fi.jyu.mit.fxgui.ModalControllerInterface;
+import fi.jyu.mit.ohj2.Mjonot;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
+import kanta.Tietue;
 
-  <head>
-    <title>
-      tiedosto TietueDialogController.java hakemistossa k2018/kijohiet/tags/vaihe7/src/fxElokuvat
-     – Ohjelmointi 2 HT
-    </title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <!--[if IE]><script type="text/javascript">
-      if (/^#__msie303:/.test(window.location.hash))
-        window.location.replace(window.location.hash.replace(/^#__msie303:/, '#'));
-    </script><![endif]-->
-        <link rel="search" href="/projects/ohj2ht/search" />
-        <link rel="help" href="/projects/ohj2ht/wiki/TracGuide" />
-        <link rel="alternate" href="/projects/ohj2ht/browser/k2018/kijohiet/tags/vaihe7/src/fxElokuvat/TietueDialogController.java?rev=50131&amp;format=txt" type="text/plain" title="Pelkkä teksti" /><link rel="alternate" href="/projects/ohj2ht/export/50131/k2018/kijohiet/tags/vaihe7/src/fxElokuvat/TietueDialogController.java" type="text/x-java; charset=iso-8859-15" title="Alkuperäinen muoto" />
-        <link rel="up" href="/projects/ohj2ht/browser/k2018/kijohiet/trunk/src/fxElokuvat/TietueDialogController.java" />
-        <link rel="start" href="/projects/ohj2ht/wiki" />
-        <link rel="stylesheet" href="/projects/ohj2ht/chrome/common/css/trac.css" type="text/css" /><link rel="stylesheet" href="/projects/ohj2ht/chrome/common/css/code.css" type="text/css" /><link rel="stylesheet" href="/projects/ohj2ht/pygments/trac.css" type="text/css" /><link rel="stylesheet" href="/projects/ohj2ht/chrome/common/css/browser.css" type="text/css" />
-        <link rel="shortcut icon" href="/projects/ohj2ht/chrome/common/trac.ico" type="image/x-icon" />
-        <link rel="icon" href="/projects/ohj2ht/chrome/common/trac.ico" type="image/x-icon" />
-      <link type="application/opensearchdescription+xml" rel="search" href="/projects/ohj2ht/search/opensearch" title="Etsi projektista Ohjelmointi 2 HT" />
-    <script type="text/javascript" src="/projects/ohj2ht/chrome/common/js/jquery.js"></script><script type="text/javascript" src="/projects/ohj2ht/chrome/common/js/babel.js"></script><script type="text/javascript" src="/projects/ohj2ht/chrome/common/js/messages/fi.js"></script><script type="text/javascript" src="/projects/ohj2ht/chrome/common/js/trac.js"></script><script type="text/javascript" src="/projects/ohj2ht/chrome/common/js/search.js"></script>
-    <!--[if lt IE 7]>
-    <script type="text/javascript" src="/projects/ohj2ht/chrome/common/js/ie_pre7_hacks.js"></script>
-    <![endif]-->
-    <script type="text/javascript" src="/projects/ohj2ht/chrome/common/js/folding.js"></script>
-    <script type="text/javascript">
-      jQuery(document).ready(function($) {
-        $(".trac-toggledeleted").show().click(function() {
-                  $(this).siblings().find(".trac-deleted").toggle();
-                  return false;
-        }).click();
-        $("#jumploc input").hide();
-        $("#jumploc select").change(function () {
-          this.parentNode.parentNode.submit();
-        });
-          $('#preview table.code').enableCollapsibleColumns($('#preview table.code thead th.content'));
-      });
-    </script>
-    <link rel="stylesheet" type="text/css" href="https://trac.cc.jyu.fi/projects/ohj1/export/0/css/style.css" />
-<!--          href="https://svn.cc.jyu.fi/srv/svn/ohj2/css/style.css" /> -->
-<!--          href="${href.chrome('site/style.css')}" /> -->
-  </head>
-  <body>
-    <div id="siteheader" class="ylalinkkipalkki">
-<p>Ohjelmointi 2 - kevät 2019
-<a class="ylalinkki" href="https://tim.jyu.fi/view/kurssit/tie/ohj2/2019k/koti">Koti 2019</a>
-<a class="ylalinkki" href="https://tim.jyu.fi/view/kurssit/tie/ohj2/2019k/luentojen-aiheet">Luennot</a>
-<a class="ylalinkki" href="https://tim.jyu.fi/view/kurssit/tie/ohj2/2019k/paate/paate">Ohjaukset</a>
-<a class="ylalinkki" href="https://tim.jyu.fi/view/kurssit/tie/ohj2/harjoitustyo/ohje">Harjoitustyö</a>
-<a class="ylalinkki" href="https://tim.jyu.fi/view/kurssit/tie/ohj2/tyokaluja">Työkalut</a>
-<a class="ylalinkki" href="https://tim.jyu.fi/view/2">Moniste</a>
-<a class="ylalinkki" href="https://tim.jyu.fi/view/kurssit/tie/ohj2/2019k/demotyleinen">Demot</a>
-</p>
-</div>
-    <div id="banner">
-      <div id="header">
-        <a id="logo" href="/projects/ohj2ht/wiki/TracIni#header_logo-section"><img src="/projects/ohj2ht/chrome/common/trac_banner.png" alt="" /></a>
-      </div>
-      <form id="search" action="/projects/ohj2ht/search" method="get">
-        <div>
-          <label for="proj-search">Haku:</label>
-          <input type="text" id="proj-search" name="q" size="18" value="" />
-          <input type="submit" value="Haku" />
-        </div>
-      </form>
-      <div id="metanav" class="nav">
-    <ul>
-      <li class="first"><a href="/projects/ohj2ht/login">Kirjaudu sisään</a></li><li><a href="/projects/ohj2ht/prefs">Asetukset</a></li><li><a href="/projects/ohj2ht/wiki/TracGuide">Ohjeet</a></li><li class="last"><a href="/projects/ohj2ht/about">Tietoja Tracista</a></li>
-    </ul>
-  </div>
-    </div>
-    <div id="mainnav" class="nav">
-    <ul>
-      <li class="first"><a href="/projects/ohj2ht/wiki">Wiki</a></li><li class="active"><a href="/projects/ohj2ht/browser">Selaa koodia</a></li><li class="last"><a href="/projects/ohj2ht/search">Haku</a></li>
-    </ul>
-  </div>
-    <div id="main">
-      <div id="ctxtnav" class="nav">
-        <h2>Kontekstin navigointi</h2>
-          <ul>
-              <li class="first"><span class="missing">&larr; Edellinen versio</span></li><li><a href="/projects/ohj2ht/browser/k2018/kijohiet/trunk/src/fxElokuvat/TietueDialogController.java">Uusin versio</a></li><li><span class="missing">Seuraava versio &rarr;</span></li><li><a href="/projects/ohj2ht/browser/k2018/kijohiet/trunk/src/fxElokuvat/TietueDialogController.java?annotate=blame&amp;rev=50131" title="Merkitse jokaisen rivin lähdeversio (viimeisin versio jossa kyseistä riviä on muutettu). Tämä saattaa kestää pitkään...">Blame</a></li><li class="last"><a href="/projects/ohj2ht/log/k2018/kijohiet/tags/vaihe7/src/fxElokuvat/TietueDialogController.java?rev=50131">Versioloki</a></li>
-          </ul>
-        <hr />
-      </div>
-    <div id="content" class="browser">
-          <h1>
-<a class="pathentry first" href="/projects/ohj2ht/browser?order=name" title="Siirry tiedostovaraston alkuun">source:</a>
-<a class="pathentry" href="/projects/ohj2ht/browser/k2018?rev=50131&amp;order=name" title="Näytä k2018">k2018</a><span class="pathentry sep">/</span><a class="pathentry" href="/projects/ohj2ht/browser/k2018/kijohiet?rev=50131&amp;order=name" title="Näytä kijohiet">kijohiet</a><span class="pathentry sep">/</span><a class="pathentry" href="/projects/ohj2ht/browser/k2018/kijohiet/tags?rev=50131&amp;order=name" title="Näytä tags">tags</a><span class="pathentry sep">/</span><a class="pathentry" href="/projects/ohj2ht/browser/k2018/kijohiet/tags/vaihe7?rev=50131&amp;order=name" title="Näytä vaihe7">vaihe7</a><span class="pathentry sep">/</span><a class="pathentry" href="/projects/ohj2ht/browser/k2018/kijohiet/tags/vaihe7/src?rev=50131&amp;order=name" title="Näytä src">src</a><span class="pathentry sep">/</span><a class="pathentry" href="/projects/ohj2ht/browser/k2018/kijohiet/tags/vaihe7/src/fxElokuvat?rev=50131&amp;order=name" title="Näytä fxElokuvat">fxElokuvat</a><span class="pathentry sep">/</span><a class="pathentry" href="/projects/ohj2ht/browser/k2018/kijohiet/tags/vaihe7/src/fxElokuvat/TietueDialogController.java?rev=50131&amp;order=name" title="Näytä TietueDialogController.java">TietueDialogController.java</a>
-<span class="pathentry sep">@</span>
-  <a class="pathentry" href="/projects/ohj2ht/changeset/50131" title="Näytä muutos 50131">50131</a>
-<br style="clear: both" />
-</h1>
-        <div id="jumprev">
-          <form action="" method="get">
-            <div>
-              <label for="rev" title="Vinkki: jätä kenttä tyhjäksi nähdäksesi uusin versio">
-                Näytä versio</label>
-              <input type="text" id="rev" name="rev" value="50131" size="6" />
-            </div>
-          </form>
-        </div>
-      <table id="info" summary="Version tiedot">
-        <tr>
-          <th scope="col">Version <a href="/projects/ohj2ht/changeset/50050">50050</a>,
-            <span title="6271 tavua">6.1 KB</span>
-            tallensi kijohiet, <a class="timeline" href="/projects/ohj2ht/timeline?from=2018-04-16T23%3A54%3A12%2B03%3A00&amp;precision=second" title="2018-04-16T23:54:12+03:00 aikajanalla">11 kuukautta</a> sitten
-            (<a href="/projects/ohj2ht/changeset/50050/k2018/kijohiet/trunk/src/fxElokuvat/TietueDialogController.java">muutokset</a>)</th>
-        </tr>
-        <tr>
-          <td class="message searchable">
-              <p>
-Vaihe 7<br />
-</p>
-          </td>
-        </tr>
-      </table>
-      <div id="preview" class="searchable">
-        
-  <table class="code"><thead><tr><th class="lineno" title="Rivinumerot">Rivi</th><th class="content"> </th></tr></thead><tbody><tr><th id="L1"><a href="#L1">1</a></th><td><span class="kn">package</span> fxElokuvat<span class="o">;</span></td></tr><tr><th id="L2"><a href="#L2">2</a></th><td></td></tr><tr><th id="L3"><a href="#L3">3</a></th><td><span class="kn">import</span> <span class="nn">java.net.URL</span><span class="o">;</span></td></tr><tr><th id="L4"><a href="#L4">4</a></th><td><span class="kn">import</span> <span class="nn">java.util.ResourceBundle</span><span class="o">;</span></td></tr><tr><th id="L5"><a href="#L5">5</a></th><td></td></tr><tr><th id="L6"><a href="#L6">6</a></th><td><span class="kn">import</span> <span class="nn">fi.jyu.mit.fxgui.Dialogs</span><span class="o">;</span></td></tr><tr><th id="L7"><a href="#L7">7</a></th><td><span class="kn">import</span> <span class="nn">fi.jyu.mit.fxgui.ModalController</span><span class="o">;</span></td></tr><tr><th id="L8"><a href="#L8">8</a></th><td><span class="kn">import</span> <span class="nn">fi.jyu.mit.fxgui.ModalControllerInterface</span><span class="o">;</span></td></tr><tr><th id="L9"><a href="#L9">9</a></th><td><span class="kn">import</span> <span class="nn">fi.jyu.mit.ohj2.Mjonot</span><span class="o">;</span></td></tr><tr><th id="L10"><a href="#L10">10</a></th><td><span class="kn">import</span> <span class="nn">javafx.fxml.FXML</span><span class="o">;</span></td></tr><tr><th id="L11"><a href="#L11">11</a></th><td><span class="kn">import</span> <span class="nn">javafx.fxml.Initializable</span><span class="o">;</span></td></tr><tr><th id="L12"><a href="#L12">12</a></th><td><span class="kn">import</span> <span class="nn">javafx.scene.Node</span><span class="o">;</span></td></tr><tr><th id="L13"><a href="#L13">13</a></th><td><span class="kn">import</span> <span class="nn">javafx.scene.control.Label</span><span class="o">;</span></td></tr><tr><th id="L14"><a href="#L14">14</a></th><td><span class="kn">import</span> <span class="nn">javafx.scene.control.ScrollPane</span><span class="o">;</span></td></tr><tr><th id="L15"><a href="#L15">15</a></th><td><span class="kn">import</span> <span class="nn">javafx.scene.control.TextField</span><span class="o">;</span></td></tr><tr><th id="L16"><a href="#L16">16</a></th><td><span class="kn">import</span> <span class="nn">javafx.scene.layout.GridPane</span><span class="o">;</span></td></tr><tr><th id="L17"><a href="#L17">17</a></th><td><span class="kn">import</span> <span class="nn">javafx.stage.Stage</span><span class="o">;</span></td></tr><tr><th id="L18"><a href="#L18">18</a></th><td><span class="kn">import</span> <span class="nn">kanta.Tietue</span><span class="o">;</span></td></tr><tr><th id="L19"><a href="#L19">19</a></th><td></td></tr><tr><th id="L20"><a href="#L20">20</a></th><td><span class="cm">/**</span></td></tr><tr><th id="L21"><a href="#L21">21</a></th><td><span class="cm"> * Kysytään tietueen tiedot luomalla sille uusi dialogi</span></td></tr><tr><th id="L22"><a href="#L22">22</a></th><td><span class="cm"> *</span></td></tr><tr><th id="L23"><a href="#L23">23</a></th><td><span class="cm"> * @author vesal</span></td></tr><tr><th id="L24"><a href="#L24">24</a></th><td><span class="cm"> * @version 11.1.2016</span></td></tr><tr><th id="L25"><a href="#L25">25</a></th><td><span class="cm"> * @param &lt;TYPE&gt; Minkä tyyppisiä olioita käsitellään</span></td></tr><tr><th id="L26"><a href="#L26">26</a></th><td><span class="cm"> *</span></td></tr><tr><th id="L27"><a href="#L27">27</a></th><td><span class="cm"> */</span></td></tr><tr><th id="L28"><a href="#L28">28</a></th><td><span class="kd">public</span> <span class="kd">class</span> <span class="nc">TietueDialogController</span><span class="o">&lt;</span>TYPE <span class="kd">extends</span> Tietue<span class="o">&gt;</span> <span class="kd">implements</span> ModalControllerInterface<span class="o">&lt;</span>TYPE<span class="o">&gt;,</span>Initializable  <span class="o">{</span></td></tr><tr><th id="L29"><a href="#L29">29</a></th><td></td></tr><tr><th id="L30"><a href="#L30">30</a></th><td>    <span class="nd">@FXML</span> <span class="kd">private</span> ScrollPane panelTietue<span class="o">;</span></td></tr><tr><th id="L31"><a href="#L31">31</a></th><td>    <span class="nd">@FXML</span> <span class="kd">private</span> GridPane gridTietue<span class="o">;</span></td></tr><tr><th id="L32"><a href="#L32">32</a></th><td>    <span class="nd">@FXML</span> <span class="kd">private</span> Label labelVirhe<span class="o">;</span></td></tr><tr><th id="L33"><a href="#L33">33</a></th><td></td></tr><tr><th id="L34"><a href="#L34">34</a></th><td>    <span class="nd">@Override</span></td></tr><tr><th id="L35"><a href="#L35">35</a></th><td>    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">initialize</span><span class="o">(</span>URL url<span class="o">,</span> ResourceBundle bundle<span class="o">)</span> <span class="o">{</span></td></tr><tr><th id="L36"><a href="#L36">36</a></th><td>       <span class="c1">// alusta(); </span></td></tr><tr><th id="L37"><a href="#L37">37</a></th><td><span class="c1"></span>    <span class="o">}</span></td></tr><tr><th id="L38"><a href="#L38">38</a></th><td>   </td></tr><tr><th id="L39"><a href="#L39">39</a></th><td>    <span class="nd">@FXML</span> <span class="kd">private</span> <span class="kt">void</span> handleOK<span class="o">()</span> <span class="o">{</span></td></tr><tr><th id="L40"><a href="#L40">40</a></th><td>        <span class="k">if</span> <span class="o">(</span> tietueKohdalla <span class="o">!=</span> <span class="kc">null</span> <span class="o">&amp;&amp;</span> tietueKohdalla<span class="o">.</span><span class="na">anna</span><span class="o">(</span>tietueKohdalla<span class="o">.</span><span class="na">ekaKentta</span><span class="o">()).</span><span class="na">trim</span><span class="o">().</span><span class="na">equals</span><span class="o">(</span><span class="s">""</span><span class="o">)</span> <span class="o">)</span> <span class="o">{</span></td></tr><tr><th id="L41"><a href="#L41">41</a></th><td>            naytaVirhe<span class="o">(</span><span class="s">"Ei saa olla tyhjä"</span><span class="o">);</span></td></tr><tr><th id="L42"><a href="#L42">42</a></th><td>            <span class="k">return</span><span class="o">;</span></td></tr><tr><th id="L43"><a href="#L43">43</a></th><td>        <span class="o">}</span></td></tr><tr><th id="L44"><a href="#L44">44</a></th><td>        ModalController<span class="o">.</span><span class="na">closeStage</span><span class="o">(</span>labelVirhe<span class="o">);</span></td></tr><tr><th id="L45"><a href="#L45">45</a></th><td>    <span class="o">}</span></td></tr><tr><th id="L46"><a href="#L46">46</a></th><td></td></tr><tr><th id="L47"><a href="#L47">47</a></th><td>   </td></tr><tr><th id="L48"><a href="#L48">48</a></th><td>    <span class="nd">@FXML</span> <span class="kd">private</span> <span class="kt">void</span> handleCancel<span class="o">()</span> <span class="o">{</span></td></tr><tr><th id="L49"><a href="#L49">49</a></th><td>        tietueKohdalla <span class="o">=</span> <span class="kc">null</span><span class="o">;</span></td></tr><tr><th id="L50"><a href="#L50">50</a></th><td>        ModalController<span class="o">.</span><span class="na">closeStage</span><span class="o">(</span>labelVirhe<span class="o">);</span></td></tr><tr><th id="L51"><a href="#L51">51</a></th><td>    <span class="o">}</span></td></tr><tr><th id="L52"><a href="#L52">52</a></th><td></td></tr><tr><th id="L53"><a href="#L53">53</a></th><td><span class="c1">// ========================================================   </span></td></tr><tr><th id="L54"><a href="#L54">54</a></th><td><span class="c1"></span>    <span class="kd">private</span> TYPE tietueKohdalla<span class="o">;</span></td></tr><tr><th id="L55"><a href="#L55">55</a></th><td>    <span class="kd">private</span> TextField<span class="o">[]</span> edits<span class="o">;</span></td></tr><tr><th id="L56"><a href="#L56">56</a></th><td>    <span class="kd">private</span> <span class="kt">int</span> kentta <span class="o">=</span> <span class="mi">0</span><span class="o">;</span></td></tr><tr><th id="L57"><a href="#L57">57</a></th><td>   </td></tr><tr><th id="L58"><a href="#L58">58</a></th><td></td></tr><tr><th id="L59"><a href="#L59">59</a></th><td>    <span class="cm">/**</span></td></tr><tr><th id="L60"><a href="#L60">60</a></th><td><span class="cm">     * Luodaan GridPaneen tietueen tiedot</span></td></tr><tr><th id="L61"><a href="#L61">61</a></th><td><span class="cm">     * @param gridTietue mihin tiedot luodaan</span></td></tr><tr><th id="L62"><a href="#L62">62</a></th><td><span class="cm">     * @param aputietue malli josta tiedot otetaan</span></td></tr><tr><th id="L63"><a href="#L63">63</a></th><td><span class="cm">     * @return luodut tekstikentät</span></td></tr><tr><th id="L64"><a href="#L64">64</a></th><td><span class="cm">     */</span></td></tr><tr><th id="L65"><a href="#L65">65</a></th><td>    <span class="kd">public</span> <span class="kd">static</span><span class="o">&lt;</span>TYPE <span class="kd">extends</span> Tietue<span class="o">&gt;</span> TextField<span class="o">[]</span> luoKentat<span class="o">(</span>GridPane gridTietue<span class="o">,</span> TYPE aputietue<span class="o">)</span> <span class="o">{</span></td></tr><tr><th id="L66"><a href="#L66">66</a></th><td>        gridTietue<span class="o">.</span><span class="na">getChildren</span><span class="o">().</span><span class="na">clear</span><span class="o">();</span></td></tr><tr><th id="L67"><a href="#L67">67</a></th><td>        TextField<span class="o">[]</span> edits <span class="o">=</span> <span class="k">new</span> TextField<span class="o">[</span>aputietue<span class="o">.</span><span class="na">getKenttia</span><span class="o">()];</span></td></tr><tr><th id="L68"><a href="#L68">68</a></th><td>       </td></tr><tr><th id="L69"><a href="#L69">69</a></th><td>        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> i<span class="o">=</span><span class="mi">0</span><span class="o">,</span> k <span class="o">=</span> aputietue<span class="o">.</span><span class="na">ekaKentta</span><span class="o">();</span> k <span class="o">&lt;</span> aputietue<span class="o">.</span><span class="na">getKenttia</span><span class="o">();</span> k<span class="o">++,</span> i<span class="o">++)</span> <span class="o">{</span></td></tr><tr><th id="L70"><a href="#L70">70</a></th><td>            Label label <span class="o">=</span> <span class="k">new</span> Label<span class="o">(</span>aputietue<span class="o">.</span><span class="na">getKysymys</span><span class="o">(</span>k<span class="o">));</span></td></tr><tr><th id="L71"><a href="#L71">71</a></th><td>            gridTietue<span class="o">.</span><span class="na">add</span><span class="o">(</span>label<span class="o">,</span> <span class="mi">0</span><span class="o">,</span> i<span class="o">);</span></td></tr><tr><th id="L72"><a href="#L72">72</a></th><td>            TextField edit <span class="o">=</span> <span class="k">new</span> TextField<span class="o">();</span></td></tr><tr><th id="L73"><a href="#L73">73</a></th><td>            edits<span class="o">[</span>k<span class="o">]</span> <span class="o">=</span> edit<span class="o">;</span></td></tr><tr><th id="L74"><a href="#L74">74</a></th><td>            edit<span class="o">.</span><span class="na">setId</span><span class="o">(</span><span class="s">"e"</span><span class="o">+</span>k<span class="o">);</span></td></tr><tr><th id="L75"><a href="#L75">75</a></th><td>            gridTietue<span class="o">.</span><span class="na">add</span><span class="o">(</span>edit<span class="o">,</span> <span class="mi">1</span><span class="o">,</span> i<span class="o">);</span></td></tr><tr><th id="L76"><a href="#L76">76</a></th><td>        <span class="o">}</span></td></tr><tr><th id="L77"><a href="#L77">77</a></th><td>        <span class="k">return</span> edits<span class="o">;</span></td></tr><tr><th id="L78"><a href="#L78">78</a></th><td>    <span class="o">}</span></td></tr><tr><th id="L79"><a href="#L79">79</a></th><td>   </td></tr><tr><th id="L80"><a href="#L80">80</a></th><td></td></tr><tr><th id="L81"><a href="#L81">81</a></th><td>    <span class="cm">/**</span></td></tr><tr><th id="L82"><a href="#L82">82</a></th><td><span class="cm">     * Palautetaan komponentin id:stä saatava luku</span></td></tr><tr><th id="L83"><a href="#L83">83</a></th><td><span class="cm">     * @param obj tutkittava komponentti</span></td></tr><tr><th id="L84"><a href="#L84">84</a></th><td><span class="cm">     * @param oletus mikä arvo jos id ei ole kunnollinen</span></td></tr><tr><th id="L85"><a href="#L85">85</a></th><td><span class="cm">     * @return komponentin id lukuna</span></td></tr><tr><th id="L86"><a href="#L86">86</a></th><td><span class="cm">     */</span></td></tr><tr><th id="L87"><a href="#L87">87</a></th><td>    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">getFieldId</span><span class="o">(</span>Object obj<span class="o">,</span> <span class="kt">int</span> oletus<span class="o">)</span> <span class="o">{</span></td></tr><tr><th id="L88"><a href="#L88">88</a></th><td>        <span class="k">if</span> <span class="o">(</span> <span class="o">!(</span> obj <span class="k">instanceof</span> Node<span class="o">))</span> <span class="k">return</span> oletus<span class="o">;</span></td></tr><tr><th id="L89"><a href="#L89">89</a></th><td>        Node node <span class="o">=</span> <span class="o">(</span>Node<span class="o">)</span>obj<span class="o">;</span></td></tr><tr><th id="L90"><a href="#L90">90</a></th><td>        <span class="k">return</span> Mjonot<span class="o">.</span><span class="na">erotaInt</span><span class="o">(</span>node<span class="o">.</span><span class="na">getId</span><span class="o">().</span><span class="na">substring</span><span class="o">(</span><span class="mi">1</span><span class="o">),</span>oletus<span class="o">);</span></td></tr><tr><th id="L91"><a href="#L91">91</a></th><td>    <span class="o">}</span></td></tr><tr><th id="L92"><a href="#L92">92</a></th><td>   </td></tr><tr><th id="L93"><a href="#L93">93</a></th><td>   </td></tr><tr><th id="L94"><a href="#L94">94</a></th><td>    <span class="cm">/**</span></td></tr><tr><th id="L95"><a href="#L95">95</a></th><td><span class="cm">     * Tekee tarvittavat muut alustukset, nyt vaihdetaan GridPanen tilalle</span></td></tr><tr><th id="L96"><a href="#L96">96</a></th><td><span class="cm">     * yksi iso tekstikenttä, johon voidaan tulostaa tietueen tiedot.</span></td></tr><tr><th id="L97"><a href="#L97">97</a></th><td><span class="cm">     */</span></td></tr><tr><th id="L98"><a href="#L98">98</a></th><td>    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">alusta</span><span class="o">()</span> <span class="o">{</span></td></tr><tr><th id="L99"><a href="#L99">99</a></th><td>        edits <span class="o">=</span> luoKentat<span class="o">(</span>gridTietue<span class="o">,</span> tietueKohdalla<span class="o">);</span></td></tr><tr><th id="L100"><a href="#L100">100</a></th><td>       </td></tr><tr><th id="L101"><a href="#L101">101</a></th><td>        <span class="k">for</span> <span class="o">(</span>TextField edit <span class="o">:</span> edits<span class="o">)</span></td></tr><tr><th id="L102"><a href="#L102">102</a></th><td>            <span class="k">if</span> <span class="o">(</span> edit <span class="o">!=</span> <span class="kc">null</span> <span class="o">)</span></td></tr><tr><th id="L103"><a href="#L103">103</a></th><td>                edit<span class="o">.</span><span class="na">setOnKeyReleased</span><span class="o">(</span> e <span class="o">-&gt;</span> kasitteleMuutosTietueeseen<span class="o">((</span>TextField<span class="o">)(</span>e<span class="o">.</span><span class="na">getSource</span><span class="o">())));</span></td></tr><tr><th id="L104"><a href="#L104">104</a></th><td>        <span class="c1">// panelTietue.setFitToHeight(true);</span></td></tr><tr><th id="L105"><a href="#L105">105</a></th><td><span class="c1"></span>    <span class="o">}</span></td></tr><tr><th id="L106"><a href="#L106">106</a></th><td>   </td></tr><tr><th id="L107"><a href="#L107">107</a></th><td>   </td></tr><tr><th id="L108"><a href="#L108">108</a></th><td>    <span class="nd">@Override</span></td></tr><tr><th id="L109"><a href="#L109">109</a></th><td>    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setDefault</span><span class="o">(</span>TYPE oletus<span class="o">)</span> <span class="o">{</span></td></tr><tr><th id="L110"><a href="#L110">110</a></th><td>        tietueKohdalla <span class="o">=</span> oletus<span class="o">;</span></td></tr><tr><th id="L111"><a href="#L111">111</a></th><td>        alusta<span class="o">();</span></td></tr><tr><th id="L112"><a href="#L112">112</a></th><td>        naytaTietue<span class="o">(</span>edits<span class="o">,</span> tietueKohdalla<span class="o">);</span></td></tr><tr><th id="L113"><a href="#L113">113</a></th><td>    <span class="o">}</span></td></tr><tr><th id="L114"><a href="#L114">114</a></th><td></td></tr><tr><th id="L115"><a href="#L115">115</a></th><td>   </td></tr><tr><th id="L116"><a href="#L116">116</a></th><td>    <span class="nd">@Override</span></td></tr><tr><th id="L117"><a href="#L117">117</a></th><td>    <span class="kd">public</span> TYPE <span class="nf">getResult</span><span class="o">()</span> <span class="o">{</span></td></tr><tr><th id="L118"><a href="#L118">118</a></th><td>        <span class="k">return</span> tietueKohdalla<span class="o">;</span></td></tr><tr><th id="L119"><a href="#L119">119</a></th><td>    <span class="o">}</span></td></tr><tr><th id="L120"><a href="#L120">120</a></th><td>   </td></tr><tr><th id="L121"><a href="#L121">121</a></th><td>   </td></tr><tr><th id="L122"><a href="#L122">122</a></th><td>    <span class="kd">private</span> <span class="kt">void</span> <span class="nf">setKentta</span><span class="o">(</span><span class="kt">int</span> kentta<span class="o">)</span> <span class="o">{</span></td></tr><tr><th id="L123"><a href="#L123">123</a></th><td>        <span class="k">this</span><span class="o">.</span><span class="na">kentta</span> <span class="o">=</span> kentta<span class="o">;</span></td></tr><tr><th id="L124"><a href="#L124">124</a></th><td>    <span class="o">}</span></td></tr><tr><th id="L125"><a href="#L125">125</a></th><td>   </td></tr><tr><th id="L126"><a href="#L126">126</a></th><td>   </td></tr><tr><th id="L127"><a href="#L127">127</a></th><td>    <span class="cm">/**</span></td></tr><tr><th id="L128"><a href="#L128">128</a></th><td><span class="cm">     * Mitä tehdään kun dialogi on näytetty</span></td></tr><tr><th id="L129"><a href="#L129">129</a></th><td><span class="cm">     */</span></td></tr><tr><th id="L130"><a href="#L130">130</a></th><td>    <span class="nd">@Override</span></td></tr><tr><th id="L131"><a href="#L131">131</a></th><td>    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">handleShown</span><span class="o">()</span> <span class="o">{</span></td></tr><tr><th id="L132"><a href="#L132">132</a></th><td>        kentta <span class="o">=</span> Math<span class="o">.</span><span class="na">max</span><span class="o">(</span>tietueKohdalla<span class="o">.</span><span class="na">ekaKentta</span><span class="o">(),</span> Math<span class="o">.</span><span class="na">min</span><span class="o">(</span>kentta<span class="o">,</span> tietueKohdalla<span class="o">.</span><span class="na">getKenttia</span><span class="o">()-</span><span class="mi">1</span><span class="o">));</span></td></tr><tr><th id="L133"><a href="#L133">133</a></th><td>        edits<span class="o">[</span>kentta<span class="o">].</span><span class="na">requestFocus</span><span class="o">();</span></td></tr><tr><th id="L134"><a href="#L134">134</a></th><td>    <span class="o">}</span></td></tr><tr><th id="L135"><a href="#L135">135</a></th><td>   </td></tr><tr><th id="L136"><a href="#L136">136</a></th><td>   </td></tr><tr><th id="L137"><a href="#L137">137</a></th><td>    <span class="kd">private</span> <span class="kt">void</span> <span class="nf">naytaVirhe</span><span class="o">(</span>String virhe<span class="o">)</span> <span class="o">{</span></td></tr><tr><th id="L138"><a href="#L138">138</a></th><td>        <span class="k">if</span> <span class="o">(</span> virhe <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> virhe<span class="o">.</span><span class="na">isEmpty</span><span class="o">()</span> <span class="o">)</span> <span class="o">{</span></td></tr><tr><th id="L139"><a href="#L139">139</a></th><td>            labelVirhe<span class="o">.</span><span class="na">setText</span><span class="o">(</span><span class="s">""</span><span class="o">);</span></td></tr><tr><th id="L140"><a href="#L140">140</a></th><td>            labelVirhe<span class="o">.</span><span class="na">getStyleClass</span><span class="o">().</span><span class="na">removeAll</span><span class="o">(</span><span class="s">"virhe"</span><span class="o">);</span></td></tr><tr><th id="L141"><a href="#L141">141</a></th><td>            <span class="k">return</span><span class="o">;</span></td></tr><tr><th id="L142"><a href="#L142">142</a></th><td>        <span class="o">}</span></td></tr><tr><th id="L143"><a href="#L143">143</a></th><td>        labelVirhe<span class="o">.</span><span class="na">setText</span><span class="o">(</span>virhe<span class="o">);</span></td></tr><tr><th id="L144"><a href="#L144">144</a></th><td>        labelVirhe<span class="o">.</span><span class="na">getStyleClass</span><span class="o">().</span><span class="na">add</span><span class="o">(</span><span class="s">"virhe"</span><span class="o">);</span></td></tr><tr><th id="L145"><a href="#L145">145</a></th><td>    <span class="o">}</span></td></tr><tr><th id="L146"><a href="#L146">146</a></th><td></td></tr><tr><th id="L147"><a href="#L147">147</a></th><td>   </td></tr><tr><th id="L148"><a href="#L148">148</a></th><td>    <span class="cm">/**</span></td></tr><tr><th id="L149"><a href="#L149">149</a></th><td><span class="cm">     * Käsitellään teitueeseen tullut muutos</span></td></tr><tr><th id="L150"><a href="#L150">150</a></th><td><span class="cm">     * @param edit muuttunut kenttä</span></td></tr><tr><th id="L151"><a href="#L151">151</a></th><td><span class="cm">     */</span></td></tr><tr><th id="L152"><a href="#L152">152</a></th><td>    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">kasitteleMuutosTietueeseen</span><span class="o">(</span>TextField edit<span class="o">)</span> <span class="o">{</span></td></tr><tr><th id="L153"><a href="#L153">153</a></th><td>        <span class="k">if</span> <span class="o">(</span>tietueKohdalla <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="k">return</span><span class="o">;</span></td></tr><tr><th id="L154"><a href="#L154">154</a></th><td>        <span class="kt">int</span> k <span class="o">=</span> getFieldId<span class="o">(</span>edit<span class="o">,</span>tietueKohdalla<span class="o">.</span><span class="na">ekaKentta</span><span class="o">());</span></td></tr><tr><th id="L155"><a href="#L155">155</a></th><td>        String s <span class="o">=</span> edit<span class="o">.</span><span class="na">getText</span><span class="o">();</span></td></tr><tr><th id="L156"><a href="#L156">156</a></th><td>        String virhe <span class="o">=</span> <span class="kc">null</span><span class="o">;</span></td></tr><tr><th id="L157"><a href="#L157">157</a></th><td>        virhe <span class="o">=</span> tietueKohdalla<span class="o">.</span><span class="na">aseta</span><span class="o">(</span>k<span class="o">,</span>s<span class="o">);</span> </td></tr><tr><th id="L158"><a href="#L158">158</a></th><td>        <span class="k">if</span> <span class="o">(</span>virhe <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span></td></tr><tr><th id="L159"><a href="#L159">159</a></th><td>            Dialogs<span class="o">.</span><span class="na">setToolTipText</span><span class="o">(</span>edit<span class="o">,</span><span class="s">""</span><span class="o">);</span></td></tr><tr><th id="L160"><a href="#L160">160</a></th><td>            edit<span class="o">.</span><span class="na">getStyleClass</span><span class="o">().</span><span class="na">removeAll</span><span class="o">(</span><span class="s">"virhe"</span><span class="o">);</span></td></tr><tr><th id="L161"><a href="#L161">161</a></th><td>            naytaVirhe<span class="o">(</span>virhe<span class="o">);</span></td></tr><tr><th id="L162"><a href="#L162">162</a></th><td>        <span class="o">}</span> <span class="k">else</span> <span class="o">{</span></td></tr><tr><th id="L163"><a href="#L163">163</a></th><td>            Dialogs<span class="o">.</span><span class="na">setToolTipText</span><span class="o">(</span>edit<span class="o">,</span>virhe<span class="o">);</span></td></tr><tr><th id="L164"><a href="#L164">164</a></th><td>            edit<span class="o">.</span><span class="na">getStyleClass</span><span class="o">().</span><span class="na">add</span><span class="o">(</span><span class="s">"virhe"</span><span class="o">);</span></td></tr><tr><th id="L165"><a href="#L165">165</a></th><td>            naytaVirhe<span class="o">(</span>virhe<span class="o">);</span></td></tr><tr><th id="L166"><a href="#L166">166</a></th><td>        <span class="o">}</span></td></tr><tr><th id="L167"><a href="#L167">167</a></th><td>    <span class="o">}</span></td></tr><tr><th id="L168"><a href="#L168">168</a></th><td>   </td></tr><tr><th id="L169"><a href="#L169">169</a></th><td>   </td></tr><tr><th id="L170"><a href="#L170">170</a></th><td>    <span class="cm">/**</span></td></tr><tr><th id="L171"><a href="#L171">171</a></th><td><span class="cm">     * Näytetään tietueen tiedot TextField komponentteihin</span></td></tr><tr><th id="L172"><a href="#L172">172</a></th><td><span class="cm">     * @param edits taulukko TextFieldeistä johon näytetään</span></td></tr><tr><th id="L173"><a href="#L173">173</a></th><td><span class="cm">     * @param tietue näytettävä tietue</span></td></tr><tr><th id="L174"><a href="#L174">174</a></th><td><span class="cm">     */</span></td></tr><tr><th id="L175"><a href="#L175">175</a></th><td>    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">naytaTietue</span><span class="o">(</span>TextField<span class="o">[]</span> edits<span class="o">,</span> Tietue tietue<span class="o">)</span> <span class="o">{</span></td></tr><tr><th id="L176"><a href="#L176">176</a></th><td>        <span class="k">if</span> <span class="o">(</span>tietue <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="k">return</span><span class="o">;</span></td></tr><tr><th id="L177"><a href="#L177">177</a></th><td>        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> k <span class="o">=</span> tietue<span class="o">.</span><span class="na">ekaKentta</span><span class="o">();</span> k <span class="o">&lt;</span> tietue<span class="o">.</span><span class="na">getKenttia</span><span class="o">();</span> k<span class="o">++)</span> <span class="o">{</span></td></tr><tr><th id="L178"><a href="#L178">178</a></th><td>            edits<span class="o">[</span>k<span class="o">].</span><span class="na">setText</span><span class="o">(</span>tietue<span class="o">.</span><span class="na">anna</span><span class="o">(</span>k<span class="o">));</span></td></tr><tr><th id="L179"><a href="#L179">179</a></th><td>        <span class="o">}</span></td></tr><tr><th id="L180"><a href="#L180">180</a></th><td>    <span class="o">}</span></td></tr><tr><th id="L181"><a href="#L181">181</a></th><td>   </td></tr><tr><th id="L182"><a href="#L182">182</a></th><td>   </td></tr><tr><th id="L183"><a href="#L183">183</a></th><td>    <span class="cm">/**</span></td></tr><tr><th id="L184"><a href="#L184">184</a></th><td><span class="cm">     * Luodaan tietueen kysymisdialogi ja palautetaan sama tietue muutettuna tai null</span></td></tr><tr><th id="L185"><a href="#L185">185</a></th><td><span class="cm">     * @param modalityStage mille ollaan modaalisia, null = sovellukselle</span></td></tr><tr><th id="L186"><a href="#L186">186</a></th><td><span class="cm">     * @param oletus mitä dataan näytetään oletuksena</span></td></tr><tr><th id="L187"><a href="#L187">187</a></th><td><span class="cm">     * @param kentta mikä kenttä saa fokuksen kun näytetään</span></td></tr><tr><th id="L188"><a href="#L188">188</a></th><td><span class="cm">     * @return null jos painetaan Cancel, muuten täytetty tietue</span></td></tr><tr><th id="L189"><a href="#L189">189</a></th><td><span class="cm">     */</span></td></tr><tr><th id="L190"><a href="#L190">190</a></th><td>    <span class="kd">public</span> <span class="kd">static</span><span class="o">&lt;</span>TYPE <span class="kd">extends</span> Tietue<span class="o">&gt;</span> TYPE kysyTietue<span class="o">(</span>Stage modalityStage<span class="o">,</span> TYPE oletus<span class="o">,</span> <span class="kt">int</span> kentta<span class="o">)</span> <span class="o">{</span></td></tr><tr><th id="L191"><a href="#L191">191</a></th><td>        <span class="k">return</span> ModalController<span class="o">.&lt;</span>TYPE<span class="o">,</span> TietueDialogController<span class="o">&lt;</span>TYPE<span class="o">&gt;&gt;</span>showModal<span class="o">(</span></td></tr><tr><th id="L192"><a href="#L192">192</a></th><td>                TietueDialogController<span class="o">.</span><span class="na">class</span><span class="o">.</span><span class="na">getResource</span><span class="o">(</span><span class="s">"TietueDialogView.fxml"</span><span class="o">),</span></td></tr><tr><th id="L193"><a href="#L193">193</a></th><td>                <span class="s">"Kerho"</span><span class="o">,</span></td></tr><tr><th id="L194"><a href="#L194">194</a></th><td>                modalityStage<span class="o">,</span> oletus<span class="o">,</span></td></tr><tr><th id="L195"><a href="#L195">195</a></th><td>                ctrl <span class="o">-&gt;</span> ctrl<span class="o">.</span><span class="na">setKentta</span><span class="o">(</span>kentta<span class="o">)</span> </td></tr><tr><th id="L196"><a href="#L196">196</a></th><td>                <span class="o">);</span></td></tr><tr><th id="L197"><a href="#L197">197</a></th><td>    <span class="o">}</span></td></tr><tr><th id="L198"><a href="#L198">198</a></th><td></td></tr><tr><th id="L199"><a href="#L199">199</a></th><td><span class="o">}</span></td></tr></tbody></table>
+/**
+ * Kysyt��n tietueen tiedot luomalla sille uusi dialogi
+ *
+ * @author vesal
+ * @version 11.1.2016
+ * @param <TYPE> Mink� tyyppisi� olioita k�sitell��n
+ *
+ */
+public class TietueDialogController<TYPE extends Tietue> implements ModalControllerInterface<TYPE>,Initializable  {
 
-      </div>
-      <div id="help"><strong>Huomaa:</strong> Katso <a href="/projects/ohj2ht/wiki/TracBrowser">TracBrowser</a>
-        löytääksesi ohjeita tiedostovaraston selaamiseksi.</div>
-      <div id="anydiff">
-        <form action="/projects/ohj2ht/diff" method="get">
-          <div class="buttons">
-            <input type="hidden" name="new_path" value="/k2018/kijohiet/tags/vaihe7/src/fxElokuvat/TietueDialogController.java" />
-            <input type="hidden" name="old_path" value="/k2018/kijohiet/tags/vaihe7/src/fxElokuvat/TietueDialogController.java" />
-            <input type="hidden" name="new_rev" value="50131" />
-            <input type="hidden" name="old_rev" value="50131" />
-            <input type="submit" value="Näytä muutokset..." title="Select paths and revs for Diff" />
-          </div>
-        </form>
-      </div>
-    </div>
-    <div id="altlinks">
-      <h3>Lataa muissa muodoissa:</h3>
-      <ul>
-        <li class="first">
-          <a rel="nofollow" href="/projects/ohj2ht/browser/k2018/kijohiet/tags/vaihe7/src/fxElokuvat/TietueDialogController.java?rev=50131&amp;format=txt">Pelkkä teksti</a>
-        </li><li class="last">
-          <a rel="nofollow" href="/projects/ohj2ht/export/50131/k2018/kijohiet/tags/vaihe7/src/fxElokuvat/TietueDialogController.java">Alkuperäinen muoto</a>
-        </li>
-      </ul>
-    </div>
-    </div>
-    <div id="footer" lang="en" xml:lang="en"><hr />
-      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="/projects/ohj2ht/chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
-      <p class="left">Ohjelmaversio: <a href="/projects/ohj2ht/about"><strong>Trac 0.12.5</strong></a><br />
-Toimittaja: <a href="http://www.edgewall.org/">Edgewall Software</a>.</p>
-      <p class="right">Trac-projektin sivut löydät osoitteesta <br /><a href="http://trac.edgewall.org/">http://trac.edgewall.org/</a></p>
-    </div>
-    <div id="sitefooter" class="alalinkkipalkki">
-      <p>Ohjelmointi 2 - kevät 2019</p>
-    </div>
-  </body>
-</html>
+    @FXML private ScrollPane panelTietue;
+    @FXML private GridPane gridTietue;
+    @FXML private Label labelVirhe;
+
+    @Override
+    public void initialize(URL url, ResourceBundle bundle) {
+       // alusta(); 
+    }
+   
+    @FXML private void handleOK() {
+        if ( tietueKohdalla != null && tietueKohdalla.anna(tietueKohdalla.ekaKentta()).trim().equals("") ) {
+            naytaVirhe("Ei saa olla tyhj�");
+            return;
+        }
+        ModalController.closeStage(labelVirhe);
+    }
+
+   
+    @FXML private void handleCancel() {
+        tietueKohdalla = null;
+        ModalController.closeStage(labelVirhe);
+    }
+
+// ========================================================   
+    private TYPE tietueKohdalla;
+    private TextField[] edits;
+    private int kentta = 0;
+   
+
+    /**
+     * Luodaan GridPaneen tietueen tiedot
+     * @param gridTietue mihin tiedot luodaan
+     * @param aputietue malli josta tiedot otetaan
+     * @return luodut tekstikent�t
+     */
+    public static<TYPE extends Tietue> TextField[] luoKentat(GridPane gridTietue, TYPE aputietue) {
+        gridTietue.getChildren().clear();
+        TextField[] edits = new TextField[aputietue.getKenttia()];
+       
+        for (int i=0, k = aputietue.ekaKentta(); k < aputietue.getKenttia(); k++, i++) {
+            Label label = new Label(aputietue.getKysymys(k));
+            gridTietue.add(label, 0, i);
+            TextField edit = new TextField();
+            edits[k] = edit;
+            edit.setId("e"+k);
+            gridTietue.add(edit, 1, i);
+        }
+        return edits;
+    }
+   
+
+    /**
+     * Palautetaan komponentin id:st� saatava luku
+     * @param obj tutkittava komponentti
+     * @param oletus mik� arvo jos id ei ole kunnollinen
+     * @return komponentin id lukuna
+     */
+    public static int getFieldId(Object obj, int oletus) {
+        if ( !( obj instanceof Node)) return oletus;
+        Node node = (Node)obj;
+        return Mjonot.erotaInt(node.getId().substring(1),oletus);
+    }
+   
+   
+    /**
+     * Tekee tarvittavat muut alustukset, nyt vaihdetaan GridPanen tilalle
+     * yksi iso tekstikentt�, johon voidaan tulostaa tietueen tiedot.
+     */
+    protected void alusta() {
+        edits = luoKentat(gridTietue, tietueKohdalla);
+       
+        for (TextField edit : edits)
+            if ( edit != null )
+                edit.setOnKeyReleased( e -> kasitteleMuutosTietueeseen((TextField)(e.getSource())));
+        // panelTietue.setFitToHeight(true);
+    }
+   
+   
+    @Override
+    public void setDefault(TYPE oletus) {
+        tietueKohdalla = oletus;
+        alusta();
+        naytaTietue(edits, tietueKohdalla);
+    }
+
+   
+    @Override
+    public TYPE getResult() {
+        return tietueKohdalla;
+    }
+   
+   
+    private void setKentta(int kentta) {
+        this.kentta = kentta;
+    }
+   
+   
+    /**
+     * Mit� tehd��n kun dialogi on n�ytetty
+     */
+    @Override
+    public void handleShown() {
+        kentta = Math.max(tietueKohdalla.ekaKentta(), Math.min(kentta, tietueKohdalla.getKenttia()-1));
+        edits[kentta].requestFocus();
+    }
+   
+   
+    private void naytaVirhe(String virhe) {
+        if ( virhe == null || virhe.isEmpty() ) {
+            labelVirhe.setText("");
+            labelVirhe.getStyleClass().removeAll("virhe");
+            return;
+        }
+        labelVirhe.setText(virhe);
+        labelVirhe.getStyleClass().add("virhe");
+    }
+
+   
+    /**
+     * K�sitell��n teitueeseen tullut muutos
+     * @param edit muuttunut kentt�
+     */
+    protected void kasitteleMuutosTietueeseen(TextField edit) {
+        if (tietueKohdalla == null) return;
+        int k = getFieldId(edit,tietueKohdalla.ekaKentta());
+        String s = edit.getText();
+        String virhe = null;
+        virhe = tietueKohdalla.aseta(k,s); 
+        if (virhe == null) {
+            Dialogs.setToolTipText(edit,"");
+            edit.getStyleClass().removeAll("virhe");
+            naytaVirhe(virhe);
+        } else {
+            Dialogs.setToolTipText(edit,virhe);
+            edit.getStyleClass().add("virhe");
+            naytaVirhe(virhe);
+        }
+    }
+   
+   
+    /**
+     * N�ytet��n tietueen tiedot TextField komponentteihin
+     * @param edits taulukko TextFieldeist� johon n�ytet��n
+     * @param tietue n�ytett�v� tietue
+     */
+    public static void naytaTietue(TextField[] edits, Tietue tietue) {
+        if (tietue == null) return;
+        for (int k = tietue.ekaKentta(); k < tietue.getKenttia(); k++) {
+            edits[k].setText(tietue.anna(k));
+        }
+    }
+   
+   
+    /**
+     * Luodaan tietueen kysymisdialogi ja palautetaan sama tietue muutettuna tai null
+     * @param modalityStage mille ollaan modaalisia, null = sovellukselle
+     * @param oletus mit� dataan n�ytet��n oletuksena
+     * @param kentta mik� kentt� saa fokuksen kun n�ytet��n
+     * @return null jos painetaan Cancel, muuten t�ytetty tietue
+     */
+    public static<TYPE extends Tietue> TYPE kysyTietue(Stage modalityStage, TYPE oletus, int kentta) {
+        return ModalController.<TYPE, TietueDialogController<TYPE>>showModal(
+                TietueDialogController.class.getResource("TietueDialogView.fxml"),
+                "Kerho",
+                modalityStage, oletus,
+                ctrl -> ctrl.setKentta(kentta) 
+                );
+    }
+
+}
