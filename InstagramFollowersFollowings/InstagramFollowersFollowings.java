@@ -13,70 +13,52 @@ import org.jsoup.select.Elements;
 
 /**
  * @author Kim Hietikko
- * @version 28.3.2019
+ * @version 7.4.2019
  * In this program you can find out does someone who you follow, follow you back. The program uses Jsoup library by parsing different information.
- * First the program parses the user's ID from the Instagram page then inputs the ID to pictame website where you can check your follower and followings.
- * The downsides are that the profile needs to be public and you can only have around 200 followers/followings because pictame shows only that much in one page.
- * Pictame follower/following pages don't go in any logic order so it's hard to check rest of the pages.
- * One solution might be that this program requires Instagram API and then check the followers and followings by using it.
+ * First the program asks the user's Instagram username then inputs it to GalleryOfSocial website where you can check your followers and followings.
+ * The downsides are that the profile needs to be public and it doesn't work with lots of followers/followings
+ * One solution might be that this program would use Instagram API and then check the followers and followings by using it.
  */
 public class InstagramFollowersFollowings {
 
     public static void main(String[] args) throws IOException {
         
-        long userID = 0;
-        String username = null;
+        String username = "";
         
         Scanner inputReader = new Scanner(System.in);
+        
+            
         System.out.print("Please enter your Instagram username: ");
-
+    
         username = inputReader.nextLine();
-        
-        Document user = Jsoup.connect("https://www.instagram.com/"+ username).get();
-        
-        /*
-         * Gets user's ID from Instagram's source code.
-         */
-        for (Element element : user.getElementsByTag("script")) {                
-            for (DataNode node : element.dataNodes()) {
-                if (node.getWholeData().contains("logging")) {
-                    String data = node.getWholeData();
-                    int alkuID = data.indexOf("id") + 17;
-                    userID = Long.parseLong(data.substring(alkuID, data.indexOf("\"", alkuID)));
-                }
-            }         
-      }
-        
         
         List<String> followers = new ArrayList<String>();
         
         int count = 0;
         
-        Document instaFollowers = Jsoup.connect("https://www.pictame.com/user/" + username + "/followers/"+ userID).get();
-        Document instaFollowings = Jsoup.connect("https://www.pictame.com/user/" + username + "/followings/"+ userID).get();
-        
-        Elements followerNames = instaFollowers.select("[title]");
-        Elements followingNames = instaFollowings.select("[title]");
+        Document instaFollowers = Jsoup.connect("https://www.galleryofsocial.com/user/" + username + "/followers/").get();
+        Document instaFollowings = Jsoup.connect("https://www.galleryofsocial.com/user/" + username + "/following/").get();
         
         /*
          * Adds all the followers' names to a string list.
          */
-        for (Element name : followerNames) {
-            followers.add(name.attr("title"));
+        for (Element name : instaFollowers.select(".em-web")) {
+            String followersName = name.select("span:nth-of-type(1)").text();
+            followers.add(followersName);
         }
         
         /*
          * Checks the followings' names and if the followings' names are in the followers' namelist.
          * If there is someone who you follow but they don't follow you back, the program prints their name and add 1 to the counter.
          */
-        for (Element name : followingNames) {
-            if (!followers.contains(name.attr("title"))) {
-                System.out.println(name.attr("title"));
-                count += 1;
-            }
+        for (Element name : instaFollowings.select(".em-web")) {
+            String followingName = name.select("span:nth-of-type(1)").text();
+                if (!followers.contains(followingName)) {
+                    System.out.println(followingName);
+                    count += 1;
+                }
         }
-        System.out.println("\nYou're not followed back by: " + count + " people");
+        System.out.println("\nYou're not followed back by: " + count + " people\n");
         
     }
-
 }
