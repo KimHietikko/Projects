@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<head>
+	<title>Exercises</title>
+	<!--<link href="../default.css" title="css" rel="stylesheet" type="text/css"/>-->
+	<meta charset="UTF-8"/>
+	<style>
+			body {
+			background: #e8e8ec;
+		}
+		body:before {
+			width: 100%;
+			height: 5px;
+			content: '';
+			position: fixed;
+			top: -10px;
+			box-shadow: 0px 0px 10px rgba(0,0,0,1);
+		}
+		#box {
+			overflow: auto;
+			position: relative;
+			width: 460px;
+			padding: 30px;
+			background: #dbdbdb;
+			margin: 0 auto;
+			margin-top: 60px;
+			box-shadow: 0 5px 6px -6px rgba(0,0,0,1);
+		}
+		#box_wide {
+			overflow: auto;
+			position: relative;
+			width: 80%;
+			padding: 30px;
+			background: #dbdbdb;
+			margin: 0 auto;
+			margin-top: 30px;
+		}
+		.smalltext {
+			border: 2px solid;
+			border-color: #868686;
+			border-radius: 1px;
+		}
+		#smalltext p{
+			font-size: 80%;
+			margin-left: 20px;
+			margin-right: 20px;
+		}
+		#smalltext li{
+			font-size: 80%;
+			margin-left: 20px;
+			margin-right: 20px;
+		}
+		ol, ul, li {
+			font: normal normal 14px Verdana, sans-serif;
+		}
+
+		#subh {
+			font: normal normal 12px Verdana, sans-serif;
+		}
+		h1 {
+			font: normal normal 26px Verdana, sans-serif;
+			font-weight: bold;
+			margin-bottom: 0em;
+		}
+		h2 {
+			font: normal normal 20px Verdana, sans-serif;
+			font-weight: bold;
+			margin-bottom: 0em;
+			margin-top: 2.0em;
+		}
+		h3 {
+			font: normal normal 16px Verdana, sans-serif;
+			font-weight: bold;
+			margin-bottom: 0em;
+			margin-top: 2.0em;
+		}
+		p {
+			font: normal normal 14px Verdana, sans-serif;
+			text-align: justify;
+		}
+		#left, #right {
+			width: 200px; 
+			margin-left: 12px;
+			margin-right: 12px;
+			margin-top: 2px;
+			margin-bottom: 2px;
+			padding: 2px;
+		}
+		#left {   
+			float:left; 
+		}
+		#right {   
+			float:right; 
+		}
+
+	</style>
+</head>
+<body>
+
+<div id="box_wide">
+
+<center>
+	<img src="kanta.png"/>
+</center>
+<p>
+Tietokantani käsittelee yliopiston kursseja. 
+Yliopistolla on opiskelijoita sekä yliopistolla on tiedekuntia ja niiden alaisuudessa on kursseja. 
+Kursseilla on opiskelijoita sekä luennoitsijoita. 
+Yliopistolla on henkilökuntaa ja jotkut henkilökunnasta ovat luennoitsijoita. 
+Luennoitsijat opettavat opiskelijoita.
+</p>
+
+
+
+<h1>A1</h1>
+<p>
+Listaa kaikki yliopistot joiden ID on 11.
+</p>
+<pre>
+SELECT "StudentID", "Fname", "Sname", "UniversityID"
+FROM public."Student"
+WHERE public."Student"."UniversityID" = 11;
+</pre>
+	
+<pre>
+StudentID  |Fname      |Sname       |UniversityID
+-----------+-----------+------------+------------
+703        |"Juliane"  |"Seccombe"  |11
+958        |"Barbabra" |"Medhurst"  |11
+</pre>
+	
+<p>
+errors considered: 71, 76
+</p>
+	
+
+
+<h1>A2</h1>
+<p>
+Listaa kaikki yliopistot joiden ID on 11 ja järjestä opiskelijat sukunimen mukaan aakkosjärjestykseen.
+</p>
+<pre>
+SELECT "StudentID", "Fname", "Sname", "UniversityID"
+FROM public."Student"
+WHERE public."Student"."UniversityID" = 11
+ORDER BY public."Student"."Sname" ASC;
+</pre>
+	
+<pre>
+StudentID  |Fname      |Sname       |UniversityID
+-----------+-----------+------------+------------
+958        |"Barbabra" |"Medhurst"  |11
+703        |"Juliane"  |"Seccombe"  |11
+</pre>
+	
+<p>
+errors considered: 71, 74, 75, 76
+</p>
+
+
+
+<h1>A3</h1>
+
+<p>
+Listaa kaikki opiskelijat, joiden sukunimi alkaa P- tai T-kirjaimella ja joiden etunimi alkaa R-kirjaimella.
+</p>
+
+<pre>
+SELECT "StudentID", "Fname", "Sname", "UniversityID"
+FROM public."Student"
+WHERE (public."Student"."Sname" LIKE 'W%' OR public."Student"."Sname" LIKE 'S%')
+AND public."Student"."Fname" IS NULL;
+</pre>
+
+<pre>
+
+StudentID   |Fname      |Sname        |UniversityID
+------------+-----------+-------------+------------
+11          |[null]     |"Whyberd"    |62417
+12          |[null]     |"Skippings"  |9
+</pre>
+
+<p>
+errors considered: 63, 64
+</p>
+
+
+
+<h1>B4</h1>
+
+<p>
+Listaa niiden kurssien ID:t ja nimet, joilla on opiskelija nimeltää 'Gregoire Kupec'
+</p>
+
+<pre>
+SELECT c."CourseID", c."CourseName"
+FROM public."Student" s, public."Course" c
+WHERE s."CourseID" = c."CourseID"
+AND s."Fname" = 'Gregoire'  AND s."Sname" = 'Kupec';
+</pre>
+
+<pre>
+
+CourseID    |CourseName        
+------------+-----------------
+47          |"instruction set"
+</pre>
+
+<p>
+errors considered: 65, 66, 67, 68
+</p>
+
+
+
+<h1>B5</h1>
+
+<p>
+Listaa niiden opiskelijoiden etu- ja sukunimet, joilla on vähintään yksi kurssilla oleva luennoitsija. Opiskelijan etunimi on tunnettu ja luennoitsijan sukunimi alkaa 'Mat%'. Järjestä opiskelijan sukunimen mukaan
+laskevaan järjestykseen.
+</p>
+
+<pre>
+SELECT DISTINCT s."Fname", s."Sname"
+FROM public."Student" s
+INNER JOIN public."Course" c ON (s."CourseID" = c."CourseID")
+INNER JOIN public."Lecturer" l ON (c."CourseID" = l."CourseID")
+WHERE s."Fname" IS NOT NULL
+AND l."Sname" LIKE 'Mat%'
+ORDER BY s."Sname" DESC;
+</pre>
+
+<pre>
+
+Fname       |Sname
+------------+-----------
+"Domeniga"  |"Loosely"
+"Maxi"      |"Brunsden"
+"Mar"       |"Ackhurst"
+</pre>
+
+<p>
+errors considered: 53, 54, 57
+</p>
+
+
+
+<h1>B6</h1>
+
+<p>
+Listaa niiden kurssien ID:t ja kurssinimet, jotka kuuluvat tiedekuntaan, jonka yliopisto alkaa C-kirjaimella. Järjestä kurssinimen mukaan aakkosjärjestykseen.
+</p>
+
+<pre>
+SELECT c."CourseID", c."CourseName"
+FROM public."Course" c
+WHERE EXISTS
+	(SELECT *
+	FROM public."Faculty" f
+	WHERE c."FacultyID" = f."FacultyID"
+	AND EXISTS
+		(SELECT *
+		FROM public."University" u
+		WHERE f."UniversityID" = u."UniversityID"
+		AND u."UniversityName" LIKE 'C%')
+	)
+ORDER BY c."CourseName" ASC;
+</pre>
+
+<pre>
+
+CourseID    |CourseName        
+------------+-----------------
+462         |"bottom-line"
+899         |"customer loyalty"
+565         |"encompassing"
+852         |"functionalities"
+933         |"Optional"
+879         |"uniform"
+476         |"value-added"
+
+</pre>
+
+<p>
+errors considered: 71, 74, 76
+</p>
+
+
+
+<h1>B7</h1>
+
+<p>
+Listaa niiden yliopistojen ID:t, nimet ja perustamisvuodet, jotka ovat perustettu 1894-1895 ja joilla ei ole markkinoinnin tiedekuntaa.
+</p>
+
+<pre>
+SELECT u."UniversityID", u."UniversityName", u."Established"
+FROM public."University" u
+WHERE u."Established" BETWEEN 1894 AND 1895
+AND NOT EXISTS
+	(SELECT *
+	FROM public."Faculty" f
+	WHERE f."UniversityID" = u."UniversityID"
+	AND f."FacultyName" = 'Marketing');
+</pre>
+
+<pre>
+
+UniversityID |UniversityName                                                       |Established
+-------------+---------------------------------------------------------------------+-----------
+63           |"Royal Veterinary and Agricultural University"                       |1894
+208          |"Pandit Ravi Shankar Shukla University"                              |1894
+265          |"Qurtuba University of Science and Infromation Technology"           |1894
+387          |"Kagawa Institute of Nutrition"                                      |1895
+447          |"Beirut Arab University"                                             |1895
+632          |"Alabama State University"                                           |1895
+755          |"Ecole Supérieure d'Ingénieurs en Electronique et Electrotechnique"  |1894
+</pre>
+
+<p>
+errors considered: 52, 53, 54, 57
+</p>
+
+
+
+<h1>B8</h1>
+
+<p>
+Listaa niiden kurssien ID:t ja nimet, joilla ei ole opiskelijoita, mutta on luennoitsija.
+</p>
+
+<pre>
+SELECT c."CourseID", c."CourseName"
+FROM public."Course" c
+WHERE NOT EXISTS
+	(SELECT *
+	FROM public."Student" s
+	WHERE c."CourseID" = s."CourseID")
+AND EXISTS
+	(SELECT *
+	FROM public."Lecturer" l
+	WHERE c."CourseID" = l."CourseID");
+</pre>
+
+<pre>
+CourseID    |CourseName        
+------------+-----------------
+12          |"upward-trending"
+16          |"explicit"
+27          |"Pre-emptive"
+32          |"Enterprise-wide"
+33          |"Right-sized"
+52          |"eco-centric"
+68          |"motivating"
+93          |"Integrated"
+103         |"incremental"
+	   .
+	   .
+	   .
+</pre>
+
+<p>
+errors considered: 52, 53, 54, 56
+</p>
+
+
+
+<h1>B9</h1>
+<p>
+Laske ne yliopistot, jotka ovat perustettu vuosien 1870 ja 1880 välillä.
+</p>
+
+<pre>
+SELECT COUNT(*) AS "Universities established in 1870-1880"
+FROM public."University" u
+WHERE u."Established" BETWEEN 1870 AND 1880;
+</pre>
+
+<pre>
+
+"Universities established in 1870-1880"
+----------------------------------------
+23
+</pre>
+
+<p>
+errors considered: 78, 80, 81
+</p>
+
+
+
+<h1>B10</h1>
+
+<p>
+Listaa niiden yliopistojen ja tiedukuntien nimet, joilla on opiskelijoita, joiden etunimi alkaa K-kirjaimella.
+</p>
+
+<pre>
+SELECT u."UniversityName" AS "University’s name",
+	f."FacultyName" AS "Faculty’s name"
+FROM public."University" u,
+	public."Faculty" f,
+	public."Course" c,
+	public."Student" s
+WHERE s."CourseID" = c."CourseID"
+	AND c."FacultyID" = f."FacultyID"
+	AND f."UniversityID" = u."UniversityID"
+	AND s."Fname" LIKE 'K%'
+</pre>
+
+<pre>
+
+"University’s name"                  |"Faculty’s name"
+-------------------------------------+-----------------
+"Park College"                       |"Support"
+"University of South Florida"        |"Support"
+"The American University in London"  |"Business Development"
+"Ahmedabad University"               |"Support"
+"International Budo University"      |"Business Development"
+"University of Tabuk"                |"Sales"
+</pre>
+
+<p>
+errors considered: 70, 71, 73, 76
+</p>
+
+
+
+<h1>B11</h1>
+
+<p>
+Listaa niiden yliopistojen ID:t, nimet ja opiskelijalukumäärä pienimmästä yliopistosta, jotka ovat perustettu vuonna 1850.
+</p>
+
+<pre>
+SELECT "UniversityID", "UniversityName", "Students"
+FROM public."University"
+WHERE "Established" = 1850
+AND "Students" =
+	(SELECT MIN("Students")
+	FROM public."University"
+	WHERE "Established" = 1850);
+</pre>
+
+<pre>
+
+UniversityID  |UniversityName             |Students
+--------------+---------------------------+---------
+516           |"Showa Women's University" |250
+</pre>
+
+<p>
+errors considered: 65, 66, 67, 68, 69
+</p>
+
+
+
+<h1>B12</h1>
+
+<p>
+Listaa niiden kurssien ID:t ja kurssinimet, joilla on opiskelijoita vähintään 20 eri yliopistosta.
+</p>
+
+<pre>
+SELECT c."CourseID", c."CourseName"
+FROM public."Course" c
+WHERE 19 <
+	(SELECT COUNT(DISTINCT s."UniversityID")
+	FROM public."Student" s
+	WHERE c."CourseID" = s."CourseID");
+</pre>
+
+<pre>
+
+CourseID    |CourseName        
+------------+-----------------
+3           |"secured line"
+4           |"Streamlined"
+5           |"Expanded"
+7           |"database"
+9           |"composite"
+</pre>
+
+<p>
+errors considered: 79, 80, 81
+</p>
+
+
+
+<h1>B13</h1>
+
+<p>
+Listaa niiden opiskelijoiden ID:t, etunimet ja sukunimet, joilla sama tiedekunnan nimi kuin kurssin ID 10 olevilla.
+</p>
+
+<pre>
+SELECT s."StudentID", s."Fname", s."Sname"
+FROM public."Student" s,
+	public."Course" c1,
+	public."Faculty" f1,
+	public."Faculty" f2,
+	public."Course" c2
+WHERE s."CourseID" = c1."CourseID"
+	AND c1."FacultyID" = f1."FacultyID"
+	AND f1."FacultyName" = f2."FacultyName"
+	AND f2."FacultyID" = c2."FacultyID"
+	AND c2."CourseID" = 10
+	AND s."CourseID" <> 10;
+</pre>
+
+<pre>
+
+StudentID   |Fname        |Sname
+------------+-------------+-------------
+18          |"Jane"       |"Gartrell"
+303         |"Orelie"     |"Leeke"
+347         |"Pamela"     |"Ferres"
+427         |"Tressa"     |"Maher"
+443         |"Albert"     |"Pogue"
+558         |"Augusta"    |"Bubbins"
+566         |"Grenville"  |"Castleman"
+677         |"Shoshanna"  |"Beastall"
+726         |"Flory"      |"Podbury"
+884         |"Caressa"    |"Seres"
+922         |"Maurise"    |"Ingerith"
+</pre>
+
+<p>
+errors considered: 65, 66, 67, 68, 69
+</p>
+
+
+
+<h1>C14</h1>
+
+<p>
+Listaa niiden tiedekuntien perustamisvuodet, nimi sekä yhteismäärä yliopiston perustamisvuoden mukaan ja tiedekunnan nimen mukaan ryhmiteltynä. Järjestä perustamisvuosien mukaan nousevaan järjestykseen.
+</p>
+
+<pre>
+SELECT u."Established", f."FacultyName", COUNT(f."FacultyID") AS total
+FROM public."University" u, public."Faculty" f
+WHERE f."UniversityID" = u."UniversityID"
+GROUP BY u."Established", f."FacultyName"
+ORDER BY u."Established" ASC;
+</pre>
+
+<pre>
+
+Established |FacultyName                |total
+------------+---------------------------+-------
+1501        |"Product Management"       |"1"
+1502        |"Research and Development" |"1"
+1502        |"Services"                 |"1"
+1504        |"Support"                  |"1"
+1505        |"Human Resources"          |"1"
+1511        |"Marketing"                |"1"
+1513        |"Product Management"       |"1"
+1514        |"Marketing"                |"1"
+1514        |"Product Management"       |"1"
+1514        |"Sales"                    |"1"
+			.
+			.
+			.
+</pre>
+
+<p>
+errors considered: 70, 71, 73, 74, 75, 76, 77
+</p>
+
+
+
+<h1>C15</h1>
+
+<p>
+Listaa niiden kurssien ID:t, nimi sekä yhteismäärä kurssin kurssiID:n mukaan ja kurssin kurssinimen mukaan ryhmiteltynä. Näytä vain ne kurssit, joilla on opiskelijoita vähintään 20. 
+Järjestä yhteismäärän mukaan laskevaan järjestykseen.
+</p>
+
+<pre>
+SELECT c."CourseID", c."CourseName", COUNT(s."StudentID") AS
+total
+FROM public."Course" c, public."Student" s
+WHERE c."CourseID" = s."CourseID"
+GROUP BY c."CourseID", c."CourseName"
+HAVING COUNT(s."StudentID") > 20
+ORDER BY total DESC;
+</pre>
+
+<pre>
+
+CourseID    |CourseName       |total
+------------+-----------------+---------
+7           |"database"       |"36"
+4           |"Streamlined"    |"28"
+5           |"Expanded"       |"27"
+3           |"secured line"   |"22"
+9           |"composite"      |"22"
+</pre>
+
+<p>
+errors considered: 70, 71, 73, 74, 75, 76, 77
+</p>
+
+
+
+<h1>D16</h1>
+
+<p>
+Listaa niiden opiskelijat nimet, joiden etunimi on sama kuin samalla kurssilla oleva luennoitsija.
+</p>
+
+<pre>
+SELECT s."Fname", s."Sname"
+FROM public."Lecturer" l, public."Student" s
+WHERE l."Fname" = s."Fname"
+AND l."CourseID" = s."CourseID";
+</pre>
+
+<pre>
+
+Fname        |Sname
+-------------+-----------
+"Bertina"    |"Wimlett"
+</pre>
+
+<p>
+errors considered: 70, 71, 76
+</p>
+	
+</div>
+</body>
+</html>
